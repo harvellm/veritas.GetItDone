@@ -188,4 +188,62 @@ $scale-half: 1.2;
     align-self: $value;
 }
 
+/* flexbox 12 column mixins */
+@mixin flex-column {
+    -webkit-flex-grow: 0;
+    flex-grow: 0;
+    -webkit-flex-shrink: 1;
+    flex-shrink: 1;
+    -webkit-flex-basis: auto;
+    flex-basis: auto;
+}
 
+/* flexbox column sizes when specific column sizes are needed */
+@mixin column-1 {
+    -webkit-flex-basis: 8.333333%;
+    flex-basis: 8.333333%;
+}
+@mixin column-2 {
+    -webkit-flex-basis: 16.666667%;
+    flex-basis: 16.666667%;
+}
+@mixin column-3 {
+    -webkit-flex-basis: 25%;
+    flex-basis: 25%;
+}
+@mixin column-4 {
+    -webkit-flex-basis: 33.333333%;
+    flex-basis: 33.333333%;   
+}
+@mixin column-5 {
+    -webkit-flex-basis: 41.666667%;
+    flex-basis: 41.666667%;
+}
+@mixin column-6 {
+    -webkit-flex-basis: 50%;
+    flex-basis: 50%;
+}
+@mixin column-7 {
+    -webkit-flex-basis: 58.333333%;
+    flex-basis: 58.333333%;
+}
+@mixin column-8 {
+    -webkit-flex-basis: 66.666667%;
+    flex-basis: 66.666667%;
+}
+@mixin column-9 {
+    -webkit-flex-basis: 75%;
+    flex-basis: 75%;
+}
+@mixin column-10 {
+    -webkit-flex-basis: 83.333333%;
+    flex-basis: 83.333333%;
+}
+@mixin column-11 {
+    -webkit-flex-basis: 91.666667;
+    flex-basis: 91.666667;
+}
+@mixin column-12 {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+}
