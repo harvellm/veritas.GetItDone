@@ -18,6 +18,8 @@ $body: #1a1a1a;
     typography variables and atomic styles
 **************************************************/
 $font-base: 16px;
+
+/* font sizes */
 $font-alpha: 1.5rem;
 $font-beta: 1.375rem;
 $font-xlg: 1.250rem;
@@ -25,6 +27,8 @@ $font-lg: 1.125rem;
 $font-md: 1rem;
 $font-sm: 0.875rem;
 $font-xsm: 0.75rem;
+
+/* typography scale */
 $scale-fifth: 1.5;
 $scale-fouth: 1.4;
 $scale-half: 1.2;
@@ -36,28 +40,152 @@ $scale-half: 1.2;
 .txt-upper { text-transform: uppercase; }
 .txt-capital { text-transform: capitalize; }
 
-/**************************************************
-    grid variables and mixins
-**************************************************/
-$width-100: 100%;
-$width-95: 95%;
-$width-90: 90%;
-$width-85: 85%;
-$width-80: 80%;
-$width-75: 75%;
-$width-70: 70%;
-$width-65: 65%;
-$width-60: 60%;
-$width-55: 55%;
-$width-50: 50%;
-$width-45: 45%;
-$width-40: 40%;
-$width-35: 35%;
-$width-30: 30%;
-$width-25: 25%;
-$width-20: 20%;
-$width-15: 15%;
-$width-10: 10%;
+/*************************************************************************************************************************************
+    flexbox grid mixins @includes used in styles.scss
+    
+    - Flexbox: @include flex;
+    - Flex Direction: @include flex-flow(); default is row (row-reverse, column, column-reverse)
+    - Flex Wrap: @include flex-wrap(); default is nowrap (wrap, wrap-reverse)
+    - Flex Justify Content: @include flex-justify(); default is flex-start (flex-end, center, space-between, space-around)
+    - Flex Align Items: @include flex-align(); default is stretch (flex-start, flex-end, center)
+    - Flex Align Content: @include flex-content(); default is stretch (flex-start, flex-end, center, space-between, space-around)
+    - Flex Order: @include flex-order(); default is 0
+    - Flex Grow:  @include flex-grow(); default is 0
+    - Flex Shrink: @include flex-shrink(); default is 1
+    - Flex Basis: @include flex-basis(); default is auto
+    - Flex Align Self: @include flex-self(); default is auto (flex-start, flex-end, center, stretch)
 
+************************************************************************************************************************************/
+/* flexbox container mixins */
+@mixin flex {
+    display: -webkit-flex;
+    display: flex;
+}
+@mixin flex-flow($value: row) {
+    @if $value == row-reverse {
+        -webkit-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+    } @else if $value == column {
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    } @else if $value == column-reverse {
+        -webkit-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+    } @else {
+        -webkit-flex-direction: row;
+        flex-direction: row;
+    }
+    -webkit-flex-direction: $value;
+    flex-direction: $value;
+}
+@mixin flex-wrap($value: nowrap) {
+    @if $value == wrap {
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+    } @else {
+        -webkit-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    }
+    -webkit-flex-wrap: $value;
+    flex-wrap: nowrap $value;
+}
+@mixin flex-justify($value: flex-start) {
+    @if $value == flex-end {
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end;
+    } @else if $value == center {
+        -webkit-justify-content: center;
+        justify-content: center;
+    } @else if $value == space-between {
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+    } @else if $value == space-around {
+        -webkit-justify-content: space-around;
+        justify-content: space-around;
+    } @else {
+        -webkit-justify-content: flex-start;
+        justify-content: flex-start;
+    }
+    -webkit-justify-content: $value;
+    justify-content: $value;
+}
+@mixin flex-align($value: stretch) {
+    @if $value == flex-start {
+        -webkit-align-items: flex-start;
+        align-items: flex-start;
+    } @else if $value == flex-end {
+        -webkit-align-items: flex-end;
+        align-items: flex-end;
+    } @else if $value == center {
+        -webkit-align-items: center;
+        align-items: center;
+    } @else {
+        -webkit-align-items: stretch;
+        align-items: stretch;
+    }
+    -webkit-align-items: $value;
+    align-items: $value;
+}
+@mixin flex-content($value: stretch) {
+    @if $value == flex-start {
+        -webkit-align-content: flex-start;
+        align-content: flex-start;
+    } @else if $value == flex-end {
+        -webkit-align-content: flex-end;
+        align-content: flex-end;
+    } @else if $value == center {
+        -webkit-align-content: center;
+        align-content: center;
+    } @else if $value == space-between {
+        -webkit-align-content: space-between;
+        align-content: space-between;
+    } @else if $value == space-around {
+        -webkit-align-content: space-around;
+        align-content: space-around;
+    } @else {
+        -webkit-align-content: stretch;
+        align-content: stretch;
+    }
+    -webkit-align-content: $value;
+    align-content: $value;
+}
+
+/* flexbox item mixins */
+@mixin flex-order($value: 0) {
+    -webkit-order: $value;
+    order: $value;
+}
+@mixin flex-grow($value: 0) {
+    -webkit-flex-grow: $value;
+    flex-grow: $value;
+}
+@mixin flex-shrink($value: 1) {
+    -webkit-flex-shrink: $value;
+    flex-shrink: $value;
+}
+@mixin flex-basis($value: auto) {
+    -webkit-flex-basis: $value;
+    flex-basis: $value;
+}
+@mixin flex-self($value: auto) {
+    @if $value == flex-start {
+        -webkit-align-self: flex-start;
+        align-self: flex-start;
+    } @else if $value == flex-end {
+        -webkit-align-self: flex-end;
+        align-self: flex-end;
+    } @else if $value == center {
+        -webkit-align-self: center;
+        align-self: center;
+    } @else if $value == stretch {
+        -webkit-align-self: stretch;
+        align-self: stretch;
+    } @else {
+        -webkit-align-self: auto;
+        align-self: auto;
+    }
+    -webkit-align-self: $value;
+    align-self: $value;
+}
 
 
