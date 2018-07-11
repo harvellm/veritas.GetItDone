@@ -6,11 +6,11 @@
 **************************************************/
 
 html {
-    font-size: $font-base;
+    @extend %font-base;
     color: $body;
 }
 
 body {
-    font-size: $font-md;
-    line-height: $scale-fifth;
+    @extend %font-md;
+    @extend %perfect-fifth;
 }
