@@ -1,10 +1,77 @@
 // _atoms.scss
 
+@-ms-viewport {
+    width: device-width;
+}
+
 /*************************************************************************************************************************************
-    variables
+    RESET
 ************************************************************************************************************************************/
 
-/* color */
+@mixin universal-reset {
+    background: none;
+    border: 0;
+    font-style: normal;
+    font-weight: normal;
+    height: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    vertical-align: baseline;
+    width: auto;
+    -webkit-margin-before: 0;
+    -webkit-margin-end: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-padding-before: 0;
+    -webkit-padding-end: 0;
+    -webkit-padding-after: 0;
+    -webkit-padding-start: 0;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+%scroll-fix { overflow-y: scroll; }
+
+%link-reset { 
+    text-decoration: none; 
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+%img-base-align { vertical-align: middle; }
+
+%html5 { display: block; }
+
+%definition-list-reset { display: inline; }
+
+%table-reset { 
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+%button-reset {
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+%input-appearance-reset { -webkit-appearance: none; }
+
+
+/*************************************************************************************************************************************
+    COLORS
+************************************************************************************************************************************/
+
 $primary-400: #39a300;
 $primary-500: #308a00;
 $primary-600: #277000;
@@ -16,14 +83,13 @@ $blk: #000000;
 $wht: #ffffff;
 $body: #1a1a1a;
 
+
 /*************************************************************************************************************************************
-    extends
+    TYPOGRAPHY (https://www.modularscale.com/)
 ************************************************************************************************************************************/
 
-/* typography */
+/* font sizes:  */
 %font-base { font-size: 16px; } 
-
-/* font sizes */
 %font-alpha { font-size: 1.5rem; }
 %font-beta { font-size: 1.375rem; }
 %font-xlg { font-size: 1.250rem; }
@@ -32,7 +98,7 @@ $body: #1a1a1a;
 %font-sm { font-size: 0.875rem; }
 %font-xsm { font-size: 0.75rem; }
 
-/* typography scale */
+/* typography scale: https://www.modularscale.com/ */
 %perfect-fifth { line-height: 1.5; }
 %augmented-fouth { line-height: 1.414; }
 %minor-third { line-height: 1.2; }
@@ -44,9 +110,6 @@ $body: #1a1a1a;
 %uppercase { text-transform: uppercase; }
 %capital { text-transform: capitalize; }
 
-/*************************************************************************************************************************************
-    mixins
-************************************************************************************************************************************/
 
 /************************************************************************************************************************************
 
@@ -63,6 +126,8 @@ $body: #1a1a1a;
     - Flex Shrink: @include flex-shrink(); default is 1
     - Flex Basis: @include flex-basis(); default is auto
     - Flex Align Self: @include flex-self(); default is auto (flex-start, flex-end, center, stretch)
+
+    Visual Guide to CSS3 Flexbox Properties: https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties
 
 ************************************************************************************************************************************/
 
@@ -212,14 +277,17 @@ $body: #1a1a1a;
 @mixin column-1 {
     -webkit-flex-basis: 8.333333%;
     flex-basis: 8.333333%;
+    max-width: 8.333333%;
 }
 @mixin column-2 {
     -webkit-flex-basis: 16.666667%;
     flex-basis: 16.666667%;
+    max-width: 16.666667%;
 }
 @mixin column-3 {
     -webkit-flex-basis: 25%;
     flex-basis: 25%;
+    max-width: 25%;
 }
 @mixin column-4 {
     -webkit-flex-basis: 33.333333%;
@@ -257,3 +325,4 @@ $body: #1a1a1a;
     -webkit-flex-basis: 100%;
     flex-basis: 100%;
 }
+

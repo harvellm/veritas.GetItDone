@@ -1,16 +1,66 @@
-@import 'reset';
 @import 'atoms';
 
 /**************************************************
-    global styles
+    GLOBAL
 **************************************************/
+* {
+    @include universal-reset;
+}
 
 html {
+    @extend %scroll-fix;
     @extend %font-base;
     color: $body;
+
+    body {
+        @extend %font-md;
+        @extend %perfect-fifth;
+
+        a {
+            @extend %link-reset;
+        }
+
+        img {
+            @extend %img-base-align;
+        }
+
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        main,
+        menu,
+        nav,
+        section,
+        summary {
+            @extend %html5;
+        }
+
+        dt,
+        dd {
+            @extend %definition-list-reset;
+        }
+
+        table {
+            @extend %table-reset;
+        }
+
+        input[type="button"],
+        input[type="submit"],
+        input[type="reset"],
+        button {
+            @extend %button-reset;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            @extend %input-appearance-reset;
+        }
+    }
 }
 
-body {
-    @extend %font-md;
-    @extend %perfect-fifth;
-}
