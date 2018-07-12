@@ -9,11 +9,10 @@
 
 html {
     @extend %scroll-fix;
-    @extend %font-base;
     color: $body;
 
     body {
-        @extend %font-md;
+        @include font-size(16px);
         @extend %perfect-fifth;
 
         a {
@@ -64,3 +63,34 @@ html {
     }
 }
 
+/**************************************************
+    GRID
+**************************************************/
+
+.row {
+    @include flex-row();
+}
+
+.column {
+    @include flex-column();
+}
+
+.column-1 {
+    @include flex-size(8.333333%);
+}
+
+.column-2 {
+    @include flex-size(16.666667%);
+}
+
+.column-3 {
+    @include flex-size(25%);
+}
+
+.column-4 {
+    @include flex-size(33.333333%);
+}
+
+.column-5 {
+    @include flex-size(41.666667%);
+}
