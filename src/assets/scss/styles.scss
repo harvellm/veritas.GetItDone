@@ -94,3 +94,31 @@ html {
 .column-5 {
     @include flex-size(41.666667%);
 }
+
+.column-6 {
+    @include flex-size(50%);
+}
+
+.column-7 {
+    @include flex-size(58.333333%);
+}
+
+.column-8 {
+    @include flex-size(66.666667%);
+}
+
+.column-9 {
+    @include flex-size(75%);
+}
+
+.column-10 {
+    @include flex-size(83.333333%);
+}
+
+.column-11 {
+    @include flex-size(91.666667);
+}
+
+.column-12 {
+    @include flex-size(100%);
+}
