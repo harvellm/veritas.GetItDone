@@ -1,14 +1,14 @@
 // _atoms.scss
 
-@-ms-viewport {
-    width: device-width;
-}
-
 /*************************************************************************************************************************************
     RESET
 ************************************************************************************************************************************/
 
-@mixin universal-reset {
+@-ms-viewport {
+    width: device-width;
+}
+
+* {
     background: none;
     border: 0;
     font-style: normal;
@@ -18,6 +18,7 @@
     margin: 0;
     padding: 0;
     outline: 0;
+    text-decoration: none;
     vertical-align: baseline;
     width: auto;
     -webkit-margin-before: 0;
@@ -36,56 +37,74 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-%scroll-fix { overflow-y: scroll; }
-
-%link-reset { 
-    text-decoration: none; 
-    cursor: pointer;
-    -webkit-appearance: none;
+html {
+    overflow-y: scroll;
 }
 
-%img-base-align { vertical-align: middle; }
+img {
+    vertical-align: middle;
+}
 
-%html5 { display: block; }
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block;
+}
 
-%definition-list-reset { display: inline; }
+dt,
+dd {
+    display: inline;
+}
 
-%table-reset { 
+table {
     border-collapse: collapse;
     border-spacing: 0;
 }
 
-%button-reset {
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button,
+a {
     cursor: pointer;
-    -webkit-appearance: none;
 }
 
-%input-appearance-reset { -webkit-appearance: none; }
+/**************************************************************************************************
+2.  COLORS: use lighten() or darken() Sass to control color value
+**************************************************************************************************/
 
-
-/*************************************************************************************************************************************
-    COLORS
-************************************************************************************************************************************/
-
-$primary-400: #39a300;
-$primary-500: #308a00;
-$primary-600: #277000;
+$primary: #308a00;
+$blk: #000000;
+$wht: #ffffff;
 $warning: #bd0000;
 $caution: #f0d800;
 $good: #42bd00;
-$gray: #737373;
-$blk: #000000;
-$wht: #ffffff;
-$body: #1a1a1a;
 
-/*************************************************************************************************************************************
-    TYPOGRAPHY (https://www.modularscale.com/)
-************************************************************************************************************************************/
+/**************************************************************************************************
+3.  TYPOGRAPHY: base font of 16px and 1.5 line height
+**************************************************************************************************/
+
+%font {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
 
 @function calculate-font($size) {
 	$font-size: $size/16px;
@@ -93,22 +112,39 @@ $body: #1a1a1a;
 }
 
 @mixin font-size($size) {
-	font-size: $size;
 	font-size: calculate-font($size);
 }
 
-/* typography scale: https://www.modularscale.com/ */
-%perfect-fifth { line-height: 1.5; }
-%augmented-fouth { line-height: 1.414; }
-%minor-third { line-height: 1.2; }
+@mixin font-style($style: normal, $weight: normal) {
+    @if $style { font-style: $style; }
+    @if $weight { font-weight: $weight; }
+}
 
-/* typography styles */
-%bold { font-weight: bold; }
-%italic { font-style: italic; }
-%underline { text-decoration: underline; }
-%uppercase { text-transform: uppercase; }
-%capital { text-transform: capitalize; }
+@mixin type-position($value: left) {
+    text-align: $value;
+}
 
+@mixin type-scale($value: 1.5) {
+    line-height: $value;
+}
+
+@mixin type-case($value: uppercase) {
+    text-transform: $value;
+}
+
+@mixin type-spacing($value: normal) {
+    white-space: $value;
+}
+
+@mixin type-wrap($value: normal) {
+    word-break: $value;
+}
+
+%txt-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 /************************************************************************************************************************************
 
@@ -283,8 +319,4 @@ $body: #1a1a1a;
     @include flex-shrink();
     @include flex-basis($value);
 }
-
-/*************************************************************************************************************************************
-    LAYOUT UTILITIES
-************************************************************************************************************************************/
 
