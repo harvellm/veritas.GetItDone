@@ -75,6 +75,7 @@ dd {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+    width: 100%;
 }
 
 input[type="button"],
@@ -100,14 +101,17 @@ $good: #42bd00;
 3.  TYPOGRAPHY: base font of 16px and 1.5 line height
 **************************************************************************************************/
 
+$base-size: 16px;
+$base-scale: 1.5;
+
 %font {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: $base-size;
+    line-height: $base-scale;
 }
 
 @function calculate-font($size) {
-	$font-size: $size/16px;
+	$font-size: $size/$base-size;
 	@return $font-size * 1rem;
 }
 
@@ -115,29 +119,52 @@ $good: #42bd00;
 	font-size: calculate-font($size);
 }
 
-@mixin font-style($style: normal, $weight: normal) {
-    @if $style { font-style: $style; }
-    @if $weight { font-weight: $weight; }
+@mixin font-style($value: normal) {
+    @if $value == bold {
+        font-weight: bold;
+    } @else if $value == italic {
+        font-style: italic;
+    } @else {
+        font-weight: $value;
+        font-style: $value;
+    }
 }
 
 @mixin type-position($value: left) {
-    text-align: $value;
-}
-
-@mixin type-scale($value: 1.5) {
-    line-height: $value;
+    @if $value == right {
+        text-align: right;
+    } @else if $value == center {
+        text-align: center;
+    } @else {
+        text-align: $value;
+    }
 }
 
 @mixin type-case($value: uppercase) {
-    text-transform: $value;
+    @if $value == capitalize {
+        text-transform: capitalize;
+    } @else if $value == lowercase {
+        text-transform: lowercase;
+    } @else {
+        text-transform: $value;
+    }
 }
 
-@mixin type-spacing($value: normal) {
-    white-space: $value;
-}
-
-@mixin type-wrap($value: normal) {
-    word-break: $value;
+@mixin type-flow($value: normal) {
+    @if $value == nowrap {
+        white-space: nowrap;
+    } @else if $value == pre {
+        white-space: pre;
+    } @else if $value == pre-line {
+        white-space: pre-line;
+    } @else if $value == pre-wrap {
+        white-space: pre-wrap;
+    } @else if $value == break-word {
+        word-wrap: break-word;
+    } @else {
+        white-space: $value;
+        word-wrap: $value;
+    }
 }
 
 %txt-truncate {
@@ -146,25 +173,113 @@ $good: #42bd00;
     white-space: nowrap;
 }
 
-/************************************************************************************************************************************
+/**************************************************************************************************
+4.  POSITIONING
+**************************************************************************************************/
 
-    flexbox grid mixins @includes used in styles.scss
-    
-    - Flexbox: @include flex;
-    - Flex Direction: @include flex-flow(); default is row (row-reverse, column, column-reverse)
-    - Flex Wrap: @include flex-wrap(); default is nowrap (wrap, wrap-reverse)
-    - Flex Justify Content: @include flex-justify(); default is flex-start (flex-end, center, space-between, space-around)
-    - Flex Align Items: @include flex-align(); default is stretch (flex-start, flex-end, center)
-    - Flex Align Content: @include flex-content(); default is stretch (flex-start, flex-end, center, space-between, space-around)
-    - Flex Order: @include flex-order(); default is 0
-    - Flex Grow:  @include flex-grow(); default is 0
-    - Flex Shrink: @include flex-shrink(); default is 1
-    - Flex Basis: @include flex-basis(); default is auto
-    - Flex Align Self: @include flex-self(); default is auto (flex-start, flex-end, center, stretch)
+@mixin position($value) {
+    @if $value == relative {
+        position: relative;
+    } @else if $value == absolute {
+        position: absolute;
+    } @else if $value == fixed {
+       position: fixed;
+    }
+}
 
-    Visual Guide to CSS3 Flexbox Properties: https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties
+@mixin position-location($value) {
+    @if $value == top {
+        @include position(absolute);
+        top: 0;
+    } @else if $value == top-left {
+        @include position(absolute);
+        top: 0;
+        left: 0;
+    } @else if $value == top-right {
+        @include position(absolute);
+        top: 0;
+        right: 0;
+    } @else if $value == bottom {
+        @include position(absolute);
+        bottom: 0;
+    } @else if $value == bottom-left {
+        @include position(absolute);
+        bottom: 0;
+        left: 0;
+    } @else if $value == bottom-right {
+        @include position(absolute);
+        bottom: 0;
+        right: 0;
+    } @else if $value == left {
+        @include position(absolute);
+        left: 0;
+    } @else if $value == right {
+        @include position(absolute);
+        right: 0;
+    } @else if $value == fixed-top {
+        @include position(absolute);
+        top: 0;
+    } @else if $value == fixed-top-left {
+        @include position(fixed);
+        top: 0;
+        left: 0;
+    } @else if $value == fixed-top-right {
+        @include position(fixed);
+        top: 0;
+        right: 0;
+    } @else if $value == fixed-bottom {
+        @include position(fixed);
+        bottom: 0;
+    } @else if $value == fixed-bottom-left {
+        @include position(fixed);
+        bottom: 0;
+        left: 0;
+    } @else if $value == fixed-bottom-right {
+        @include position(fixed);
+        bottom: 0;
+        right: 0;
+    } @else if $value == fixed-left {
+        @include position(fixed);
+        left: 0;
+    } @else if $value == fixed-right {
+        @include position(fixed);
+        right: 0;
+    } 
+}
 
-************************************************************************************************************************************/
+/**************************************************************************************************
+5.  LAYOUT: flexbox grid
+
+    - Flexbox: 
+        @include flex;
+    - Flex Direction: 
+        @include flex-flow(); default is row 
+        (row-reverse, column, column-reverse)
+    - Flex Wrap: 
+        @include flex-wrap(); default is nowrap 
+        (wrap, wrap-reverse)
+    - Flex Justify Content: 
+        @include flex-justify(); default is flex-start 
+        (flex-end, center, space-between, space-around)
+    - Flex Align Items: 
+        @include flex-align(); default is stretch 
+        (flex-start, flex-end, center)
+    - Flex Align Content: 
+        @include flex-content(); default is stretch 
+        (flex-start, flex-end, center, space-between, space-around)
+    - Flex Order: 
+        @include flex-order(); default is 0
+    - Flex Grow:  
+        @include flex-grow(); default is 0
+    - Flex Shrink: 
+        @include flex-shrink(); default is 1
+    - Flex Basis: 
+        @include flex-basis(); default is auto
+    - Flex Align Self: 
+        @include flex-self(); default is auto 
+        (flex-start, flex-end, center, stretch)
+
+**************************************************************************************************/
 
 /* flexbox container mixins */
 @mixin flex {
@@ -182,22 +297,18 @@ $good: #42bd00;
         -webkit-flex-direction: column-reverse;
         flex-direction: column-reverse;
     } @else {
-        -webkit-flex-direction: row;
-        flex-direction: row;
+        -webkit-flex-direction: $value;
+        flex-direction: $value;
     }
-    -webkit-flex-direction: $value;
-    flex-direction: $value;
 }
 @mixin flex-wrap($value: nowrap) {
     @if $value == wrap {
         -webkit-flex-wrap: wrap;
         flex-wrap: wrap;
     } @else {
-        -webkit-flex-wrap: nowrap;
-        flex-wrap: nowrap;
+        -webkit-flex-wrap: $value;
+        flex-wrap: nowrap $value;
     }
-    -webkit-flex-wrap: $value;
-    flex-wrap: nowrap $value;
 }
 @mixin flex-justify($value: flex-start) {
     @if $value == flex-end {
@@ -213,11 +324,9 @@ $good: #42bd00;
         -webkit-justify-content: space-around;
         justify-content: space-around;
     } @else {
-        -webkit-justify-content: flex-start;
-        justify-content: flex-start;
+        -webkit-justify-content: $value;
+        justify-content: $value;
     }
-    -webkit-justify-content: $value;
-    justify-content: $value;
 }
 @mixin flex-align($value: stretch) {
     @if $value == flex-start {
@@ -230,11 +339,9 @@ $good: #42bd00;
         -webkit-align-items: center;
         align-items: center;
     } @else {
-        -webkit-align-items: stretch;
-        align-items: stretch;
+        -webkit-align-items: $value;
+        align-items: $value;
     }
-    -webkit-align-items: $value;
-    align-items: $value;
 }
 @mixin flex-content($value: stretch) {
     @if $value == flex-start {
@@ -253,11 +360,10 @@ $good: #42bd00;
         -webkit-align-content: space-around;
         align-content: space-around;
     } @else {
-        -webkit-align-content: stretch;
-        align-content: stretch;
+        -webkit-align-content: $value;
+        align-content: $value;
     }
-    -webkit-align-content: $value;
-    align-content: $value;
+    
 }
 
 /* flexbox item mixins */
@@ -291,11 +397,9 @@ $good: #42bd00;
         -webkit-align-self: stretch;
         align-self: stretch;
     } @else {
-        -webkit-align-self: auto;
-        align-self: auto;
+        -webkit-align-self: $value;
+        align-self: $value;
     }
-    -webkit-align-self: $value;
-    align-self: $value;
 }
 
 /* flexbox grid mixins */
@@ -319,4 +423,67 @@ $good: #42bd00;
     @include flex-shrink();
     @include flex-basis($value);
 }
+
+/* layout helpers */
+@mixin floats($value) {
+    @if $value == left {
+        float: left;
+    } @else if $value == right {
+        float: right;
+    } @else if $value == none {
+        float: none;
+    }
+}
+
+@mixin display($value) {
+    @if $value == block {
+        display: block;
+    } @else if $value == inline-block {
+        display: inline-block;
+    } @else if $value == inline {
+        display: inline;
+    } @else if $value == hide {
+        display: none;
+    } @else if $value == hidden {
+        visibility: hidden;
+    } @else if $value == visible {
+        visibility: visible;
+    } @else if $value == show {
+        display: block;
+    }
+}
+
+$xs: 4px;
+$sm: 8px;
+$med: 16px;
+$lg: 32px;
+$xlg : 64px;
+
+@mixin space($type: margin, $direction: all, $amount: $med) {
+	@if $type == padding {
+		@if $direction == all {
+			padding: $amount;
+		} @else if $direction == top {
+			padding-top: $amount
+		} @else if $direction == left {
+			padding-left: $amount
+		} @else if $direction == right {
+			padding-right: $amount
+		} @else {
+			padding-bottom: $amount
+		}
+	} @else if $type == margin {
+		@if $direction == all {
+			margin: $amount;
+		} @else if $direction == top {
+			margin-top: $amount
+		} @else if $direction == left {
+			margin-left: $amount
+		} @else if $direction == right {
+			margin-right: $amount
+		} @else {
+			margin-bottom: $amount
+		}
+	}
+} /* @include space($type, $direction, $amount); */
 
