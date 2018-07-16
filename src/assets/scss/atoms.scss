@@ -198,39 +198,39 @@ $base-scale: 1.5;
     } @else if $value == fixed-right {
         @include position(fixed);
         right: 0;
-    } 
+    }
 }
 
 /**************************************************************************************************
     LAYOUT: flexbox grid
 
-    - Flexbox: 
+    - Flexbox:
         @include flex;
-    - Flex Direction: 
-        @include flex-flow(); default is row 
+    - Flex Direction:
+        @include flex-flow(); default is row
         (row-reverse, column, column-reverse)
-    - Flex Wrap: 
-        @include flex-wrap(); default is nowrap 
+    - Flex Wrap:
+        @include flex-wrap(); default is nowrap
         (wrap, wrap-reverse)
-    - Flex Justify Content: 
-        @include flex-justify(); default is flex-start 
+    - Flex Justify Content:
+        @include flex-justify(); default is flex-start
         (flex-end, center, space-between, space-around)
-    - Flex Align Items: 
-        @include flex-align(); default is stretch 
+    - Flex Align Items:
+        @include flex-align(); default is stretch
         (flex-start, flex-end, center)
-    - Flex Align Content: 
-        @include flex-content(); default is stretch 
+    - Flex Align Content:
+        @include flex-content(); default is stretch
         (flex-start, flex-end, center, space-between, space-around)
-    - Flex Order: 
+    - Flex Order:
         @include flex-order(); default is 0
-    - Flex Grow:  
+    - Flex Grow:
         @include flex-grow(); default is 0
-    - Flex Shrink: 
+    - Flex Shrink:
         @include flex-shrink(); default is 1
-    - Flex Basis: 
+    - Flex Basis:
         @include flex-basis(); default is auto
-    - Flex Align Self: 
-        @include flex-self(); default is auto 
+    - Flex Align Self:
+        @include flex-self(); default is auto
         (flex-start, flex-end, center, stretch)
 
 **************************************************************************************************/
@@ -317,7 +317,7 @@ $base-scale: 1.5;
         -webkit-align-content: $value;
         align-content: $value;
     }
-    
+
 }
 
 /* flexbox item mixins */
@@ -534,7 +534,7 @@ $xlg : 64px;
         border-right: $size $type $color;
     } @else if $direction == bottom {
         border-bottom: $size $type $color;
-    } @else {
+    } @else if $direction == none {
         border: none;
     }
 } /* @include border($direction, $size, $type, $color); */
@@ -550,7 +550,7 @@ $xlg : 64px;
         border-bottom-left-radius: $size;
     } @else if $direction == bottom-right {
         border-bottom-right-radius: $size;
-    } @else {
+    } @else if $direction == none {
         border: none;
     }
 } /* @include radius($direction, $size); */
