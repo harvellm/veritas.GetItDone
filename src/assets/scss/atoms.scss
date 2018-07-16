@@ -453,6 +453,21 @@ $base-scale: 1.5;
     }
 }
 
+/* scroll overflow */
+@mixin overflow($value) {
+    @if $value == x-auto {
+        overflow-x: auto;
+    } @else if $value == y-auto {
+        overflow-y: auto;
+    } @else if $value == x-scroll {
+        overflow-x: scroll;
+    } @else if $value == y-scroll {
+        overflow-y: scroll;
+    } @else if $value == auto {
+        overflow: auto;
+    }
+}
+
 $xs: 4px;
 $sm: 8px;
 $med: 16px;
