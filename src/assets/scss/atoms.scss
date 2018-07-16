@@ -1,34 +1,13 @@
 // _atoms.scss
 
-/*************************************************************************************************************************************
-    RESET
-************************************************************************************************************************************/
-
-@-ms-viewport {
-    width: device-width;
-}
-
-* {
+/**************************************************************************************************
+    RESET: only used in reset
+**************************************************************************************************/
+@mixin reset {
+    outline: 0;
     background: none;
-    border: 0;
-    font-style: normal;
-    font-weight: normal;
     height: auto;
     list-style: none;
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    text-decoration: none;
-    vertical-align: baseline;
-    width: auto;
-    -webkit-margin-before: 0;
-    -webkit-margin-end: 0;
-    -webkit-margin-after: 0;
-    -webkit-margin-start: 0;
-    -webkit-padding-before: 0;
-    -webkit-padding-end: 0;
-    -webkit-padding-after: 0;
-    -webkit-padding-start: 0;
     -webkit-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
@@ -38,56 +17,27 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: transparent;
     -webkit-appearance: none;
+    -webkit-margin-before: 0;
+    -webkit-margin-end: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-padding-before: 0;
+    -webkit-padding-end: 0;
+    -webkit-padding-after: 0;
+    -webkit-padding-start: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-html {
-    overflow-y: scroll;
-}
-
-img {
-    vertical-align: middle;
-}
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section,
-summary {
-    display: block;
-}
-
-dt,
-dd {
-    display: inline;
-}
-
-table {
+@mixin table-reset {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
 }
 
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-button,
-a {
-    cursor: pointer;
-}
-
 /**************************************************************************************************
-2.  COLORS: use lighten() or darken() Sass to control color value
+    COLORS: use lighten() or darken() Sass to control color value
 **************************************************************************************************/
 
 $primary: #308a00;
@@ -98,7 +48,7 @@ $caution: #f0d800;
 $good: #42bd00;
 
 /**************************************************************************************************
-3.  TYPOGRAPHY: base font of 16px and 1.5 line height
+    TYPOGRAPHY: base font of 16px and 1.5 line height
 **************************************************************************************************/
 
 $base-size: 16px;
@@ -124,6 +74,10 @@ $base-scale: 1.5;
         font-weight: bold;
     } @else if $value == italic {
         font-style: italic;
+    } @else if $value == underline {
+        text-decoration: underline;
+    } @else if $value == no-underline {
+        text-decoration: none;
     } @else {
         font-weight: $value;
         font-style: $value;
@@ -174,7 +128,7 @@ $base-scale: 1.5;
 }
 
 /**************************************************************************************************
-4.  POSITIONING
+    POSITIONING
 **************************************************************************************************/
 
 @mixin position($value) {
@@ -248,7 +202,7 @@ $base-scale: 1.5;
 }
 
 /**************************************************************************************************
-5.  LAYOUT: flexbox grid
+    LAYOUT: flexbox grid
 
     - Flexbox: 
         @include flex;
@@ -424,6 +378,53 @@ $base-scale: 1.5;
     @include flex-basis($value);
 }
 
+/* width helper override */
+@mixin width($value: auto) {
+    @if $value == w-100 {
+        width: 100% !important;
+    } @else if $value == w-95 {
+        width: 95% !important;
+    } @else if $value == w-90 {
+        width: 90% !important;
+    } @else if $value == w-85 {
+        width: 85% !important;
+    } @else if $value == w-80 {
+        width: 80% !important;
+    } @else if $value == w-75 {
+        width: 75% !important;
+    } @else if $value == w-70 {
+        width: 70% !important;
+    } @else if $value == w-65 {
+        width: 65% !important;
+    } @else if $value == w-60 {
+        width: 60% !important;
+    } @else if $value == w-55 {
+        width: 55% !important;
+    } @else if $value == w-50 {
+        width: 50% !important;
+    } @else if $value == w-45 {
+        width: 45% !important;
+    } @else if $value == w-40 {
+        width: 40% !important;
+    } @else if $value == w-35 {
+        width: 35% !important;
+    } @else if $value == w-30 {
+        width: 30% !important;
+    } @else if $value == w-25 {
+        width: 25% !important;
+    } @else if $value == w-20 {
+        width: 20% !important;
+    } @else if $value == w-15 {
+        width: 15% !important;
+    } @else if $value == w-10 {
+        width: 10% !important;
+    } @else if $value == w-5 {
+        width: 5% !important;
+    } @else {
+        width: $value;
+    }
+}
+
 /* layout helpers */
 @mixin floats($value) {
     @if $value == left {
@@ -450,6 +451,18 @@ $base-scale: 1.5;
         visibility: visible;
     } @else if $value == show {
         display: block;
+    }
+}
+
+@mixin align($value: baseline) {
+    @if $value == top {
+        vertical-align: top;
+    } @else if $value == middle {
+        vertical-align: middle;
+    } @else if $value == bottom {
+        vertical-align: bottom;
+    } @else {
+        vertical-align: baseline;
     }
 }
 
@@ -484,9 +497,11 @@ $xlg : 64px;
 			padding-left: $amount
 		} @else if $direction == right {
 			padding-right: $amount
-		} @else {
+		} @else if $direction == bottom {
 			padding-bottom: $amount
-		}
+        } @else {
+            padding: 0;
+        }
 	} @else if $type == margin {
 		@if $direction == all {
 			margin: $amount;
@@ -496,14 +511,16 @@ $xlg : 64px;
 			margin-left: $amount
 		} @else if $direction == right {
 			margin-right: $amount
-		} @else {
+		} @else if $direction == bottom {
 			margin-bottom: $amount
-		}
+		} @else {
+            margin: 0;
+        }
 	}
 } /* @include space($type, $direction, $amount); */
 
 /**************************************************************************************************
-6.  VISUAL ACCENTS: borders, shadows and opacity
+    VISUAL ACCENTS: borders, shadows and opacity
 **************************************************************************************************/
 
 @mixin border($direction: all, $size: 1px, $type: solid, $color: lighten($black, 50%)) {
@@ -517,6 +534,8 @@ $xlg : 64px;
         border-right: $size $type $color;
     } @else if $direction == bottom {
         border-bottom: $size $type $color;
+    } @else {
+        border: none;
     }
 } /* @include border($direction, $size, $type, $color); */
 
@@ -531,6 +550,8 @@ $xlg : 64px;
         border-bottom-left-radius: $size;
     } @else if $direction == bottom-right {
         border-bottom-right-radius: $size;
+    } @else {
+        border: none;
     }
 } /* @include radius($direction, $size); */
 
@@ -545,4 +566,29 @@ $xlg : 64px;
 @mixin opacity($color: $black, $value: .5) {
     opacity: $value;
     background: $color;
+}
+
+/**************************************************************************************************
+    LISTS AND TABLES
+**************************************************************************************************/
+
+@mixin list-table-style($type: none, $alt: table) {
+    @if $type == ladder {
+        @include border(bottom, 1px, solid, lighten($black, 50%));
+    } @else if $type == ladder-dotted {
+        @include border(bottom, 1px, dotted, lighten($black, 50%));
+    } @else if $type == zebra {
+        @if $alt == list {
+           li:nth-child(even) {
+               background: lighten($black, 80%)
+           }
+        } @else if $alt == table {
+            table tr:nth-child(even) td {
+                background: lighten($black, 80%)
+            }
+        }
+    } @else if $type == none {
+        @include border();
+        background: none;
+    }
 }

@@ -1,6 +1,66 @@
 @import 'atoms';
 
 /**************************************************
+    RESET
+**************************************************/
+
+@-ms-viewport {
+    width: device-width;
+}
+
+* {
+    @include border();
+    @include font-style();
+    @include space(margin, all, 0);
+    @include space(padding, all, 0);
+    @include font-style(none);
+    @include align();
+    @include width();
+    @include reset();
+}
+
+html {
+    @include scroll(scroll-y);
+}
+
+img {
+    @include align(middle);
+}
+
+table {
+    @include table-reset;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+    @include display(block);
+}
+
+dt,
+dd {
+    @include display(inline);
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button,
+a {
+    cursor: pointer;
+}
+
+/**************************************************
     GRID
 **************************************************/
 
@@ -59,3 +119,4 @@
 .column-12 {
     @include flex-size(100%);
 }
+
