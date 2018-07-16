@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-reportpicker',
-  templateUrl: './reportpicker.component.html',
-  styleUrls: ['./reportpicker.component.scss']
+  templateUrl: './reportpicker.component.html'
 })
 export class ReportpickerComponent implements OnInit {
 
