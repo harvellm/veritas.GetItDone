@@ -487,3 +487,47 @@ $xlg : 64px;
 	}
 } /* @include space($type, $direction, $amount); */
 
+/**************************************************************************************************
+6.  VISUAL ACCENTS: borders, shadows and opacity
+**************************************************************************************************/
+
+@mixin border($direction: all, $size: 1px, $type: solid, $color: lighten($black, 50%)) {
+    @if $direction == all {
+        border: $size $type $color;
+    } @else if $direction == top {
+        border-top: $size $type $color;
+    } @else if $direction == left {
+        border-left: $size $type $color;
+    } @else if $direction == right {
+        border-right: $size $type $color;
+    } @else if $direction == bottom {
+        border-bottom: $size $type $color;
+    }
+} /* @include border($direction, $size, $type, $color); */
+
+@mixin radius($direction: all, $size: 3px) {
+    @if $direction == all {
+        border-radius: $size;
+    } @else if $direction == top-left {
+        border-top-left-radius: $size;
+    } @else if $direction == top-right {
+        border-top-right-radius: $size;
+    } @else if $direction == bottom-left {
+        border-bottom-left-radius: $size;
+    } @else if $direction == bottom-right {
+        border-bottom-right-radius: $size;
+    }
+} /* @include radius($direction, $size); */
+
+@mixin shadow($type: inset, $horizontal: 1px, $vertical: 1px, $blur: 3px, $spread: 3px, $color: lighten($black, 50%)) {
+    @if $type == inset {
+        box-shadow: inset $horizontal, $vertical, $blur, $spread, $color;
+    } @else {
+        box-shadow: $horizontal, $vertical, $blur, $spread, $color;
+    }
+} /* @include radius($type, $horizontal, $vertical, $blur, $spread, $color); */
+
+@mixin opacity($color: $black, $value: .5) {
+    opacity: $value;
+    background: $color;
+}
