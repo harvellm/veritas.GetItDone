@@ -41,8 +41,8 @@
 **************************************************************************************************/
 
 $primary: #308a00;
-$blk: #000000;
-$wht: #ffffff;
+$black: #000000;
+$white: #ffffff;
 $warning: #bd0000;
 $caution: #f0d800;
 $good: #42bd00;
@@ -54,8 +54,8 @@ $good: #42bd00;
 $base-size: 16px;
 $base-scale: 1.5;
 
-%font {
-    font-family: Arial, Helvetica, sans-serif;
+@mixin font {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-size: $base-size;
     line-height: $base-scale;
 }
@@ -198,39 +198,39 @@ $base-scale: 1.5;
     } @else if $value == fixed-right {
         @include position(fixed);
         right: 0;
-    }
+    } 
 }
 
 /**************************************************************************************************
     LAYOUT: flexbox grid
 
-    - Flexbox:
+    - Flexbox: 
         @include flex;
-    - Flex Direction:
-        @include flex-flow(); default is row
+    - Flex Direction: 
+        @include flex-flow(); default is row 
         (row-reverse, column, column-reverse)
-    - Flex Wrap:
-        @include flex-wrap(); default is nowrap
+    - Flex Wrap: 
+        @include flex-wrap(); default is nowrap 
         (wrap, wrap-reverse)
-    - Flex Justify Content:
-        @include flex-justify(); default is flex-start
+    - Flex Justify Content: 
+        @include flex-justify(); default is flex-start 
         (flex-end, center, space-between, space-around)
-    - Flex Align Items:
-        @include flex-align(); default is stretch
+    - Flex Align Items: 
+        @include flex-align(); default is stretch 
         (flex-start, flex-end, center)
-    - Flex Align Content:
-        @include flex-content(); default is stretch
+    - Flex Align Content: 
+        @include flex-content(); default is stretch 
         (flex-start, flex-end, center, space-between, space-around)
-    - Flex Order:
+    - Flex Order: 
         @include flex-order(); default is 0
-    - Flex Grow:
+    - Flex Grow:  
         @include flex-grow(); default is 0
-    - Flex Shrink:
+    - Flex Shrink: 
         @include flex-shrink(); default is 1
-    - Flex Basis:
+    - Flex Basis: 
         @include flex-basis(); default is auto
-    - Flex Align Self:
-        @include flex-self(); default is auto
+    - Flex Align Self: 
+        @include flex-self(); default is auto 
         (flex-start, flex-end, center, stretch)
 
 **************************************************************************************************/
@@ -317,7 +317,7 @@ $base-scale: 1.5;
         -webkit-align-content: $value;
         align-content: $value;
     }
-
+    
 }
 
 /* flexbox item mixins */
@@ -378,48 +378,48 @@ $base-scale: 1.5;
     @include flex-basis($value);
 }
 
-/* width helper override */
+/* width helper */
 @mixin width($value: auto) {
     @if $value == w-100 {
-        width: 100% !important;
+        width: 100%;
     } @else if $value == w-95 {
-        width: 95% !important;
+        width: 95%;
     } @else if $value == w-90 {
-        width: 90% !important;
+        width: 90%;
     } @else if $value == w-85 {
-        width: 85% !important;
+        width: 85%;
     } @else if $value == w-80 {
-        width: 80% !important;
+        width: 80%;
     } @else if $value == w-75 {
-        width: 75% !important;
+        width: 75%;
     } @else if $value == w-70 {
-        width: 70% !important;
+        width: 70%;
     } @else if $value == w-65 {
-        width: 65% !important;
+        width: 65%;
     } @else if $value == w-60 {
-        width: 60% !important;
+        width: 60%;
     } @else if $value == w-55 {
-        width: 55% !important;
+        width: 55%;
     } @else if $value == w-50 {
-        width: 50% !important;
+        width: 50%;
     } @else if $value == w-45 {
-        width: 45% !important;
+        width: 45%;
     } @else if $value == w-40 {
-        width: 40% !important;
+        width: 40%;
     } @else if $value == w-35 {
-        width: 35% !important;
+        width: 35%;
     } @else if $value == w-30 {
-        width: 30% !important;
+        width: 30%;
     } @else if $value == w-25 {
-        width: 25% !important;
+        width: 25%;
     } @else if $value == w-20 {
-        width: 20% !important;
+        width: 20%;
     } @else if $value == w-15 {
-        width: 15% !important;
+        width: 15%;
     } @else if $value == w-10 {
-        width: 10% !important;
+        width: 10%;
     } @else if $value == w-5 {
-        width: 5% !important;
+        width: 5%;
     } @else {
         width: $value;
     }
@@ -441,6 +441,7 @@ $base-scale: 1.5;
         display: block;
     } @else if $value == inline-block {
         display: inline-block;
+        margin-right: -4px;
     } @else if $value == inline {
         display: inline;
     } @else if $value == hide {
@@ -535,7 +536,9 @@ $xlg : 64px;
     } @else if $direction == bottom {
         border-bottom: $size $type $color;
     } @else if $direction == none {
-        border: none;
+        $size: 0;
+        $type: none;
+        $color: transparent;
     }
 } /* @include border($direction, $size, $type, $color); */
 
@@ -550,8 +553,8 @@ $xlg : 64px;
         border-bottom-left-radius: $size;
     } @else if $direction == bottom-right {
         border-bottom-right-radius: $size;
-    } @else if $direction == none {
-        border: none;
+    } @else {
+        border: 0;
     }
 } /* @include radius($direction, $size); */
 

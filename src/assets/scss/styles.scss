@@ -9,18 +9,18 @@
 }
 
 * {
-    @include border();
+    @include border(none);
     @include font-style();
     @include space(margin, all, 0);
     @include space(padding, all, 0);
-    @include font-style(none);
+    @include font-style(no-underline);
     @include align();
     @include width();
     @include reset();
 }
 
 html {
-    @include scroll(scroll-y);
+    @include overflow(y-scroll);
 }
 
 img {
@@ -60,9 +60,15 @@ a {
     cursor: pointer;
 }
 
+$hand: pointer;
+
 /**************************************************
     GRID
 **************************************************/
+
+.container {
+    @include display(block);
+}
 
 .row {
     @include flex-row();
@@ -120,3 +126,82 @@ a {
     @include flex-size(100%);
 }
 
+/**************************************************
+    PAGE
+**************************************************/
+
+html {
+    @include font();
+    background: lighten($black, 90%);
+}
+
+body {
+    @include font-size($base-size);
+    color: lighten($black, 10%);
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+header {
+    @include flex-row();
+    @include space(padding, all, $med);
+    background: darken($primary, 5%);
+}
+
+header .column:first-child {
+    @include type-position(left);
+}
+
+header .column:last-child {
+    @include type-position(right);
+    color: $white;
+    
+    .header-link {
+        color: $white;
+    }
+    
+    .header-link:hover {
+        @include font-style(underline);
+    }
+}
+
+/**************************************************
+    COMPONENT
+**************************************************/
+
+.main-nav {
+    @include display(block);
+    @include type-position(center);
+
+    .nav-wrapper {
+        margin: 0 auto;
+
+        .nav-link {
+            @include display(inline-block);
+            @include space(margin, right, -2px);
+            @include space(padding, all, $med);
+            @include type-position(center);
+            background: $primary;
+            min-width: 200px;
+            cursor: $hand;
+
+            a {
+                color: $white;
+            }
+        }
+
+        .nav-link:first-child {
+            @include radius(top-left);
+            @include radius(bottom-left);
+        }
+
+        .nav-link:last-child {
+            @include radius(top-right);
+            @include radius(bottom-right);
+        }
+
+        .nav-link:hover {
+            background: lighten($primary, 5%);
+        }
+    }
+}
