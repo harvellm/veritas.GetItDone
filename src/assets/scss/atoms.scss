@@ -536,9 +536,7 @@ $xlg : 64px;
     } @else if $direction == bottom {
         border-bottom: $size $type $color;
     } @else if $direction == none {
-        $size: 0;
-        $type: none;
-        $color: transparent;
+        border: 0 none transparent;
     }
 } /* @include border($direction, $size, $type, $color); */
 

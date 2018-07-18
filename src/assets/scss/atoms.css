@@ -1,0 +1,61 @@
+/**************************************************************************************************
+    RESET: only used in reset
+**************************************************************************************************/
+/**************************************************************************************************
+    COLORS: use lighten() or darken() Sass to control color value
+**************************************************************************************************/
+/**************************************************************************************************
+    TYPOGRAPHY: base font of 16px and 1.5 line height
+**************************************************************************************************/
+/**************************************************************************************************
+    POSITIONING
+**************************************************************************************************/
+/**************************************************************************************************
+    LAYOUT: flexbox grid
+
+    - Flexbox: 
+        @include flex;
+    - Flex Direction: 
+        @include flex-flow(); default is row 
+        (row-reverse, column, column-reverse)
+    - Flex Wrap: 
+        @include flex-wrap(); default is nowrap 
+        (wrap, wrap-reverse)
+    - Flex Justify Content: 
+        @include flex-justify(); default is flex-start 
+        (flex-end, center, space-between, space-around)
+    - Flex Align Items: 
+        @include flex-align(); default is stretch 
+        (flex-start, flex-end, center)
+    - Flex Align Content: 
+        @include flex-content(); default is stretch 
+        (flex-start, flex-end, center, space-between, space-around)
+    - Flex Order: 
+        @include flex-order(); default is 0
+    - Flex Grow:  
+        @include flex-grow(); default is 0
+    - Flex Shrink: 
+        @include flex-shrink(); default is 1
+    - Flex Basis: 
+        @include flex-basis(); default is auto
+    - Flex Align Self: 
+        @include flex-self(); default is auto 
+        (flex-start, flex-end, center, stretch)
+
+**************************************************************************************************/
+/* flexbox container mixins */
+/* flexbox item mixins */
+/* flexbox grid mixins */
+/* width helper */
+/* layout helpers */
+/* scroll overflow */
+/* @include space($type, $direction, $amount); */
+/**************************************************************************************************
+    VISUAL ACCENTS: borders, shadows and opacity
+**************************************************************************************************/
+/* @include border($direction, $size, $type, $color); */
+/* @include radius($direction, $size); */
+/* @include radius($type, $horizontal, $vertical, $blur, $spread, $color); */
+/**************************************************************************************************
+    LISTS AND TABLES
+**************************************************************************************************/
