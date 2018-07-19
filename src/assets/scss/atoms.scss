@@ -1,13 +1,44 @@
 // _atoms.scss
 
-/**************************************************************************************************
-    RESET: only used in reset
-**************************************************************************************************/
-@mixin reset {
-    outline: 0;
+$primary: #308a00;
+$black: #000000;
+$gray: #808080;
+$white: #ffffff;
+$warning: #bd0000;
+$caution: #f0d800;
+$good: #028C00;
+
+$base-font: 'Roboto', Arial, Helvetica, sans-serif;
+$base-size: 16px;
+$base-scale: 1.5;
+
+$xs: 4px;
+$sm: 8px;
+$med: 16px;
+$lg: 32px;
+$xlg: 64px;
+
+@mixin universal-reset {
     background: none;
+    border: 0;
+    font-style: normal;
+    font-weight: normal;
     height: auto;
     list-style: none;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    text-decoration: none;
+    vertical-align: baseline;
+    width: auto;
+    -webkit-margin-before: 0;
+    -webkit-margin-end: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-padding-before: 0;
+    -webkit-padding-end: 0;
+    -webkit-padding-after: 0;
+    -webkit-padding-start: 0;
     -webkit-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
@@ -17,47 +48,56 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: transparent;
     -webkit-appearance: none;
-    -webkit-margin-before: 0;
-    -webkit-margin-end: 0;
-    -webkit-margin-after: 0;
-    -webkit-margin-start: 0;
-    -webkit-padding-before: 0;
-    -webkit-padding-end: 0;
-    -webkit-padding-after: 0;
-    -webkit-padding-start: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-@mixin table-reset {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-}
-
-/**************************************************************************************************
-    COLORS: use lighten() or darken() Sass to control color value
-**************************************************************************************************/
-
-$primary: #308a00;
-$black: #000000;
-$white: #ffffff;
-$warning: #bd0000;
-$caution: #f0d800;
-$good: #42bd00;
-
-/**************************************************************************************************
-    TYPOGRAPHY: base font of 16px and 1.5 line height
-**************************************************************************************************/
-
-$base-size: 16px;
-$base-scale: 1.5;
-
-@mixin font {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+@mixin html {
+    font-size: 100%;
+    overflow-y: scroll;
+    font-family: $base-font;
     font-size: $base-size;
     line-height: $base-scale;
+    
+    img {
+        vertical-align: middle;
+    }
+    
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    main,
+    menu,
+    nav,
+    section,
+    summary {
+        display: block;
+    }
+    
+    dt,
+    dd {
+        display: inline;
+    }
+    
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+    }
+    
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"],
+    button,
+    a {
+        cursor: pointer;
+    }
 }
 
 @function calculate-font($size) {
@@ -66,7 +106,8 @@ $base-scale: 1.5;
 }
 
 @mixin font-size($size) {
-	font-size: calculate-font($size);
+    
+    font-size: calculate-font($size);
 }
 
 @mixin font-style($value: normal) {
@@ -115,21 +156,15 @@ $base-scale: 1.5;
         white-space: pre-wrap;
     } @else if $value == break-word {
         word-wrap: break-word;
+    } @else if $value == truncate {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     } @else {
         white-space: $value;
         word-wrap: $value;
     }
 }
-
-%txt-truncate {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-/**************************************************************************************************
-    POSITIONING
-**************************************************************************************************/
 
 @mixin position($value) {
     @if $value == relative {
@@ -201,41 +236,6 @@ $base-scale: 1.5;
     } 
 }
 
-/**************************************************************************************************
-    LAYOUT: flexbox grid
-
-    - Flexbox: 
-        @include flex;
-    - Flex Direction: 
-        @include flex-flow(); default is row 
-        (row-reverse, column, column-reverse)
-    - Flex Wrap: 
-        @include flex-wrap(); default is nowrap 
-        (wrap, wrap-reverse)
-    - Flex Justify Content: 
-        @include flex-justify(); default is flex-start 
-        (flex-end, center, space-between, space-around)
-    - Flex Align Items: 
-        @include flex-align(); default is stretch 
-        (flex-start, flex-end, center)
-    - Flex Align Content: 
-        @include flex-content(); default is stretch 
-        (flex-start, flex-end, center, space-between, space-around)
-    - Flex Order: 
-        @include flex-order(); default is 0
-    - Flex Grow:  
-        @include flex-grow(); default is 0
-    - Flex Shrink: 
-        @include flex-shrink(); default is 1
-    - Flex Basis: 
-        @include flex-basis(); default is auto
-    - Flex Align Self: 
-        @include flex-self(); default is auto 
-        (flex-start, flex-end, center, stretch)
-
-**************************************************************************************************/
-
-/* flexbox container mixins */
 @mixin flex {
     display: -webkit-flex;
     display: flex;
@@ -320,7 +320,6 @@ $base-scale: 1.5;
     
 }
 
-/* flexbox item mixins */
 @mixin flex-order($value: 0) {
     -webkit-order: $value;
     order: $value;
@@ -356,7 +355,6 @@ $base-scale: 1.5;
     }
 }
 
-/* flexbox grid mixins */
 @mixin flex-row {
     @include flex;
     @include flex-flow();
@@ -366,66 +364,20 @@ $base-scale: 1.5;
     @include flex-content();
 }
 
-@mixin flex-column {
-    @include flex-grow();
-    @include flex-shrink();
-    @include flex-basis();
-}
-
-@mixin flex-size($value) {
+@mixin flex-column($value) {
     @include flex-grow();
     @include flex-shrink();
     @include flex-basis($value);
 }
 
-/* width helper */
-@mixin width($value: auto) {
-    @if $value == w-100 {
-        width: 100%;
-    } @else if $value == w-95 {
-        width: 95%;
-    } @else if $value == w-90 {
-        width: 90%;
-    } @else if $value == w-85 {
-        width: 85%;
-    } @else if $value == w-80 {
-        width: 80%;
-    } @else if $value == w-75 {
-        width: 75%;
-    } @else if $value == w-70 {
-        width: 70%;
-    } @else if $value == w-65 {
-        width: 65%;
-    } @else if $value == w-60 {
-        width: 60%;
-    } @else if $value == w-55 {
-        width: 55%;
-    } @else if $value == w-50 {
-        width: 50%;
-    } @else if $value == w-45 {
-        width: 45%;
-    } @else if $value == w-40 {
-        width: 40%;
-    } @else if $value == w-35 {
-        width: 35%;
-    } @else if $value == w-30 {
-        width: 30%;
-    } @else if $value == w-25 {
-        width: 25%;
-    } @else if $value == w-20 {
-        width: 20%;
-    } @else if $value == w-15 {
-        width: 15%;
-    } @else if $value == w-10 {
-        width: 10%;
-    } @else if $value == w-5 {
-        width: 5%;
+@mixin width($value) {
+    @if $value == auto {
+        width: auto;
     } @else {
         width: $value;
     }
 }
 
-/* layout helpers */
 @mixin floats($value) {
     @if $value == left {
         float: left;
@@ -441,7 +393,6 @@ $base-scale: 1.5;
         display: block;
     } @else if $value == inline-block {
         display: inline-block;
-        margin-right: -4px;
     } @else if $value == inline {
         display: inline;
     } @else if $value == hide {
@@ -467,7 +418,6 @@ $base-scale: 1.5;
     }
 }
 
-/* scroll overflow */
 @mixin overflow($value) {
     @if $value == x-auto {
         overflow-x: auto;
@@ -482,13 +432,7 @@ $base-scale: 1.5;
     }
 }
 
-$xs: 4px;
-$sm: 8px;
-$med: 16px;
-$lg: 32px;
-$xlg : 64px;
-
-@mixin space($type: margin, $direction: all, $amount: $med) {
+@mixin space($type: margin, $direction: all, $amount: 0) {
 	@if $type == padding {
 		@if $direction == all {
 			padding: $amount;
@@ -514,17 +458,23 @@ $xlg : 64px;
 			margin-right: $amount
 		} @else if $direction == bottom {
 			margin-bottom: $amount
-		} @else {
+        } @else if $direction == auto {
+            margin: 0 auto;
+        } @else {
             margin: 0;
         }
 	}
-} /* @include space($type, $direction, $amount); */
+}
 
-/**************************************************************************************************
-    VISUAL ACCENTS: borders, shadows and opacity
-**************************************************************************************************/
+@mixin background($type: color, $value: #000000){
+    @if $type == color {
+        background: $value;
+    } @else if $type == image {
+        background: $value no-repeat;
+    }
+}
 
-@mixin border($direction: all, $size: 1px, $type: solid, $color: lighten($black, 50%)) {
+@mixin border($direction: all, $size: 1px, $type: solid, $color: #000000) {
     @if $direction == all {
         border: $size $type $color;
     } @else if $direction == top {
@@ -535,10 +485,10 @@ $xlg : 64px;
         border-right: $size $type $color;
     } @else if $direction == bottom {
         border-bottom: $size $type $color;
-    } @else if $direction == none {
+    } @else {
         border: 0 none transparent;
     }
-} /* @include border($direction, $size, $type, $color); */
+}
 
 @mixin radius($direction: all, $size: 3px) {
     @if $direction == all {
@@ -554,38 +504,34 @@ $xlg : 64px;
     } @else {
         border: 0;
     }
-} /* @include radius($direction, $size); */
+}
 
-@mixin shadow($type: inset, $horizontal: 1px, $vertical: 1px, $blur: 3px, $spread: 3px, $color: lighten($black, 50%)) {
+@mixin shadow($type: inset, $horizontal: 1px, $vertical: 1px, $blur: 3px, $spread: 3px, $color: #000000) {
     @if $type == inset {
         box-shadow: inset $horizontal, $vertical, $blur, $spread, $color;
     } @else {
         box-shadow: $horizontal, $vertical, $blur, $spread, $color;
     }
-} /* @include radius($type, $horizontal, $vertical, $blur, $spread, $color); */
+}
 
-@mixin opacity($color: $black, $value: .5) {
+@mixin opacity($color: #000000, $value: .5) {
     opacity: $value;
     background: $color;
 }
 
-/**************************************************************************************************
-    LISTS AND TABLES
-**************************************************************************************************/
-
 @mixin list-table-style($type: none, $alt: table) {
     @if $type == ladder {
-        @include border(bottom, 1px, solid, lighten($black, 50%));
+        @include border(bottom, 1px, solid, #000000);
     } @else if $type == ladder-dotted {
-        @include border(bottom, 1px, dotted, lighten($black, 50%));
+        @include border(bottom, 1px, dotted, #000000);
     } @else if $type == zebra {
         @if $alt == list {
            li:nth-child(even) {
-               background: lighten($black, 80%)
+               background: #000000;
            }
         } @else if $alt == table {
             table tr:nth-child(even) td {
-                background: lighten($black, 80%)
+                background: #000000;
             }
         }
     } @else if $type == none {

@@ -1,272 +1,200 @@
 @import 'atoms';
 
-/**************************************************
-    RESET
-**************************************************/
-
 @-ms-viewport {
     width: device-width;
 }
 
 * {
-    @include border(none);
-    @include font-style();
-    @include space(margin, all, 0);
-    @include space(padding, all, 0);
-    @include font-style(no-underline);
-    @include align();
-    @include width();
-    @include reset();
+    @include universal-reset;
 }
 
 html {
-    @include overflow(y-scroll);
-}
-
-img {
-    @include align(middle);
-}
-
-table {
-    @include table-reset;
-}
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section,
-summary {
-    @include display(block);
-}
-
-dt,
-dd {
-    @include display(inline);
-}
-
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-button,
-a {
-    cursor: pointer;
-}
-
-input[type="text"] {
-    @include border(all, 1px, solid, #d6d6d6);
-    @include space(padding, all, $sm);
-    @include width(100%);
-}
-
-$hand: pointer;
-
-/**************************************************
-    GRID
-**************************************************/
-
-.container {
-    @include display(block);
-}
-
-.row {
-    @include flex-row();
-}
-
-.column {
-    @include flex-column();
-}
-
-.column-1 {
-    @include flex-size(8.333333%);
-}
-
-.column-2 {
-    @include flex-size(16.666667%);
-}
-
-.column-3 {
-    @include flex-size(25%);
-}
-
-.column-4 {
-    @include flex-size(33.333333%);
-}
-
-.column-5 {
-    @include flex-size(41.666667%);
-}
-
-.column-6 {
-    @include flex-size(50%);
-}
-
-.column-7 {
-    @include flex-size(58.333333%);
-}
-
-.column-8 {
-    @include flex-size(66.666667%);
-}
-
-.column-9 {
-    @include flex-size(75%);
-}
-
-.column-10 {
-    @include flex-size(83.333333%);
-}
-
-.column-11 {
-    @include flex-size(91.666667);
-}
-
-.column-12 {
-    @include flex-size(100%);
-}
-
-/**************************************************
-    PAGE
-**************************************************/
-
-html {
-    @include font();
-    background: lighten($black, 90%);
+    @include html;
+    @include background(color, lighten($gray, 40%));
 }
 
 body {
-    @include font-size($base-size);
-    color: lighten($black, 10%);
+    @include space(margin, auto);
+    @include font-size(16px);
+    color: darken($gray, 40%);
     max-width: 90%;
-    margin: 0 auto;
+}
+
+/* typography */
+.title {
+    @include font-size(18px);
+}
+
+.subtitle,
+.subtitle label {
+    @include font-size(14px);
+    @include font-style(bold);
+}
+
+
+/* page */
+header {
+    @include space(padding, all, $med);
+    @include background(color, $primary);
+
+    .grid-3 {
+        @include flex-row;
+
+        .col-1 {
+            @include flex-column(15%);
+            @include type-position(left);
+        }
+    
+        .col-2 {
+            @include flex-column(60%);
+        }
+    
+        .col-3 {
+            @include flex-column(25%);
+            @include type-position(right);
+            color: $white;
+    
+            label,
+            .icon,
+            .link {
+                color: $white;
+            }
+    
+            .link:hover {
+                @include font-style(underline);
+            }
+    
+        }
+    }
 }
 
 main {
+
+    @include background(color, $white);
     @include space(padding, all, $med);
-    background: $white;
+
+    .grid-2 {
+        @include flex-row;
+
+        .col-1 {
+            @include flex-column(50%);
+            @include type-position(left);
+        }
+
+        .col-2 {
+            @include flex-column(50%);
+            @include type-position(right);
+        }
+    }
 }
 
-
-/**************************************************
-    COMPONENT
-**************************************************/
-
-/* links and button components */
-.icon-link,
-.link {
-    color: darken($primary, 5%);
+/* status components */
+.flag-good {
+    color: $good;
 }
 
-/* button component */
-.icon-button {
-    @include border(all, 1px, solid, lighten($black, 80%));
-    color: darken($primary, 5%);
-    background: lighten($black, 90%);
+/* button components */
+.button-primary {
+    @include background(color, $primary);
+    @include border(all, 1px, solid, $primary);
+    @include radius(all, 3px);
+    @include space(padding, all, $sm);
+    color: $white;
 }
 
-/* form components */
+.button-primary:hover {
+    @include background(color, darken($primary, 10%));
+}
 
+.button-secondary {
+    @include background(color, $white);
+    @include border(all, 1px, solid, $primary);
+    @include radius(all, 3px);
+    @include space(padding, all, $sm);
+    color: $primary;
+}
+
+.button-secondary:hover {
+    @include border(all, 1px, solid, darken($primary, 10%));
+    color: darken($primary, 10%);
+}
+
+.button-icon-link {
+    color: $primary;
+}
+
+.button-icon-link:hover {
+    color: darken($primary, 10%);
+}
+
+.button-icon-link-secondary {
+    color: $gray;
+}
+
+.button-icon-link-secondary:hover {
+    color: darken($gray, 10%);
+}
+
+/* search component */
 .search {
     @include display(block);
-    @include space(margin, top, $med);
-
-    .ui-inputgroup {
-        @include flex-row();
-
-        .ui-inputtext {
-            @include display(inline-block);
-            @include width(100%);
-        }
-
-        .icon-button {
-            @include display(inline-block);
-            @include width();
-            @include space(padding, top, $xs);
-            @include space(padding, bottom, $xs);
-            @include space(padding, left, $med);
-            @include space(padding, right, $med);
-        }
-    }
+    @include width(100%);
+    @include space(margin, top, $lg);
+    @include space(margin, bottom, $lg);
 }
 
-/* header component */
-header {
-    @include flex-row();
-    @include space(padding, all, $med);
-    background: darken($primary, 5%);
-}
+/* navigation component */
+nav {
+    @include width(100%);
 
-header .column:first-child {
-    @include type-position(left);
-}
-
-header .column:last-child {
-    @include type-position(right);
-    color: $white;
-    
-    .header-link {
+    .nav-link {
+        @include display(inline-block);
+        @include space(padding, all, $med);
+        @include type-position(center);
+        @include background($primary);
         color: $white;
     }
-    
-    .header-link:hover {
-        @include font-style(underline);
-    }
 }
 
-/* main navigation component */
-.main-nav {
+/* card component */
+.card {
     @include display(block);
-    @include type-position(center);
+    @include width(100%);
+    @include space(padding, all, $sm);
+    @include border(all, 1px, solid, $gray);
+    @include radius(all, 3px);
 
-    .nav-wrapper {
-        margin: 0 auto;
+    .grid-3 {
+        @include flex-row;
 
-        .nav-link {
-            @include display(inline-block);
-            @include space(margin, right, -2px);
-            @include space(padding, all, $med);
-            @include type-position(center);
-            background: $primary;
-            min-width: 200px;
-            cursor: $hand;
+        .col-1,
+        .col-3 {
+            @include flex-column(48px);
+            @include font-size(22px);
+        }
 
-            a {
-                color: $white;
+        .col-1 {
+            @include type-position(left);
+        }
+
+        .col-3 {
+            @include type-position(right);
+        }
+
+        .col-2 {
+            @include flex-column(90%);
+
+            .grid-2 {
+                @include flex-row;
+
+                .col-1 {
+                    @include flex-column(45%);
+                }
+
+                .col-2 {
+                    @include flex-column(45%);
+                }
             }
         }
-
-        .nav-link:first-child {
-            @include radius(top-left);
-            @include radius(bottom-left);
-        }
-
-        .nav-link:last-child {
-            @include radius(top-right);
-            @include radius(bottom-right);
-        }
-
-        .nav-link:hover {
-            background: lighten($primary, 5%);
-        }
     }
-}
-
-/* command bar component */
-.commandbar {
-    @include flex-row();
-}
-
-.commandbar .column:first-child {
-    @include type-position(left);
-}
-
-.commandbar .column:last-child {
-    @include type-position(right);
 }

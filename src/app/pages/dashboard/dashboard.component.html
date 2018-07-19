@@ -1,16 +1,17 @@
 <app-header></app-header>
 
 <main>
-    <div class="commandbar">
-        <div class="column">
-            <a class="icon-link"><i class="fas fa-plus-square"></i>&nbsp;Create Project</a>
+    <div class="grid-2">
+        <div class="col-1">
+            <a class="button-icon-link"><i class="fas fa-plus-square"></i>&nbsp; Create New Project</a>
+        </div>
+        <div class="col-2">
+            <a href="#" class="button-primary">Save</a>&nbsp;<a href="#" class="button-secondary">Close</a>
         </div>
     </div>
     <div class="search">
-        <!-- PrimeNG input component goes here -->
-        <div class="ui-inputgroup">
-            <input type="text" pInputText placeholder="Search">   
-            <span class="ui-inputgroup-addon"><a href="#" class="icon-button"><i class="fas fa-search"></i></a></span>      
-        </div>
+        <!-- placeholder for PrimeNG input text with button addon -->
+        <input type="text" placeholder="Search" style="font-size: 1rem; width: 95%; border: 1px solid #808080; border-radius: 3px; padding: 8px;">&nbsp;<a href="#" class="button-primary"><i class="fas fa-search"></i></a>
     </div>
+    <app-projectcard></app-projectcard>
 </main>
