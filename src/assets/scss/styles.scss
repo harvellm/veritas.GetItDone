@@ -93,6 +93,38 @@ main {
     color: $good;
 }
 
+.flag-caution {
+    color: $caution;
+}
+
+.flag-warning {
+    color: $warning;
+}
+
+.progress-good {
+    @include type-position(center);
+    @include width(65%);
+    @include radius(all, 9px);
+    height: 14px;
+    background: $good;
+}
+
+.progress-warning {
+    @include type-position(center);
+    @include width(46%);
+    @include radius(all, 9px);
+    height: 14px;
+    background: $warning;
+}
+
+.progress-caution {
+    @include type-position(center);
+    @include width(75%);
+    @include radius(all, 9px);
+    height: 14px;
+    background: $caution;
+}
+
 /* button components */
 .button-primary {
     @include background(color, $primary);
@@ -193,6 +225,12 @@ nav {
 
                 .col-2 {
                     @include flex-column(45%);
+                    @include flex-self(center);
+
+                    label {
+                        @include display(block);
+                        @include font-size(14px);
+                    }
                 }
             }
         }
