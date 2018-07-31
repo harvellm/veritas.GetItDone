@@ -26,6 +26,11 @@ body {
     color: $gray;
 }
 
+.link {
+    color: $primary;
+    @include font-style(underline);
+}
+
 /* typography */
 .title {
     @include font-size(18px);
@@ -185,14 +190,14 @@ main {
 .form-group {
     @include width(100%);
     @include space(margin, top, 1rem);
+}
 
-    .form-input {
-        @include space(margin, top, 16px);
-        @include space(margin, bottom, 16px);
+.form-input {
+    @include space(margin, top, 16px);
+    @include space(margin, bottom, 16px);
 
-        .grid-2 {
-            @include space(padding, top, 8px);
-        }
+    .grid-2 {
+        @include space(padding, top, 8px)
     }
 }
 
@@ -448,5 +453,21 @@ nav {
                 }
             }
         }
+    }
+}
+
+/* login component */
+.login {
+    @include position(fixed);
+    @include width(30%);
+    @include space(padding, all, 1rem);
+    @include shadow(outer, -1px, -1px, 5px, 5px ,rgba(0, 0, 0, 0.20));
+    background: $white;
+    left: 35%;
+    right: 35%;
+    top: 30%;
+
+    .form-group {
+        @include space(margin, top, 0)
     }
 }
