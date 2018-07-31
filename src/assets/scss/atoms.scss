@@ -18,48 +18,50 @@ $med: 16px;
 $lg: 32px;
 $xlg: 64px;
 
-@mixin universal-reset {
-    background: none;
-    border: 0;
-    font-style: normal;
-    font-weight: normal;
-    height: auto;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    text-decoration: none;
-    vertical-align: baseline;
-    width: auto;
-    -webkit-margin-before: 0;
-    -webkit-margin-end: 0;
-    -webkit-margin-after: 0;
-    -webkit-margin-start: 0;
-    -webkit-padding-before: 0;
-    -webkit-padding-end: 0;
-    -webkit-padding-after: 0;
-    -webkit-padding-start: 0;
-    -webkit-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-appearance: none;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
+@mixin reset {
+    * {
+        background: none;
+        border: 0;
+        font-style: normal;
+        font-weight: normal;
+        height: auto;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        outline: 0;
+        text-decoration: none;
+        vertical-align: baseline;
+        width: auto;
+        -webkit-margin-before: 0;
+        -webkit-margin-end: 0;
+        -webkit-margin-after: 0;
+        -webkit-margin-start: 0;
+        -webkit-padding-before: 0;
+        -webkit-padding-end: 0;
+        -webkit-padding-after: 0;
+        -webkit-padding-start: 0;
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-appearance: none;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
 
-@mixin html {
-    font-size: 100%;
-    overflow-y: scroll;
-    font-family: $base-font;
-    font-size: $base-size;
-    line-height: $base-scale;
-    
+    html {
+        font-size: 100%;
+        overflow-y: scroll;
+        font-family: $base-font;
+        font-size: $base-size;
+        line-height: $base-scale;
+    }
+
     img {
         vertical-align: middle;
     }
@@ -98,6 +100,7 @@ $xlg: 64px;
     a {
         cursor: pointer;
     }
+
 }
 
 @function calculate-font($size) {
@@ -506,11 +509,11 @@ $xlg: 64px;
     }
 }
 
-@mixin shadow($type: inset, $horizontal: 1px, $vertical: 1px, $blur: 3px, $spread: 3px, $color: #000000) {
+@mixin shadow($type: false, $horizontal: 1px, $vertical: 1px, $blur: 3px, $spread: 3px, $color: rgba(0,0,0,0.50)) {
     @if $type == inset {
-        box-shadow: inset $horizontal, $vertical, $blur, $spread, $color;
+        box-shadow: inset $horizontal $vertical $blur $spread $color;
     } @else {
-        box-shadow: $horizontal, $vertical, $blur, $spread, $color;
+        box-shadow: $horizontal $vertical $blur $spread $color;
     }
 }
 
@@ -519,23 +522,37 @@ $xlg: 64px;
     background: $color;
 }
 
-@mixin list-table-style($type: none, $alt: table) {
-    @if $type == ladder {
+@mixin table-style($value: none) {
+    @if $value == standard {
+        @include border(all, 1px, solid, #000000);
+    } @else if $value == ladder {
         @include border(bottom, 1px, solid, #000000);
-    } @else if $type == ladder-dotted {
+    } @else if $value == ladder-dotted {
         @include border(bottom, 1px, dotted, #000000);
-    } @else if $type == zebra {
-        @if $alt == list {
-           li:nth-child(even) {
-               background: #000000;
-           }
-        } @else if $alt == table {
-            table tr:nth-child(even) td {
-                background: #000000;
-            }
+    } @else if $value == zebra {
+        table tr:nth-child(even) td {
+            background: #000000;
         }
-    } @else if $type == none {
+    } @else {
         @include border();
+        background: none;
+    }
+}
+
+@mixin list-style($value: none) {
+    @if $value == bullet {
+        list-style: disc;
+    } @else if $value == ladder {
+        @include border(bottom, 1px, solid, #000000);
+    } @else if $value == ladder-dotted {
+        @include border(bottom, 1px, dotted, #000000);
+    } @else if $value == zebra {
+        table li:nth-child(even) td {
+            background: #000000;
+        }
+    } @else {
+        @include border();
+        list-style: none;
         background: none;
     }
 }
