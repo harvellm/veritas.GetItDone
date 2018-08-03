@@ -2,23 +2,23 @@
     <div class="form-group">
         <ul>
             <li class="form-input">
-                <!-- PrimeNG input text (placeholder only for demo) -->
-                <div class="input-text">
-                    <input type="text" placeholder="User Name" class="ui-inputtext ui-corner-all ui-state-default">
-                </div>
+                <span class="ui-float-label">
+                    <input id="UserName" type="text" pInputText>
+                    <label for="UserName">User Name</label>
+                </span>
             </li>
             <li class="form-input">
-                <!-- PrimeNG input text (placeholder only for demo) -->
-                <div class="input-text">
-                    <input type="text" placeholder="Password" class="ui-inputtext ui-corner-all ui-state-default">
-                </div>
+                <span class="ui-float-label">
+                    <input id="UserName" type="text" pInputText>
+                    <label for="UserName">Password</label>
+                </span>
             </li>
             <li class="form-input button-primary txt-center">
-                Login
+                <button pButton id="btnLogin" type="button" label="Login" class="button-primary"></button>
             </li>
         </ul>
         <p>
-            <a class="link" href="#">Forgot Password</a>
+            <a id="lnkForgotPassword" class="link" href="#">Forgot Password</a>
         </p>
     </div>
 </div>

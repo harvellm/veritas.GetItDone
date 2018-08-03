@@ -1,40 +1,22 @@
-<div class="ui-overlaypanel">
-  <ul class="form-group">
-      <li class="form-input">
-          <div class="input-dropdown">
-              <!-- PrimeNG input dropdown (placeholder only for demo) -->
-              <div class="ui-dropdown ui-state-default ui-corner-all">
-                  <label class="ui-dropdown-label ui-inputtext ui-corner-all">Choose Report</label>
-                  <div class="ui-dropdown-trigger ui-state-default ui-corner-right">
-                      <span class="ui-dropdown-trigger-icon">
-                          <i class="fas fa-caret-down"></i>
-                      </span>
-                  </div>
-              </div>
-          </div>
-      </li>
-      <li class="form-input">
-          <div class="input-datepicker">
-              <!-- PrimeNG calendar (placeholder only for demo) -->
-              <div class="ui-calendar">
-                  <div class="ui-inputgroup">
-                      <span class="input-text"><input type="text" placeholder="Date From" class="ui-inputtext ui-corner-all ui-state-default"></span><span class="ui-inputgroup-addon button-primary"><i class="fas fa-calendar-alt"></i></span>
-                  </div>
-              </div>
-          </div>
-      </li>
-      <li class="form-input">
-          <div class="input-datepicker">
-              <!-- PrimeNG calendar (placeholder only for demo) -->
-              <div class="ui-calendar">
-                  <div class="ui-inputgroup">
-                      <span class="input-text"><input type="text" placeholder="Date To" class="ui-inputtext ui-corner-all ui-state-default"></span><span class="ui-inputgroup-addon button-primary"><i class="fas fa-calendar-alt"></i></span>
-                  </div>
-              </div>
-          </div>
-      </li>
-      <li class="form-input button-primary">
-          <label>View Report</label>
-      </li>
-  </ul>
-</div>
+<p-overlayPanel #op1>
+    <ul class="form-group">
+        <li class="form-input">
+            <div class="input-dropdown">
+                <p-dropdown [options]="reports" [(ngModel)]="selectedReport" placeholder="Select a Report" optionLabel="reports" [showClear]="false"></p-dropdown>
+            </div>
+        </li>
+        <li class="form-input">
+            <div class="input-datepicker">
+                <p-calendar [(ngModel)]="rptStartDate" [showIcon]="true"></p-calendar>
+            </div>
+        </li>
+        <li class="form-input">
+            <div class="input-datepicker">
+                <p-calendar [(ngModel)]="rptEndDate" [showIcon]="true"></p-calendar>
+            </div>
+        </li>
+        <li class="form-input">
+            <button pButton id="btnViewReport" type="button" label="View Report" class="button-primary"></button>
+        </li>
+    </ul>
+</p-overlayPanel>

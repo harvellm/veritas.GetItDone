@@ -87,6 +87,14 @@ body {
     }
 }
 
+.grid-1 {
+    @include flex-row;
+
+    .col-1 {
+        @include flex-column(100%);
+    }
+}
+
 /* page */
 header {
     @include space(padding, all, $med);
@@ -186,6 +194,34 @@ main {
     background: $caution;
 }
 
+/* button components */
+.button-primary {
+    @include background(color, $primary);
+    @include border(all, 1px, solid, $primary);
+    @include radius(all, 3px);
+    @include space(padding, all, $sm);
+    color: $white;
+    cursor: pointer;
+}
+
+.button-primary:hover {
+    @include background(color, darken($primary, 10%));
+}
+
+.button-secondary {
+    @include background(color, $white);
+    @include border(all, 1px, solid, $primary);
+    @include radius(all, 3px);
+    @include space(padding, all, $sm);
+    color: $primary;
+    cursor: pointer;
+}
+
+.button-secondary:hover {
+    @include border(all, 1px, solid, darken($primary, 10%));
+    color: darken($primary, 10%);
+}
+
 /* form components */
 .form-group {
     @include width(100%);
@@ -283,6 +319,17 @@ main {
             .ui-corner-all {
                 @include radius(all, 3px);
             }
+
+        }
+
+        .ui-button {
+            @include background(color, $primary);
+            @include border(all, 1px, solid, $primary);
+            @include radius(all, 3px);
+            @include space(padding, all, $sm);
+            @include space(margin, left, 3px);
+            color: $white;
+            cursor: pointer;
         }
     }
 }
@@ -301,50 +348,6 @@ main {
         @include align(middle);
     }
 
-}
-
-/* button components */
-.button-primary {
-    @include background(color, $primary);
-    @include border(all, 1px, solid, $primary);
-    @include radius(all, 3px);
-    @include space(padding, all, $sm);
-    color: $white;
-    cursor: pointer;
-}
-
-.button-primary:hover {
-    @include background(color, darken($primary, 10%));
-}
-
-.button-secondary {
-    @include background(color, $white);
-    @include border(all, 1px, solid, $primary);
-    @include radius(all, 3px);
-    @include space(padding, all, $sm);
-    color: $primary;
-    cursor: pointer;
-}
-
-.button-secondary:hover {
-    @include border(all, 1px, solid, darken($primary, 10%));
-    color: darken($primary, 10%);
-}
-
-.button-icon-link {
-    color: $primary;
-}
-
-.button-icon-link:hover {
-    color: darken($primary, 10%);
-}
-
-.button-icon-link-secondary {
-    color: $gray;
-}
-
-.button-icon-link-secondary:hover {
-    color: darken($gray, 10%);
 }
 
 /* search component */

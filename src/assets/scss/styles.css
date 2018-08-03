@@ -212,6 +212,30 @@ body {
   flex-basis: 50%;
 }
 
+.grid-1 {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap nowrap;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: stretch;
+  align-items: stretch;
+  -webkit-align-content: stretch;
+  align-content: stretch;
+}
+
+.grid-1 .col-1 {
+  -webkit-flex-grow: 0;
+  flex-grow: 0;
+  -webkit-flex-shrink: 1;
+  flex-shrink: 1;
+  -webkit-flex-basis: 100%;
+  flex-basis: 100%;
+}
+
 /* page */
 header {
   padding: 16px;
@@ -321,6 +345,34 @@ main .grid-2 .col-2 {
   background: #f0d800;
 }
 
+/* button components */
+.button-primary {
+  background: #308a00;
+  border: 1px solid #308a00;
+  border-radius: 3px;
+  padding: 8px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.button-primary:hover {
+  background: #1e5700;
+}
+
+.button-secondary {
+  background: #ffffff;
+  border: 1px solid #308a00;
+  border-radius: 3px;
+  padding: 8px;
+  color: #308a00;
+  cursor: pointer;
+}
+
+.button-secondary:hover {
+  border: 1px solid #1e5700;
+  color: #1e5700;
+}
+
 /* form components */
 .form-group {
   width: 100%;
@@ -422,6 +474,16 @@ main .grid-2 .col-2 {
   border-radius: 3px;
 }
 
+.input-datepicker .ui-calendar .ui-button {
+  background: #308a00;
+  border: 1px solid #308a00;
+  border-radius: 3px;
+  padding: 8px;
+  margin-left: 3px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
 .input-radio {
   display: inline-block;
 }
@@ -435,50 +497,6 @@ main .grid-2 .col-2 {
 .input-radio .ui-radiobutton-label {
   display: inline-block;
   vertical-align: middle;
-}
-
-/* button components */
-.button-primary {
-  background: #308a00;
-  border: 1px solid #308a00;
-  border-radius: 3px;
-  padding: 8px;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-.button-primary:hover {
-  background: #1e5700;
-}
-
-.button-secondary {
-  background: #ffffff;
-  border: 1px solid #308a00;
-  border-radius: 3px;
-  padding: 8px;
-  color: #308a00;
-  cursor: pointer;
-}
-
-.button-secondary:hover {
-  border: 1px solid #1e5700;
-  color: #1e5700;
-}
-
-.button-icon-link {
-  color: #308a00;
-}
-
-.button-icon-link:hover {
-  color: #1e5700;
-}
-
-.button-icon-link-secondary {
-  color: #808080;
-}
-
-.button-icon-link-secondary:hover {
-  color: #676767;
 }
 
 /* search component */

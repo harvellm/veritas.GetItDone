@@ -1,254 +1,171 @@
-<main class="ui-sidebar">
-    <div class="grid-2">
-        <div class="col-1">
-            <h1 class="title txt-primary">Your New Project</h1>
+<main>
+    <p-sidebar [(visible)]="ProjectInfo" position="top" [baseZIndex]="10000" [modal]="true">
+        <div class="grid-2">
+            <div class="col-1">
+                <h1 class="title txt-primary">Your New Project</h1>
+            </div>
+            <div class="col-2">
+                <button pButton id="btnSave" type="button" label="Save" class="button-primary"></button>&nbsp;<button pButton id="btnCancel" type="button" label="Cancel" class="button-secondary"></button>
+            </div>
         </div>
-        <div class="col-2">
-            <a href="#" class="button-primary">Save</a>&nbsp;<a href="#" class="button-secondary">Cancel</a>
-        </div>
-    </div>
-    <div class="grid-2">
-        <div class="col-1">
-            <ul class="form-group">
-                <li class="form-input">
-                    <div class="input-dropdown">
-                        <!-- PrimeNG input dropdown (placeholder only for demo) -->
-                        <div class="ui-dropdown ui-state-default ui-corner-all">
-                            <label class="ui-dropdown-label ui-inputtext ui-corner-all">Client Name</label>
-                            <div class="ui-dropdown-trigger ui-state-default ui-corner-right">
-                                <span class="ui-dropdown-trigger-icon">
-                                    <i class="fas fa-caret-down"></i>
-                                </span>
+        <div class="grid-2">
+            <div class="col-1">
+                <ul class="form-group">
+                    <li class="form-input">
+                        <div class="input-dropdown">
+                            <p-dropdown [options]="ClientName" [(ngModel)]="ClientName" placeholder="Select a Client" optionLabel="clients" [showClear]="false"></p-dropdown>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="input-dropdown">
+                            <p-dropdown [options]="ClientPriority" [(ngModel)]="ClientPriority" placeholder="Select a Priority" optionLabel="priority" [showClear]="false"></p-dropdown>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="input-text">
+                            <span class="ui-float-label"><input id="ProjectName" type="text" pInputText><label for="ProjectName">Project Name</label></span>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="input-dropdown">
+                            <p-dropdown [options]="ProjectLead" [(ngModel)]="ProjectLead" placeholder="Select a Project Lead" optionLabel="projectlead" [showClear]="false"></p-dropdown>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="input-dropdown">
+                            <p-dropdown [options]="ProjectStatus" [(ngModel)]="ProjectStatus" placeholder="Select a Project Status" optionLabel="projectstatus" [showClear]="false"></p-dropdown>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="input-dropdown">
+                            <p-dropdown [options]="ProjectHealth" [(ngModel)]="ProjectHealth" placeholder="Select a Project Health" optionLabel="projecthealth" [showClear]="false"></p-dropdown>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="input-datepicker">
+                            <p-calendar [(ngModel)]="ProjectStart" [showIcon]="true"></p-calendar>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="input-datepicker">
+                            <p-calendar [(ngModel)]="ProjectCompletion" [showIcon]="true"></p-calendar>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="input-datepicker">
+                            <p-calendar [(ngModel)]="ReleaseMonth" [showIcon]="true"></p-calendar>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="input-datepicker">
+                            <p-calendar [(ngModel)]="BillingMonth" [showIcon]="true"></p-calendar>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="grid-2">
+                            <div class="col-1">
+                                <label class="txt-gray">Ready to Start</label>
                             </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="input-dropdown">
-                        <!-- PrimeNG input dropdown (placeholder only for demo) -->
-                        <div class="ui-dropdown ui-state-default ui-corner-all">
-                            <label class="ui-dropdown-label ui-inputtext ui-corner-all">Client Priority</label>
-                            <div class="ui-dropdown-trigger ui-state-default ui-corner-right">
-                                <span class="ui-dropdown-trigger-icon">
-                                    <i class="fas fa-caret-down"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="input-text">
-                        <!-- PrimeNG input text (placeholder only for demo) -->
-                        <input type="text" placeholder="Search" class="ui-inputtext ui-corner-all ui-state-default">
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="input-dropdown">
-                        <!-- PrimeNG input dropdown (placeholder only for demo) -->
-                        <div class="ui-dropdown ui-state-default ui-corner-all">
-                            <label class="ui-dropdown-label ui-inputtext ui-corner-all">Project Lead</label>
-                            <div class="ui-dropdown-trigger ui-state-default ui-corner-right">
-                                <span class="ui-dropdown-trigger-icon">
-                                    <i class="fas fa-caret-down"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="input-dropdown">
-                        <!-- PrimeNG input dropdown (placeholder only for demo) -->
-                        <div class="ui-dropdown ui-state-default ui-corner-all">
-                            <label class="ui-dropdown-label ui-inputtext ui-corner-all">Project Status</label>
-                            <div class="ui-dropdown-trigger ui-state-default ui-corner-right">
-                                <span class="ui-dropdown-trigger-icon">
-                                    <i class="fas fa-caret-down"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="input-dropdown">
-                        <!-- PrimeNG input dropdown (placeholder only for demo) -->
-                        <div class="ui-dropdown ui-state-default ui-corner-all">
-                            <label class="ui-dropdown-label ui-inputtext ui-corner-all">Project Health</label>
-                            <div class="ui-dropdown-trigger ui-state-default ui-corner-right">
-                                <span class="ui-dropdown-trigger-icon">
-                                    <i class="fas fa-caret-down"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="input-datepicker">
-                        <!-- PrimeNG calendar (placeholder only for demo) -->
-                        <div class="ui-calendar">
-                            <div class="ui-inputgroup">
-                                <span class="input-text"><input type="text" placeholder="Project Start" class="ui-inputtext ui-corner-all ui-state-default"></span><span class="ui-inputgroup-addon button-primary"><i class="fas fa-calendar-alt"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="input-datepicker">
-                        <!-- PrimeNG calendar (placeholder only for demo) -->
-                        <div class="ui-calendar">
-                            <div class="ui-inputgroup">
-                                <span class="input-text"><input type="text" placeholder="Project Completion" class="ui-inputtext ui-corner-all ui-state-default"></span><span class="ui-inputgroup-addon button-primary"><i class="fas fa-calendar-alt"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="input-datepicker">
-                        <!-- PrimeNG calendar (placeholder only for demo) -->
-                        <div class="ui-calendar">
-                            <div class="ui-inputgroup">
-                                <span class="input-text"><input type="text" placeholder="Release Month" class="ui-inputtext ui-corner-all ui-state-default"></span><span class="ui-inputgroup-addon button-primary"><i class="fas fa-calendar-alt"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="input-datepicker">
-                        <!-- PrimeNG calendar (placeholder only for demo) -->
-                        <div class="ui-calendar">
-                            <div class="ui-inputgroup">
-                                <span class="input-text"><input type="text" placeholder="Billing Month" class="ui-inputtext ui-corner-all ui-state-default"></span><span class="ui-inputgroup-addon button-primary"><i class="fas fa-calendar-alt"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="grid-2">
-                        <div class="col-1">
-                            <label class="txt-gray">Ready to Start</label>
-                        </div>
-                        <div class="col-2">
-                            <div class="input-radio">
-                                <!-- PrimeNG radio button (placeholder only for demo) -->
-                                <div class="ui-radiobutton">
-                                    <div class="ui-radiobutton-box ui-state-default">
-                                        <span class="ui-radiobutton-icon"></span>
-                                    </div>
-                                    <label class="ui-radiobutton-label">Yes</label>
+                            <div class="col-2">
+                                <div class="input-radio">
+                                    <p-radioButton name="ReadyToStart" value="Yes" [(ngModel)]="selectedValue"></p-radioButton>
                                 </div>
-                            </div>
-                            <div class="input-radio">
-                                <!-- PrimeNG radio button (placeholder only for demo) -->
-                                <div class="ui-radiobutton">
-                                    <div class="ui-radiobutton-box ui-state-default">
-                                        <span class="ui-radiobutton-icon"></span>
-                                    </div>
-                                    <label class="ui-radiobutton-label">No</label>
+                                <div class="input-radio">
+                                    <p-radioButton name="ReadyToStart" value="No" [(ngModel)]="selectedValue"></p-radioButton>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-2">
+                <ul class="form-group">
+                    <li class="form-input">
+                        <div class="input-text">
+                            <span class="ui-float-label"><input id="EstDevelopment" type="text" pInputText><label for="EstDevelopment">Estimated Development</label></span>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="input-text">
+                            <span class="ui-float-label"><input id="EstDatabase" type="text" pInputText><label for="EstDatabase">Estimated Database</label></span>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="input-text">
+                            <span class="ui-float-label"><input id="EstVDP" type="text" pInputText><label for="EstVDP">Estimated VDP</label></span>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="input-text">
+                            <span class="ui-float-label"><input id="EstBAPM" type="text" pInputText><label for="EstBAPM">Estimated BA/PM</label></span>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="input-text">
+                            <span class="ui-float-label"><input id="EstQA" type="text" pInputText><label for="EstQA">Estimated QA</label></span>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="grid-2">
+                            <div class="col-1">
+                                <label class="subtitle txt-gray">Estimated Total</label>
+                            </div>
+                            <div class="col-2 txt-right">
+                                <label class="subtitle txt-gray">0 Hours</label>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="form-group">
+                    <li class="form-input">
+                        <div class="input-text">
+                            <span class="ui-float-label"><input id="RemainDevelopment" type="text" pInputText><label for="RemainDevelopment">Remaining Development</label></span>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="input-text">
+                            <span class="ui-float-label"><input id="RemainDatabase" type="text" pInputText><label for="RemainDatabase">Remaining Database</label></span>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="input-text">
+                            <span class="ui-float-label"><input id="RemainVDP" type="text" pInputText><label for="RemainVDP">Remaining VDP</label></span>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="input-text">
+                            <span class="ui-float-label"><input id="RemainBAPM" type="text" pInputText><label for="RemainBAPM">Remaining BA/PM</label></span>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="input-text">
+                            <span class="ui-float-label"><input id="RemainQA" type="text" pInputText><label for="RemainQA">Remaining QA</label></span>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <div class="grid-2">
+                            <div class="col-1">
+                                <label class="subtitle txt-gray">Total</label> 
+                            </div>
+                            <div class="col-2 txt-right">
+                                <labe class="subtitle txt-gray">0 Hours</labe>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="form-group">
+                    <li class="form-input">
+                        <div class="grid-2">
+                            <span class="col-1">
+                                <label class="subtitle txt-primary">Monthly WIP</label>
+                            </span>
+                            <span class="col-2 txt-right">
+                                <label class="subtitle txt-primary">0 Hours</label>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="col-2">
-            <ul class="form-group">
-                <li class="form-input">
-                    <div class="input-text">
-                        <!-- PrimeNG input text (placeholder only for demo) -->
-                        <input type="text" placeholder="Estimated Development" class="ui-inputtext ui-corner-all ui-state-default">
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="input-text">
-                        <!-- PrimeNG input text (placeholder only for demo) -->
-                        <input type="text" placeholder="Estimated Database" class="ui-inputtext ui-corner-all ui-state-default">
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="input-text">
-                        <!-- PrimeNG input text (placeholder only for demo) -->
-                        <input type="text" placeholder="Estimated VDP" class="ui-inputtext ui-corner-all ui-state-default">
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="input-text">
-                        <!-- PrimeNG input text (placeholder only for demo) -->
-                        <input type="text" placeholder="Estimated BA/PM" class="ui-inputtext ui-corner-all ui-state-default">
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="input-text">
-                        <!-- PrimeNG input text (placeholder only for demo) -->
-                        <input type="text" placeholder="Estimated QA" class="ui-inputtext ui-corner-all ui-state-default">
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="grid-2">
-                        <div class="col-1">
-                            <label class="subtitle txt-gray">Estimated Total</label>
-                        </div>
-                        <div class="col-2 txt-right">
-                            <label class="subtitle txt-gray">0 Hours</label>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <ul class="form-group">
-                <li class="form-input">
-                    <div class="input-text">
-                        <!-- PrimeNG input text (placeholder only for demo) -->
-                        <input type="text" placeholder="Remaining Development" class="ui-inputtext ui-corner-all ui-state-default">
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="input-text">
-                        <!-- PrimeNG input text (placeholder only for demo) -->
-                        <input type="text" placeholder="Remaining Database" class="ui-inputtext ui-corner-all ui-state-default">
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="input-text">
-                        <!-- PrimeNG input text (placeholder only for demo) -->
-                        <input type="text" placeholder="Remaining VDP" class="ui-inputtext ui-corner-all ui-state-default">
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="input-text">
-                        <!-- PrimeNG input text (placeholder only for demo) -->
-                        <input type="text" placeholder="Remaining BA/PM" class="ui-inputtext ui-corner-all ui-state-default">
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="input-text">
-                        <!-- PrimeNG input text (placeholder only for demo) -->
-                        <input type="text" placeholder="Remaning QA" class="ui-inputtext ui-corner-all ui-state-default">
-                    </div>
-                </li>
-                <li class="form-input">
-                    <div class="grid-2">
-                        <div class="col-1">
-                            <label class="subtitle txt-gray">Total</label> 
-                        </div>
-                        <div class="col-2 txt-right">
-                            <labe class="subtitle txt-gray">0 Hours</labe>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <ul class="form-group">
-                <li class="form-input">
-                    <div class="grid-2">
-                        <span class="col-1">
-                            <label class="subtitle txt-primary">Monthly WIP</label>
-                        </span>
-                        <span class="col-2 txt-right">
-                            <label class="subtitle txt-primary">0 Hours</label>
-                        </span>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-    
+    </p-sidebar>
 </main>
-<div class="ui-widget-overlay ui-sidebar-mask"></div>
