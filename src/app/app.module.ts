@@ -1,6 +1,7 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {FormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginmainComponent } from './pages/loginmain/loginmain.component';
@@ -15,6 +16,15 @@ import { ProjectinfoComponent } from './components/projectinfo/projectinfo.compo
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReportpickerComponent } from './components/reportpicker/reportpicker.component';
+import {ProgressBarModule} from 'primeng/progressbar';
+import {InputTextModule} from 'primeng/inputtext';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {DropdownModule} from 'primeng/dropdown';
+import {CalendarModule} from 'primeng/calendar';
+import {ButtonModule} from 'primeng/button';
+import {SidebarModule} from 'primeng/sidebar';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +44,17 @@ import { ReportpickerComponent } from './components/reportpicker/reportpicker.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    FormsModule,
+    AppRoutingModule,
+    ProgressBarModule,
+    InputTextModule,
+    RadioButtonModule,
+    DropdownModule,
+    CalendarModule,
+    ButtonModule,
+    SidebarModule,
+    OverlayPanelModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]
