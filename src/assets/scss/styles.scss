@@ -195,7 +195,8 @@ main {
 }
 
 /* button components */
-.button-primary {
+.button-primary,
+.ui-button.button-primary {
     @include background(color, $primary);
     @include border(all, 1px, solid, $primary);
     @include radius(all, 3px);
@@ -204,8 +205,12 @@ main {
     cursor: pointer;
 }
 
-.button-primary:hover {
+.button-primary:hover,
+.ui-button.button-primary:enabled:hover,
+.ui-button.button-primary:enabled:active,
+.ui-button.button-primary:focus {
     @include background(color, darken($primary, 10%));
+    @include border(all, 1px, solid, $primary);
 }
 
 .button-secondary {
@@ -240,7 +245,7 @@ main {
 .input-text {
     @include width(100%);
 
-    input[type="text"] {
+    .ui-inputtext {
         @include width(100%);
         @include font-size(16px);
         @include space(padding, top, 7px);
@@ -462,12 +467,12 @@ nav {
 /* login component */
 .login {
     @include position(fixed);
-    @include width(30%);
+    @include width(26%);
     @include space(padding, all, 1rem);
-    @include shadow(outer, -1px, -1px, 5px, 5px ,rgba(0, 0, 0, 0.20));
+    @include shadow(outer, 1px, 2px, 5px, 1px ,rgba(0, 0, 0, 0.10));
     background: $white;
-    left: 35%;
-    right: 35%;
+    left: 37%;
+    right: 37%;
     top: 30%;
 
     .form-group {
