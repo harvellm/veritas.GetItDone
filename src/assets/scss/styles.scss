@@ -58,6 +58,11 @@ body {
     @include type-position(center);
 }
 
+.container {
+    @include display(block);
+    @include width(100%);
+}
+
 /* grid */
 .grid-3 {
     @include flex-row;
@@ -130,8 +135,6 @@ main {
     @include space(padding, all, $med);
 
     .grid-2 {
-        @include space(margin, top, 1rem);
-
         .col-1 {
             @include type-position(left);
             @include space(margin, right, 2rem);
@@ -142,19 +145,6 @@ main {
             @include space(margin, left, 2rem);
         }
     }
-}
-
-/* overlay component */
-.ui-widget-overlay {
-    @include opacity($black, .5);
-    z-index: 1;
-}
-
-/* modal component */
-.ui-sidebar {
-    @include width(90%);
-    @include space(auto);
-    z-index: 10;
 }
 
 /* health status components (flags and progress) */
@@ -208,12 +198,16 @@ main {
 .button-primary:hover,
 .ui-button.button-primary:enabled:hover,
 .ui-button.button-primary:enabled:active,
-.ui-button.button-primary:focus {
+.ui-button.button-primary:focus,
+.input-datepicker .ui-calendar .ui-button:enabled:hover,
+.input-datepicker .ui-calendar .ui-button:enabled:active,
+.input-datepicker .ui-calendar .ui-button:focus {
     @include background(color, darken($primary, 10%));
     @include border(all, 1px, solid, $primary);
 }
 
-.button-secondary {
+.button-secondary,
+.ui-button.button-secondary {
     @include background(color, $white);
     @include border(all, 1px, solid, $primary);
     @include radius(all, 3px);
@@ -222,9 +216,13 @@ main {
     cursor: pointer;
 }
 
-.button-secondary:hover {
+.button-secondary:hover,
+.ui-button.button-secondary:enabled:hover,
+.ui-button.button-secondary:enabled:active,
+.ui-button.button-secondary:focus, {
     @include border(all, 1px, solid, darken($primary, 10%));
     color: darken($primary, 10%);
+    background: $white;
 }
 
 /* form components */
@@ -245,6 +243,14 @@ main {
 .input-text {
     @include width(100%);
 
+    .ui-inputgroup {
+        @include flex-align(center);
+    }
+    
+    .ui-float-label {
+        @include width(100%);
+    }
+
     .ui-inputtext {
         @include width(100%);
         @include font-size(16px);
@@ -253,8 +259,9 @@ main {
     }
 
     .ui-inputgroup-addon {
-        @include space(padding, left, .5rem);
-        @include space(padding, right, .5rem);
+        @include border(none);
+        @include space(padding, all, 0);
+        background: none;
     }
 
     .ui-state-default {
@@ -270,14 +277,13 @@ main {
     @include width(100%);
 
     .ui-dropdown {
-        @include width(100%);
+        @include width(100% $important);
 
         .ui-dropdown-trigger {
             @include border(none);
         }
 
         .ui-dropdown-trigger-icon {
-            @include space(margin, top, -.7em);
             @include font-size(24px);
             color: $gray;
         }
@@ -341,6 +347,7 @@ main {
 
 .input-radio {
     @include display(inline-block);
+    @include space(margin, right, $sm);
 
     .ui-radiobutton-box {
         @include display(inline-block);
@@ -351,20 +358,26 @@ main {
     .ui-radiobutton-label {
         @include display(inline-block);
         @include align(middle);
+        color: $gray;
     }
 
 }
 
-/* search component */
 .search {
-    @include display(block);
-    @include width(100%);
     @include space(margin, top, $lg);
     @include space(margin, bottom, $lg);
 
-    .button-primary {
-        @include radius(top-left, 0);
-        @include radius(bottom-left, 0);
+    .ui-inputtext {
+        @include space(padding, top, 12px);
+        @include space(padding, bottom, 12px);
+    }
+
+    .ui-inputgroup-addon .ui-button:last-child {
+        @include radius(top-left, 0 $important);
+        @include radius(bottom-left, 0 $important);
+        @include radius(top-right, 3px);
+        @include radius(bottom-right, 3px);
+        @include space(margin, right, $sm);
     }
 }
 
@@ -401,6 +414,7 @@ nav {
 
     .nav-link:last-child {
         @include position(relative);
+        @include space(margin, left, $sm);
 
         .ui-overlaypanel {
             @include position(absolute);
@@ -412,6 +426,12 @@ nav {
             background: $white;
         }
     }
+}
+
+/* pagination component */
+.ui-paginator.ui-widget-header {
+    @include border(none);
+    background: none;
 }
 
 /* card component */
@@ -477,5 +497,62 @@ nav {
 
     .form-group {
         @include space(margin, top, 0)
+    }
+}
+
+/* overlay component */
+.ui-widget-overlay {
+    @include opacity($black, .5);
+    z-index: 1;
+}
+
+/* modal component */
+.ui-sidebar {
+    @include width(100%);
+    z-index: 10;
+}
+
+.ui-sidebar-top {
+    height: 0;
+}
+
+.ui-sidebar-close {
+    @include display(none);
+}
+
+.ui-sidebar-content {
+    @include space(padding, top, $lg);
+    @include space(padding, bottom, $lg);
+    @include space(padding, left, $med);
+    @include space(padding, right, $med);
+    background: #fff;
+
+    .form-input {
+        @include space(margin, top, 22px);
+        @include space(margin, bottom, 22px);
+    }
+
+    .ui-dropdown {
+        height: 35px;
+    }
+
+    .col-1 {
+        @include space(padding, right, $med);
+    }
+
+    .col-2 {
+        @include space(padding, left, $med);
+    }
+}
+
+/* media queries */
+@media (min-width: 1280px) {
+    body {
+        max-width: 1140px;
+    }
+
+    .ui-sidebar-content {
+        @include space(margin, auto);
+        max-width: 1140px;
     }
 }

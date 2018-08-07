@@ -24,6 +24,7 @@ import {CalendarModule} from 'primeng/calendar';
 import {ButtonModule} from 'primeng/button';
 import {SidebarModule} from 'primeng/sidebar';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
+import {PaginatorModule} from 'primeng/paginator';
 import { NewpasswordComponent } from './newpassword/newpassword.component';
 
 
@@ -56,7 +57,8 @@ import { NewpasswordComponent } from './newpassword/newpassword.component';
     CalendarModule,
     ButtonModule,
     SidebarModule,
-    OverlayPanelModule
+    OverlayPanelModule,
+    PaginatorModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

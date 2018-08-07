@@ -1,18 +1,19 @@
 <app-header></app-header>
 
 <main>
-    <div class="grid-1">
-        <div class="col-1 txt-left">
-            <button pButton id="btnCreateProject" type="button" label="Create Project" icon="pi pi-plus" class="button-primary"></button>
+    <div class="container txt-left">
+            <button pButton id="btnCreateProject" type="button" label="Create Project" icon="pi pi-plus" routerLink="/projectinfo" class="button-primary"></button>
+    </div>
+    <div class="container input-text">
+        <div class="ui-inputgroup search">
+            <span class="ui-float-label"><input id="Search" type="text" pInputText><label for="UserName">Search</label></span>
+            <span class="ui-inputgroup-addon"><button pButton id="btnSearch" type="button" label="Search" class="button-primary"></button></span>
         </div>
     </div>
-    <div class="search">
-        <div class="input-text">
-            <div class="ui-inputgroup">
-                <span class="ui-float-label"><input id="Search" type="text" pInputText><label for="UserName">Search</label></span>
-                <span class="ui-inputgroup-addon"><button pButton id="btnSearch" type="button" label="Search" class="button-primary"></button></span>
-            </div>
-        </div>
+    <div class="container">
+        <app-projectcard></app-projectcard>
     </div>
-    <app-projectcard></app-projectcard>
+    <div class="container">
+        <p-paginator></p-paginator>
+    </div>
 </main>

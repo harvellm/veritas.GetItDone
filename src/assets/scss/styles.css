@@ -136,6 +136,11 @@ body {
   text-align: center;
 }
 
+.container {
+  display: block;
+  width: 100%;
+}
+
 /* grid */
 .grid-3 {
   display: -webkit-flex;
@@ -281,10 +286,6 @@ main {
   padding: 16px;
 }
 
-main .grid-2 {
-  margin-top: 1rem;
-}
-
 main .grid-2 .col-1 {
   text-align: left;
   margin-right: 2rem;
@@ -293,19 +294,6 @@ main .grid-2 .col-1 {
 main .grid-2 .col-2 {
   text-align: right;
   margin-left: 2rem;
-}
-
-/* overlay component */
-.ui-widget-overlay {
-  opacity: 0.5;
-  background: #000000;
-  z-index: 1;
-}
-
-/* modal component */
-.ui-sidebar {
-  width: 90%;
-  z-index: 10;
 }
 
 /* health status components (flags and progress) */
@@ -359,12 +347,16 @@ main .grid-2 .col-2 {
 .button-primary:hover,
 .ui-button.button-primary:enabled:hover,
 .ui-button.button-primary:enabled:active,
-.ui-button.button-primary:focus {
+.ui-button.button-primary:focus,
+.input-datepicker .ui-calendar .ui-button:enabled:hover,
+.input-datepicker .ui-calendar .ui-button:enabled:active,
+.input-datepicker .ui-calendar .ui-button:focus {
   background: #1e5700;
   border: 1px solid #308a00;
 }
 
-.button-secondary {
+.button-secondary,
+.ui-button.button-secondary {
   background: #ffffff;
   border: 1px solid #308a00;
   border-radius: 3px;
@@ -373,9 +365,13 @@ main .grid-2 .col-2 {
   cursor: pointer;
 }
 
-.button-secondary:hover {
+.button-secondary:hover,
+.ui-button.button-secondary:enabled:hover,
+.ui-button.button-secondary:enabled:active,
+.ui-button.button-secondary:focus {
   border: 1px solid #1e5700;
   color: #1e5700;
+  background: #ffffff;
 }
 
 /* form components */
@@ -397,6 +393,15 @@ main .grid-2 .col-2 {
   width: 100%;
 }
 
+.input-text .ui-inputgroup {
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.input-text .ui-float-label {
+  width: 100%;
+}
+
 .input-text .ui-inputtext {
   width: 100%;
   font-size: 1rem;
@@ -405,8 +410,9 @@ main .grid-2 .col-2 {
 }
 
 .input-text .ui-inputgroup-addon {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  border: 0 none transparent;
+  padding: 0;
+  background: none;
 }
 
 .input-text .ui-state-default {
@@ -422,7 +428,7 @@ main .grid-2 .col-2 {
 }
 
 .input-dropdown .ui-dropdown {
-  width: 100%;
+  width: 100% !important;
 }
 
 .input-dropdown .ui-dropdown .ui-dropdown-trigger {
@@ -430,7 +436,6 @@ main .grid-2 .col-2 {
 }
 
 .input-dropdown .ui-dropdown .ui-dropdown-trigger-icon {
-  margin-top: -0.7em;
   font-size: 1.5rem;
   color: #808080;
 }
@@ -491,6 +496,7 @@ main .grid-2 .col-2 {
 
 .input-radio {
   display: inline-block;
+  margin-right: 8px;
 }
 
 .input-radio .ui-radiobutton-box {
@@ -502,19 +508,25 @@ main .grid-2 .col-2 {
 .input-radio .ui-radiobutton-label {
   display: inline-block;
   vertical-align: middle;
+  color: #808080;
 }
 
-/* search component */
 .search {
-  display: block;
-  width: 100%;
   margin-top: 32px;
   margin-bottom: 32px;
 }
 
-.search .button-primary {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+.search .ui-inputtext {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.search .ui-inputgroup-addon .ui-button:last-child {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  margin-right: 8px;
 }
 
 /* progress bar SCSS (only for demo - use PrimeNG component */
@@ -549,6 +561,7 @@ nav .nav-link-active {
 
 nav .nav-link:last-child {
   position: relative;
+  margin-left: 8px;
 }
 
 nav .nav-link:last-child .ui-overlaypanel {
@@ -559,6 +572,12 @@ nav .nav-link:last-child .ui-overlaypanel {
   margin-top: 1rem;
   box-shadow: -1px -1px 5px 5px rgba(0, 0, 0, 0.2);
   background: #ffffff;
+}
+
+/* pagination component */
+.ui-paginator.ui-widget-header {
+  border: 0 none transparent;
+  background: none;
 }
 
 /* card component */
@@ -668,4 +687,61 @@ nav .nav-link:last-child .ui-overlaypanel {
 
 .login .form-group {
   margin-top: 0;
+}
+
+/* overlay component */
+.ui-widget-overlay {
+  opacity: 0.5;
+  background: #000000;
+  z-index: 1;
+}
+
+/* modal component */
+.ui-sidebar {
+  width: 100%;
+  z-index: 10;
+}
+
+.ui-sidebar-top {
+  height: 0;
+}
+
+.ui-sidebar-close {
+  display: none;
+}
+
+.ui-sidebar-content {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 16px;
+  padding-right: 16px;
+  background: #fff;
+}
+
+.ui-sidebar-content .form-input {
+  margin-top: 22px;
+  margin-bottom: 22px;
+}
+
+.ui-sidebar-content .ui-dropdown {
+  height: 35px;
+}
+
+.ui-sidebar-content .col-1 {
+  padding-right: 16px;
+}
+
+.ui-sidebar-content .col-2 {
+  padding-left: 16px;
+}
+
+/* media queries */
+@media (min-width: 1280px) {
+  body {
+    max-width: 1140px;
+  }
+  .ui-sidebar-content {
+    margin: 0 auto;
+    max-width: 1140px;
+  }
 }
