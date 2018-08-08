@@ -6,7 +6,7 @@ const db = require('sequelize');
 const methodOverride = require('method-override');
 const cors = require('cors');
 // Config
-//const config = require('./server/config');
+const config = require('./server/config');
 
 /* 
  |--------------------------------------
@@ -54,7 +54,7 @@ if (process.env.NODE_ENV !== 'dev') {
  |--------------------------------------
  */
 
-//require('./server/api')(app, config);
+require('./server/api')(app, config);
 
 // Pass routing to Angular app
 // Don't run in dev

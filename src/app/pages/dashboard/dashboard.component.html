@@ -1,9 +1,9 @@
 <app-header></app-header>
-
+<app-projectinfo [open]="isAddEditOpen"></app-projectinfo>
 <main>
     <div class="grid-1">
         <div class="col-1 txt-left">
-            <button pButton id="btnCreateProject" type="button" label="Create Project" icon="pi pi-plus" class="button-primary"></button>
+            <button pButton id="btnCreateProject"  (click)="openAddEdit(true)" label="Create Project" icon="pi pi-plus" class="button-primary"></button>
         </div>
     </div>
     <div class="search">

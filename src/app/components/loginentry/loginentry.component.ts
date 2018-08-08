@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-loginentry',
@@ -6,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginentryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
+  }
+  
+  login():void{
+    //TODO:Check login
+    this.router.navigateByUrl('/dashboard');
   }
 
 }
