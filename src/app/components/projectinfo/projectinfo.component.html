@@ -1,11 +1,11 @@
-<main>
-    <p-sidebar [(visible)]="open" position="top" [baseZIndex]="10000" [modal]="true">
+<p-sidebar [(visible)]="ProjectInfo" position="top"  [baseZIndex]="10000" [modal]="true">
+    <div class="ui-sidebar-content">
         <div class="grid-2">
             <div class="col-1">
                 <h1 class="title txt-primary">Your New Project</h1>
             </div>
-            <div class="col-2">
-                <button pButton id="btnSave" type="button" label="Save" class="button-primary"></button>&nbsp;<button pButton id="btnCancel" type="button" label="Cancel" class="button-secondary"></button>
+            <div class="col-2 txt-right">
+                <button pButton id="btnSave" type="button" label="Save" routerLink="/dashboard" class="button-primary"></button>&nbsp;<button pButton id="btnCancel" type="button" label="Cancel" routerLink="/dashboard" class="button-secondary"></button>
             </div>
         </div>
         <div class="grid-2">
@@ -43,37 +43,47 @@
                     </li>
                     <li class="form-input">
                         <div class="input-datepicker">
-                            <p-calendar [(ngModel)]="ProjectStart" [showIcon]="true"></p-calendar>
+                            <p-calendar [(ngModel)]="ProjectStart" [showIcon]="true" placeholder="Project Start"></p-calendar>
                         </div>
                     </li>
                     <li class="form-input">
                         <div class="input-datepicker">
-                            <p-calendar [(ngModel)]="ProjectCompletion" [showIcon]="true"></p-calendar>
+                            <p-calendar [(ngModel)]="ProjectCompletion" [showIcon]="true" placeholder="Project Completion"></p-calendar>
                         </div>
                     </li>
                     <li class="form-input">
                         <div class="input-datepicker">
-                            <p-calendar [(ngModel)]="ReleaseMonth" [showIcon]="true"></p-calendar>
+                            <p-calendar [(ngModel)]="ReleaseMonth" [showIcon]="true" placeholder="Release Month"></p-calendar>
                         </div>
                     </li>
                     <li class="form-input">
-                        <div class="input-datepicker">
-                            <p-calendar [(ngModel)]="BillingMonth" [showIcon]="true"></p-calendar>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="grid-2">
-                            <div class="col-1">
-                                <label class="txt-gray">Ready to Start</label>
+                            <div class="input-datepicker">
+                                <p-calendar [(ngModel)]="ReleaseMonth" [showIcon]="true" placeholder="Release Date"></p-calendar>
                             </div>
-                            <div class="col-2">
-                                <div class="input-radio">
-                                    <p-radioButton name="ReadyToStart" value="Yes" [(ngModel)]="selectedValue"></p-radioButton>
-                                </div>
-                                <div class="input-radio">
-                                    <p-radioButton name="ReadyToStart" value="No" [(ngModel)]="selectedValue"></p-radioButton>
-                                </div>
-                            </div>
+                        </li>
+                    <li class="form-input">
+                        <div class="input-datepicker">
+                            <p-calendar [(ngModel)]="BillingMonth" [showIcon]="true" placeholder="Billing Month"></p-calendar>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <label class="txt-gray">Ready to Start</label>
+                        <br>
+                        <div class="input-radio">
+                            <p-radioButton name="ReadyToStart" value="Yes" label="Yes" [(ngModel)]="Yes" inputId="Yes"></p-radioButton>
+                        </div>
+                        <div class="input-radio">
+                            <p-radioButton name="ReadyToStart" value="No" label="No" [(ngModel)]="No" inputId="No"></p-radioButton>
+                        </div>
+                    </li>
+                    <li class="form-input">
+                        <label class="txt-gray">Archive Project</label>
+                        <br>
+                        <div class="input-radio">
+                            <p-radioButton name="ReadyToStart" value="Yes" label="Yes" [(ngModel)]="Yes" inputId="Yes"></p-radioButton>
+                        </div>
+                        <div class="input-radio">
+                            <p-radioButton name="ReadyToStart" value="No" label="No" [(ngModel)]="No" inputId="No"></p-radioButton>
                         </div>
                     </li>
                 </ul>
@@ -167,5 +177,5 @@
                 </ul>
             </div>
         </div>
-    </p-sidebar>
-</main>
+    </div>
+</p-sidebar>

@@ -18,6 +18,8 @@ $med: 16px;
 $lg: 32px;
 $xlg: 64px;
 
+$important: !important;
+
 @mixin reset {
     * {
         background: none;
@@ -406,6 +408,8 @@ $xlg: 64px;
         visibility: visible;
     } @else if $value == show {
         display: block;
+    } @else if $value == none {
+        display: none;
     }
 }
 

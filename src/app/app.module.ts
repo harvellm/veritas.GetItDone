@@ -24,6 +24,8 @@ import {CalendarModule} from 'primeng/calendar';
 import {ButtonModule} from 'primeng/button';
 import {SidebarModule} from 'primeng/sidebar';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
+import {PaginatorModule} from 'primeng/paginator';
+import { NewpasswordComponent } from './newpassword/newpassword.component';
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import {OverlayPanelModule} from 'primeng/overlaypanel';
     ProjectinfoComponent,
     HeaderComponent,
     FooterComponent,
-    ReportpickerComponent
+    ReportpickerComponent,
+    NewpasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import {OverlayPanelModule} from 'primeng/overlaypanel';
     CalendarModule,
     ButtonModule,
     SidebarModule,
-    OverlayPanelModule
+    OverlayPanelModule,
+    PaginatorModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]
