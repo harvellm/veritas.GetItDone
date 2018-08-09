@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectdataService } from '../../services/projectdata.service';
+import { IProject } from '../../models/project';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
   isAddEditOpen:boolean;
-  constructor() { }
+  allProjects:IProject[];
+  constructor(private projectData:ProjectdataService) { }
 
   ngOnInit() {
+    this.projectData.getAllProjects().subscribe((data)=>{
+      this.allProjects = data;
+      debugger;
+    });
     this.isAddEditOpen = false;
     console.log('in it');
   }

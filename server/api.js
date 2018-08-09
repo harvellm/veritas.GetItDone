@@ -47,9 +47,21 @@ const projects = sequelize.import('./models/project');
     projects.findAll().then(projects=>{
       res.send(projects);
     })
-/*     sequelize.query("SELECT * FROM Projects", { model: project }).then(projects => {
-      console.log(projects);
-      res.send(projects);
-    }) */
+    .catch(err=>{
+      res.status(500).send(err);
+    });
+
+  });
+  app.post('/api/projects', (req, res)=>{
+    
+    projects
+    .build(req)
+    .save()
+    .then(anotherTask => {
+      // you can now access the currently saved task with the variable anotherTask... nice!
+    })
+    .catch(err => {
+      // Ooops, do some error-handling
+    })
   });
 };

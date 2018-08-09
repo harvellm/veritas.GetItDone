@@ -1,6 +1,7 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +27,8 @@ import {SidebarModule} from 'primeng/sidebar';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 import {PaginatorModule} from 'primeng/paginator';
 import { NewpasswordComponent } from './newpassword/newpassword.component';
+import { ProjectdataService } from './services/projectdata.service';
+import { Config } from './config/config';
 
 
 @NgModule({
@@ -58,9 +61,10 @@ import { NewpasswordComponent } from './newpassword/newpassword.component';
     ButtonModule,
     SidebarModule,
     OverlayPanelModule,
-    PaginatorModule
+    PaginatorModule,
+    HttpClientModule
   ],
-  providers: [Title],
+  providers: [Title, ProjectdataService, Config],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
