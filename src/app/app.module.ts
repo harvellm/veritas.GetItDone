@@ -29,6 +29,8 @@ import {PaginatorModule} from 'primeng/paginator';
 import { NewpasswordComponent } from './newpassword/newpassword.component';
 import { ProjectdataService } from './services/projectdata.service';
 import { Config } from './config/config';
+import { AdminpanelComponent } from './pages/adminpanel/adminpanel.component';
+import {CheckboxModule} from 'primeng/checkbox';
 
 
 @NgModule({
@@ -46,7 +48,8 @@ import { Config } from './config/config';
     HeaderComponent,
     FooterComponent,
     ReportpickerComponent,
-    NewpasswordComponent
+    NewpasswordComponent,
+    AdminpanelComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,8 @@ import { Config } from './config/config';
     SidebarModule,
     OverlayPanelModule,
     PaginatorModule,
-    HttpClientModule
+    HttpClientModule,
+    CheckboxModule
   ],
   providers: [Title, ProjectdataService, Config],
   bootstrap: [AppComponent]

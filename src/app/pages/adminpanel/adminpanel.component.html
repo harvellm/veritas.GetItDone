@@ -1,0 +1,24 @@
+<main>
+  <div class="adminPanel">
+  <div class="container input-text">
+    <div class="ui-inputgroup">
+        <span class="ui-float-label"><input id="UserName" type="text" [(ngModel)]="userName" pInputText><label for="UserName">UserName</label></span>
+    </div>
+  <div class="ui-inputgroup">
+  <span class="ui-float-label"><input id="Password" type="text" [(ngModel)]="password" pInputText><label for="Password">Password</label></span>
+  </div>
+  <div class="ui-inputgroup">
+  <span class="ui-float-label"><input id="Email" type="text" [(ngModel)]="email" pInputText><label for="email">Email</label></span>
+  </div>
+  <div class="ui-inputgroup">
+    <p-checkbox label="Is Admin" [(ngModel)]="role"></p-checkbox>
+</div>
+<div class="ui-inputgroup">
+  <button pButton id="addUser" type="button" label="Add User" (click)="addUser()" class="button-primary"></button>
+</div>
+<div class="ui-inputgroup">
+{{userMessage}} 
+ </div>
+</div>
+</div>
+</main>

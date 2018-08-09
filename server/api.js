@@ -38,7 +38,7 @@ const sequelize = new Sequelize('VeriProjectTracker', config.SQL_UID, config.SQL
   dialect: 'mssql'
 });
 const projects = sequelize.import('./models/project');
-
+const users = sequelize.import('./models/user')
   // GET API root
   app.get('/api/', (req, res) => {
     res.send('API works');
@@ -53,7 +53,6 @@ const projects = sequelize.import('./models/project');
 
   });
   app.post('/api/projects', (req, res)=>{
-    
     projects
     .build(req)
     .save()
@@ -61,6 +60,20 @@ const projects = sequelize.import('./models/project');
       // you can now access the currently saved task with the variable anotherTask... nice!
     })
     .catch(err => {
+      // Ooops, do some error-handling
+    })
+  });
+  app.post('/api/users', (req, res)=>{
+     let newUser = users.build(req.body);
+    newUser.save()
+    .then(anotherTask => {
+      let r = 1;
+      res.send(anotherTask);
+      // you can now access the currently saved task with the variable anotherTask... nice!
+    })
+    .catch(err => {
+      let r= 1;
+      res.status(500).send(err)
       // Ooops, do some error-handling
     })
   });

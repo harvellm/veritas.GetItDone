@@ -91,7 +91,9 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.BOOLEAN,
             unique: false,
             allowNull: true
-        }
+        },
+        createdAt: DataTypes.DATE,
+      updatedAt: DataTypes.DATE
                
     })
 };
