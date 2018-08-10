@@ -39,6 +39,8 @@ module.exports = function(app, config) {
 const sequelize = new Sequelize('VeriProjectTracker', config.SQL_UID, config.SQL_PWD, {
   dialect: 'mssql'
 });
+ const logger = require('./logger')(sequelize);
+
 const projects = sequelize.import('./models/project');
 const users = sequelize.import('./models/user')
   // GET API root
@@ -92,6 +94,14 @@ const users = sequelize.import('./models/user')
           res.status(200).send({isAdmin:user.role===1});
       });
       }
+    });
+    app.post('/api/logs',(req, res)=>{
+      /**
+       * {level: 'DEBUG', message: 'Your log message goes here'}
+       */
+      let logEntry = req.body;
+      logger.info(logEntry);
+
     });
   });
 };

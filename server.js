@@ -7,6 +7,8 @@ const methodOverride = require('method-override');
 const cors = require('cors');
 // Config
 const config = require('./server/config');
+const morgan = require('morgan');
+const logger = require('./server/logger');
 
 /* 
  |--------------------------------------
@@ -32,7 +34,17 @@ monDb.once('open', function callback() {
  */
 
 const app = express();
+app.use(morgan('dev', {
+  skip: function (req, res) {
+      return res.statusCode < 400
+  }, stream: process.stderr
+}));
 
+app.use(morgan('dev', {
+  skip: function (req, res) {
+      return res.statusCode >= 400
+  }, stream: process.stdout
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('X-HTTP-Method-Override'));

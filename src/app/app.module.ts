@@ -31,6 +31,7 @@ import { ProjectdataService } from './services/projectdata.service';
 import { Config } from './config/config';
 import { AdminpanelComponent } from './pages/adminpanel/adminpanel.component';
 import {CheckboxModule} from 'primeng/checkbox';
+import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import {CheckboxModule} from 'primeng/checkbox';
     OverlayPanelModule,
     PaginatorModule,
     HttpClientModule,
-    CheckboxModule
+    CheckboxModule,
+    LoggerModule.forRoot({serverLoggingUrl: '/api/logs', level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.ERROR})
   ],
   providers: [Title, ProjectdataService, Config],
   bootstrap: [AppComponent]
