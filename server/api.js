@@ -13,6 +13,8 @@ const jwks = require('jwks-rsa'); */
  | Authentication Middleware
  |--------------------------------------
  */
+var bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 const Sequelize = require('sequelize');
 module.exports = function(app, config) {
@@ -64,17 +66,32 @@ const users = sequelize.import('./models/user')
     })
   });
   app.post('/api/users', (req, res)=>{
-     let newUser = users.build(req.body);
-    newUser.save()
-    .then(anotherTask => {
-      let r = 1;
-      res.send(anotherTask);
-      // you can now access the currently saved task with the variable anotherTask... nice!
-    })
-    .catch(err => {
-      let r= 1;
-      res.status(500).send(err)
-      // Ooops, do some error-handling
-    })
+     
+     bcrypt.hash(req.body.Password, saltRounds, function(err, hash) {
+       if(!err){
+        req.body.Password = hash;
+        let newUser = users.build(req.body);
+        newUser.save()
+        .then(anotherTask => {
+          res.send(anotherTask);
+        })
+        .catch(err => {
+          res.status(500).send(err)
+        })
+      }
+    });
+  
+  });
+  app.post('/api/users/validate', (req, res)=> {
+    let attempt = req.body;
+    users.findOne({ where: {UserName: attempt.UserName} }).then(user => {
+      if(user === null){
+        res.status(401).send('Username not found.');
+      } else {
+        bcrypt.compare(attempt.Password, user.Password, function(err, res) {
+          res.status(200).send({isAdmin:user.role===1});
+      });
+      }
+    });
   });
 };

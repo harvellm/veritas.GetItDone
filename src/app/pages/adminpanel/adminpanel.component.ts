@@ -26,7 +26,6 @@ export class AdminpanelComponent implements OnInit {
     newUser.Password = this.password;
     newUser.Role = this.role===true?1:0;
     this.userService.addNewUser(newUser).subscribe((res:IUser)=>{
-      debugger;
       this.userMessage = 'User created successfully!'
     })
     
