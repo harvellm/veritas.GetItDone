@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StateService } from '../../services/state.service';
-import { NGXLogger } from 'ngx-logger';
+import { LogService } from '../../services/log.service';
 
 @Component({
   selector: 'app-loginentry',
@@ -9,7 +9,7 @@ import { NGXLogger } from 'ngx-logger';
 })
 export class LoginentryComponent implements OnInit {
 
-  constructor(private router:Router, private state:StateService, private logger:NGXLogger) { }
+  constructor(private router:Router, private state:StateService, private logger:LogService) { }
 
   ngOnInit() {
   }
@@ -17,8 +17,7 @@ export class LoginentryComponent implements OnInit {
   login():void{
     //TODO:Check login
 
-
-    this.logger.debug('login attempted');
+    this.logger.log('Login attempted');
     this.router.navigateByUrl('/dashboard');
 
     this.state.isAdmin = true;

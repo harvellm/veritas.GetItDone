@@ -95,13 +95,14 @@ const users = sequelize.import('./models/user')
       });
       }
     });
-    app.post('/api/logs',(req, res)=>{
-      /**
-       * {level: 'DEBUG', message: 'Your log message goes here'}
-       */
-      let logEntry = req.body;
-      logger.info(logEntry);
+   
+  });
+  app.post('/api/logs',(req, res)=>{
+    /**
+     * {level: 'DEBUG', message: 'Your log message goes here'}
+     */
+    let logEntry = req.body;
+    logger.info(logEntry);
 
-    });
   });
 };
