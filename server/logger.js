@@ -1,14 +1,19 @@
 module.exports = function (sequelize) {
 
+    var elasticsearch = require('elasticsearch');
+    var client = new elasticsearch.Client({
+      host: 'localhost:9200',
+      log: 'trace'
+    });
+    var Elasticsearch = require('winston-elasticsearch');
 
+var esTransportOpts = {
+  level: 'info',
+  client:client
+};
 const winston = require("winston");
-const WinstonTransportSequelize = require('winston-transport-sequelize');
-const options = {
-  sequelize: sequelize, // sequelize instance [required]
-  tableName: 'applog', // default name
-  meta: { project: 'GetItDone' }, // meta object defaults
-  modelOptions: { timestamps: true }, // merge model options
-}
+
+
 const level = process.env.LOG_LEVEL || 'debug';
 const logger = winston.createLogger({
   
@@ -19,7 +24,8 @@ const logger = winston.createLogger({
                 return (new Date()).toISOString();
             }
         }),
-        new WinstonTransportSequelize(options)
+        new Elasticsearch(esTransportOpts)
+
 
     ]
   }); 

@@ -98,7 +98,6 @@ export class LogWebApi extends LogPublisher {
                    Observable<any> {
       let errors: string[] = [];
       let msg: string = "";
-        debugger;
       msg = "Status: " + error.status;
       msg += " - Status Text: " + error.statusText;
       if (error) {
