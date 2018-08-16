@@ -526,37 +526,52 @@ $important: !important;
     background: $color;
 }
 
-@mixin table-style($value: none) {
-    @if $value == standard {
-        @include border(all, 1px, solid, #000000);
-    } @else if $value == ladder {
-        @include border(bottom, 1px, solid, #000000);
-    } @else if $value == ladder-dotted {
-        @include border(bottom, 1px, dotted, #000000);
-    } @else if $value == zebra {
-        table tr:nth-child(even) td {
-            background: #000000;
+/* tables */
+@mixin table($type: null, $header: null, $color: null, $alt: null) {
+    @if $type == standard {
+        thead th, 
+        tfoot td {
+            background: $header;
         }
-    } @else {
-        @include border();
-        background: none;
+        tbody td {
+            @include border(box, 1px, solid, $color);
+        }
+    }
+    @if $type == ladder {
+        thead th, 
+        tfoot td {
+            background: $header;
+        }
+        tbody td {
+            @include border(ladder, 1px, solid, $color);
+        }
+    }
+    @if $type == zebra {
+        thead th, 
+        tfoot td {
+            background: $header;
+        }
+        tbody tr:even td {
+            background: $alt;
+        }
     }
 }
 
-@mixin list-style($value: none) {
-    @if $value == bullet {
-        list-style: disc;
-    } @else if $value == ladder {
-        @include border(bottom, 1px, solid, #000000);
-    } @else if $value == ladder-dotted {
-        @include border(bottom, 1px, dotted, #000000);
-    } @else if $value == zebra {
-        table li:nth-child(even) td {
-            background: #000000;
+/* lists */
+@mixin list($type: null, $color: null, $alt: null) {
+    @if $type == bullet {
+        li {
+            list-style: disc;
         }
-    } @else {
-        @include border();
-        list-style: none;
-        background: none;
+    }
+    @if $type == ladder {
+        li {
+            @include border(ladder, 1px, solid, $color);
+        }
+    }
+    @if $type == zebra {
+        li {
+            background: $alt;
+        }
     }
 }

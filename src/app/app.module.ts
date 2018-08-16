@@ -26,13 +26,14 @@ import {ButtonModule} from 'primeng/button';
 import {SidebarModule} from 'primeng/sidebar';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 import {PaginatorModule} from 'primeng/paginator';
+import {DialogModule} from 'primeng/dialog';
 import { NewpasswordComponent } from './newpassword/newpassword.component';
 import { ProjectdataService } from './services/projectdata.service';
 import { Config } from './config/config';
 import { AdminpanelComponent } from './pages/adminpanel/adminpanel.component';
 import {CheckboxModule} from 'primeng/checkbox';
 import { LogService } from './services/log.service';
-import { LogPublishersService } from './services/logpublishers.service';
+import { LogPublishersService } from './services/logpublishers.service'
 
 
 @NgModule({
@@ -67,6 +68,7 @@ import { LogPublishersService } from './services/logpublishers.service';
     SidebarModule,
     OverlayPanelModule,
     PaginatorModule,
+    DialogModule,
     HttpClientModule,
     CheckboxModule
   ],
