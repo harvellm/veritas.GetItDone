@@ -33,7 +33,11 @@ import { Config } from './config/config';
 import { AdminpanelComponent } from './pages/adminpanel/adminpanel.component';
 import {CheckboxModule} from 'primeng/checkbox';
 import { LogService } from './services/log.service';
-import { LogPublishersService } from './services/logpublishers.service'
+import { LogPublishersService } from './services/logpublishers.service';
+import { ReportsComponent } from './pages/reports/reports.component';
+import { PiechartComponent } from './reports/piechart/piechart.component';
+import { ReportPiechartComponent } from './report-piechart/report-piechart.component';
+import { ReportBarsComponent } from './pages/reports/report-bars/report-bars.component'
 
 
 @NgModule({
@@ -52,7 +56,11 @@ import { LogPublishersService } from './services/logpublishers.service'
     FooterComponent,
     ReportpickerComponent,
     NewpasswordComponent,
-    AdminpanelComponent
+    AdminpanelComponent,
+    ReportsComponent,
+    PiechartComponent,
+    ReportPiechartComponent,
+    ReportBarsComponent
   ],
   imports: [
     BrowserModule,
