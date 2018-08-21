@@ -27,7 +27,6 @@ import {SidebarModule} from 'primeng/sidebar';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 import {PaginatorModule} from 'primeng/paginator';
 import {DialogModule} from 'primeng/dialog';
-import {ChartModule} from 'primeng/chart';
 import { NewpasswordComponent } from './newpassword/newpassword.component';
 import { ProjectdataService } from './services/projectdata.service';
 import { Config } from './config/config';
@@ -72,8 +71,7 @@ import { ReportsComponent } from './pages/reports/reports.component';
     PaginatorModule,
     DialogModule,
     HttpClientModule,
-    CheckboxModule,
-    ChartModule
+    CheckboxModule
   ],
   providers: [Title, ProjectdataService, Config, LogService, LogPublishersService],
   bootstrap: [AppComponent]
