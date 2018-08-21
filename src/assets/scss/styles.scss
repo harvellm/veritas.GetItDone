@@ -68,15 +68,15 @@ body {
     @include flex-row;
 
     .col-1 {
-        @include flex-column(25%);
+        @include flex-column(20%);
     }
 
     .col-2 {
-        @include flex-column(50%);
+        @include flex-column(60%);
     }
 
     .col-3 {
-        @include flex-column(25%);
+        @include flex-column(20%);
     }
 }
 
@@ -98,6 +98,39 @@ body {
     .col-1 {
         @include flex-column(100%);
     }
+}
+
+/* layout helpers */
+.mg-t-sm {
+    @include space(margin, top, $sm);
+}
+
+.mg-t-md {
+    @include space(margin, top, $med);
+}
+
+.mg-t-lg {
+    @include space(margin, top, $lg);
+}
+
+.mg-t-xlg {
+    @include space(margin, top, $xlg);
+}
+
+.mg-b-sm {
+    @include space(margin, bottom, $sm);
+}
+
+.mg-b-md {
+    @include space(margin, bottom, $med);
+}
+
+.mg-b-lg {
+    @include space(margin, bottom, $lg);
+}
+
+.mg-b-xlg {
+    @include space(margin, bottom, $xlg);
 }
 
 /* page */
@@ -222,6 +255,25 @@ main {
 .ui-button.button-secondary:focus, {
     @include border(all, 1px, solid, darken($primary, 10%));
     color: darken($primary, 10%);
+    background: $white;
+}
+
+.button-delete,
+.ui-button.button-delete {
+    @include background(color, $white);
+    @include border(all, 1px, solid, $warning);
+    @include radius(all, 3px);
+    @include space(padding, all, $sm);
+    color: $warning;
+    cursor: pointer;
+}
+
+.button-secondary:hover,
+.ui-button.button-delete:enabled:hover,
+.ui-button.button-delete:enabled:active,
+.ui-button.button-delete:focus, {
+    @include border(all, 1px, solid, darken($warning, 10%));
+    color: darken($warning, 10%);
     background: $white;
 }
 
@@ -395,10 +447,11 @@ main {
 nav {
     .nav-link {
         @include display(inline-block);
-        @include width(40%);
+        @include width(20%);
         @include space(padding, top, $med);
         @include space(padding, bottom, $med);
         @include type-position(center);
+        @include border(all, 1px, solid, $primary);
         @include radius(all, 3px);
         background: lighten($primary, 3%);
         color: $white;
@@ -414,7 +467,6 @@ nav {
 
     .nav-link:last-child {
         @include position(relative);
-        @include space(margin, left, $sm);
 
         .ui-overlaypanel {
             @include position(absolute);
@@ -484,6 +536,31 @@ nav {
     }
 }
 
+/* table component */
+.datagrid {
+    @include table($type: zebra, $header: lighten($gray, 10%), $color: lighten($gray, 10%), $alt: lighten($gray,30%));
+    @include border(all, 1px, solid, lighten($gray, 10%));
+
+    th, 
+    td {
+        @include space(padding, all, $sm);
+        @include type-position(left);
+    }
+
+    th {
+        color: $white;
+    }
+
+    td:last-child {
+        @include type-position(right);
+    }
+
+    tfoot td {
+        @include type-position(left !important);
+    }
+}
+
+
 /* login component */
 .login {
     @include position(fixed);
@@ -504,6 +581,12 @@ nav {
 .ui-widget-overlay {
     @include opacity($black, .5);
     z-index: 1;
+}
+
+/* dialog component */
+.ui-dialog.ui-widget .ui-dialog-titlebar {
+    @include space(padding, all, $sm);
+    background: none;
 }
 
 /* modal component */

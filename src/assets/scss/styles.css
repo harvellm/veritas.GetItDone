@@ -1,3 +1,5 @@
+/* tables */
+/* lists */
 @-ms-viewport {
   width: device-width;
 }
@@ -162,8 +164,8 @@ body {
   flex-grow: 0;
   -webkit-flex-shrink: 1;
   flex-shrink: 1;
-  -webkit-flex-basis: 25%;
-  flex-basis: 25%;
+  -webkit-flex-basis: 20%;
+  flex-basis: 20%;
 }
 
 .grid-3 .col-2 {
@@ -171,8 +173,8 @@ body {
   flex-grow: 0;
   -webkit-flex-shrink: 1;
   flex-shrink: 1;
-  -webkit-flex-basis: 50%;
-  flex-basis: 50%;
+  -webkit-flex-basis: 60%;
+  flex-basis: 60%;
 }
 
 .grid-3 .col-3 {
@@ -180,8 +182,8 @@ body {
   flex-grow: 0;
   -webkit-flex-shrink: 1;
   flex-shrink: 1;
-  -webkit-flex-basis: 25%;
-  flex-basis: 25%;
+  -webkit-flex-basis: 20%;
+  flex-basis: 20%;
 }
 
 .grid-2 {
@@ -239,6 +241,39 @@ body {
   flex-shrink: 1;
   -webkit-flex-basis: 100%;
   flex-basis: 100%;
+}
+
+/* layout helpers */
+.mg-t-sm {
+  margin-top: 8px;
+}
+
+.mg-t-md {
+  margin-top: 16px;
+}
+
+.mg-t-lg {
+  margin-top: 32px;
+}
+
+.mg-t-xlg {
+  margin-top: 64px;
+}
+
+.mg-b-sm {
+  margin-bottom: 8px;
+}
+
+.mg-b-md {
+  margin-bottom: 16px;
+}
+
+.mg-b-lg {
+  margin-bottom: 32px;
+}
+
+.mg-b-xlg {
+  margin-bottom: 64px;
 }
 
 /* page */
@@ -371,6 +406,25 @@ main .grid-2 .col-2 {
 .ui-button.button-secondary:focus {
   border: 1px solid #1e5700;
   color: #1e5700;
+  background: #ffffff;
+}
+
+.button-delete,
+.ui-button.button-delete {
+  background: #ffffff;
+  border: 1px solid #bd0000;
+  border-radius: 3px;
+  padding: 8px;
+  color: #bd0000;
+  cursor: pointer;
+}
+
+.button-secondary:hover,
+.ui-button.button-delete:enabled:hover,
+.ui-button.button-delete:enabled:active,
+.ui-button.button-delete:focus {
+  border: 1px solid #8a0000;
+  color: #8a0000;
   background: #ffffff;
 }
 
@@ -542,10 +596,11 @@ main .grid-2 .col-2 {
 /* navigation component */
 nav .nav-link {
   display: inline-block;
-  width: 40%;
+  width: 20%;
   padding-top: 16px;
   padding-bottom: 16px;
   text-align: center;
+  border: 1px solid #308a00;
   border-radius: 3px;
   background: #359900;
   color: #ffffff;
@@ -561,7 +616,6 @@ nav .nav-link-active {
 
 nav .nav-link:last-child {
   position: relative;
-  margin-left: 8px;
 }
 
 nav .nav-link:last-child .ui-overlaypanel {
@@ -673,6 +727,38 @@ nav .nav-link:last-child .ui-overlaypanel {
   font-size: 0.875rem;
 }
 
+/* table component */
+.datagrid {
+  border: 1px solid #9a9a9a;
+}
+
+.datagrid thead th,
+.datagrid tfoot td {
+  background: #9a9a9a;
+}
+
+.datagrid tbody tr:even td {
+  background: #cdcdcd;
+}
+
+.datagrid th,
+.datagrid td {
+  padding: 8px;
+  text-align: left;
+}
+
+.datagrid th {
+  color: #ffffff;
+}
+
+.datagrid td:last-child {
+  text-align: right;
+}
+
+.datagrid tfoot td {
+  text-align: left !important;
+}
+
 /* login component */
 .login {
   position: fixed;
@@ -694,6 +780,12 @@ nav .nav-link:last-child .ui-overlaypanel {
   opacity: 0.5;
   background: #000000;
   z-index: 1;
+}
+
+/* dialog component */
+.ui-dialog.ui-widget .ui-dialog-titlebar {
+  padding: 8px;
+  background: none;
 }
 
 /* modal component */

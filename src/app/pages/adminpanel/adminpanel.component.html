@@ -1,24 +1,65 @@
+<app-header></app-header>
 <main>
-  <div class="adminPanel">
-  <div class="container input-text">
-    <div class="ui-inputgroup">
-        <span class="ui-float-label"><input id="UserName" type="text" [(ngModel)]="userName" pInputText><label for="UserName">UserName</label></span>
+  <div class="grid-1">
+    <div class="col-1">
+        <h1 class="title txt-primary">User Management</h1>
+        <br>{{userMessage}} 
     </div>
-  <div class="ui-inputgroup">
-  <span class="ui-float-label"><input id="Password" type="password" [(ngModel)]="password" pInputText><label for="Password">Password</label></span>
   </div>
-  <div class="ui-inputgroup">
-  <span class="ui-float-label"><input id="Email" type="text" [(ngModel)]="email" pInputText><label for="email">Email</label></span>
+  <div class="grid-1">
+    <div class="col-1">
+      <table class="datagrid">
+        <thead>
+          <tr>
+            <th>User Name</th>
+            <th>Password</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td colspan="5"><button pButton type="button" icon="pi pi-plus" label="Add" class="button-secondary" (click)="showDialogAdd()"></button></td>
+          </tr>
+        </tfoot>
+        <tbody>
+          <tr>
+            <td>{{userName}}</td>
+            <td>{{password}}</td>
+            <td>{{email}}</td>
+            <td>{{role}}</td>
+            <td><button pButton type="button" icon="pi pi-pencil" class="button-secondary" (click)="showDialogEdit()"></button>&nbsp;<button pButton type="button" icon="pi pi-times" class="button-delete" (click)="deleteUser()"></button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-  <div class="ui-inputgroup">
-    <p-checkbox label="Is Admin" [(ngModel)]="role" binary="true"></p-checkbox>
-</div>
-<div class="ui-inputgroup">
-  <button pButton id="addUser" type="button" label="Add User" (click)="addUser()" class="button-primary"></button>
-</div>
-<div class="ui-inputgroup">
-{{userMessage}} 
- </div>
-</div>
-</div>
 </main>
+<p-dialog [(visible)]="dialog" [modal]="true" [responsive]="true" [width]="350" [minWidth]="200" [baseZIndex]="10000">
+    <h2 class="subtitle">{{dialogTitle}}</h2>
+    <ul class="form-group">
+        <li class="form-input">
+            <div class="input-text">
+                <span class="ui-float-label"><input id="UserName" type="text" [(ngModel)]="userName" pInputText><label for="UserName">UserName</label></span>
+            </div>
+        </li>
+        <li class="form-input">
+          <div class="input-text">
+              <span class="ui-float-label"><input id="Password" type="password" [(ngModel)]="password" pInputText><label for="Password">Password</label></span>
+          </div>
+        </li>
+        <li class="form-input">
+          <div class="input-text">
+              <span class="ui-float-label"><input id="Email" type="text" [(ngModel)]="email" pInputText><label for="email">Email</label></span>
+          </div>
+        </li>
+        <li class="form-input">
+            <p-checkbox label="Is Admin" [(ngModel)]="role" binary="true"></p-checkbox>
+        </li>
+    </ul>
+    <p>
+        <button pButton id="addUser" type="button" label="Add" (click)="addUser()" class="button-primary" *ngIf='btnAdd'></button>
+        <button pButton id="addUser" type="button" label="Update" (click)="editUser()" class="button-primary" *ngIf='btnEdit'></button>
+    </p>
+</p-dialog>
