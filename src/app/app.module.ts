@@ -27,6 +27,7 @@ import {SidebarModule} from 'primeng/sidebar';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 import {PaginatorModule} from 'primeng/paginator';
 import {DialogModule} from 'primeng/dialog';
+import {ChartModule} from 'primeng/chart';
 import { NewpasswordComponent } from './newpassword/newpassword.component';
 import { ProjectdataService } from './services/projectdata.service';
 import { Config } from './config/config';
@@ -35,10 +36,6 @@ import {CheckboxModule} from 'primeng/checkbox';
 import { LogService } from './services/log.service';
 import { LogPublishersService } from './services/logpublishers.service';
 import { ReportsComponent } from './pages/reports/reports.component';
-import { PiechartComponent } from './reports/piechart/piechart.component';
-import { ReportPiechartComponent } from './report-piechart/report-piechart.component';
-import { ReportBarsComponent } from './pages/reports/report-bars/report-bars.component'
-
 
 @NgModule({
   declarations: [
@@ -57,10 +54,7 @@ import { ReportBarsComponent } from './pages/reports/report-bars/report-bars.com
     ReportpickerComponent,
     NewpasswordComponent,
     AdminpanelComponent,
-    ReportsComponent,
-    PiechartComponent,
-    ReportPiechartComponent,
-    ReportBarsComponent
+    ReportsComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +72,8 @@ import { ReportBarsComponent } from './pages/reports/report-bars/report-bars.com
     PaginatorModule,
     DialogModule,
     HttpClientModule,
-    CheckboxModule
+    CheckboxModule,
+    ChartModule
   ],
   providers: [Title, ProjectdataService, Config, LogService, LogPublishersService],
   bootstrap: [AppComponent]
