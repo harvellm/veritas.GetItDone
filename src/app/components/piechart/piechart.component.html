@@ -1,6 +1,6 @@
 <div class="container">
     <h1 class="title txt-left mg-t-lg">
-        <label id="rptName" class="title">Report Name</label>
+        <label id="rptName" class="title">Estimated Hours</label>
     </h1>
     <div class="mg-t-lg">
         <p-chart type="pie" [data]="data"></p-chart>
@@ -12,18 +12,18 @@
         <ul>
             <li class="form-input">
                 <div class="input-dropdown txt-left">
-                    <p-dropdown [options]="reports" [(ngModel)]="selectedReport" placeholder="Select a Report" optionLabel="reports" [showClear]="false"></p-dropdown>
+                    <p-dropdown [options]="reports" [(ngModel)]="selectedReport" placeholder="Estimated Hours" optionLabel="reports" [showClear]="false"></p-dropdown>
                 </div>
             </li>
             <li class="form-input txt-left">
                 <div class="inline-item width-50">
                     <div class="input-datepicker">
-                        <p-calendar [(ngModel)]="rptStartDate" placeholder="Start Date" [showIcon]="true"></p-calendar>
+                        <p-calendar [(ngModel)]="rptStartDate" placeholder="March 1, 2018" [showIcon]="true"></p-calendar>
                     </div>
                 </div>
                 <div class="inline-item width-50">
                     <div class="input-datepicker">
-                        <p-calendar [(ngModel)]="rptEndDate" placeholder="End Date" [showIcon]="true"></p-calendar>
+                        <p-calendar [(ngModel)]="rptEndDate" placeholder="August 22, 2018" [showIcon]="true"></p-calendar>
                     </div>
                 </div>
             </li>

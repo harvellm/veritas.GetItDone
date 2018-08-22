@@ -8,6 +8,7 @@ import { UserdataService } from '../../services/userdata.service';
 })
 export class AdminpanelComponent implements OnInit {
 
+  fullName: string;
   userName:string;
   password:string;
   email:string;
@@ -59,20 +60,25 @@ export class AdminpanelComponent implements OnInit {
     })
   } */
 
-  dialog: boolean = false;
+  dialogUser: boolean = false;
+  dialogWarn: boolean = false;
 
   showDialogEdit() {
-    this.dialog = true;
+    this.dialogUser = true;
     this.btnEdit = true;
     this.btnAdd = false;
     this.dialogTitle = "Edit User"
   }
 
   showDialogAdd() {
-    this.dialog = true;
+    this.dialogUser = true;
     this.btnAdd = true;
     this.btnEdit = false;
     this.dialogTitle = "Add New User"
+  }
+
+  btnDeleteUser () {
+    this.dialogWarn = true;
   }
 
 }

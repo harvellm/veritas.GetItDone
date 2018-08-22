@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
+  
   isAddEditOpen:boolean;
   allProjects:IProject[];
 
@@ -32,4 +33,5 @@ export class DashboardComponent implements OnInit {
     debugger;
     this.isAddEditOpen = true;
   }
+
 }

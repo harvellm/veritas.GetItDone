@@ -11,4 +11,10 @@ export class ProjectcardComponent implements OnInit {
   ngOnInit() {
   }
 
+  dialog: boolean = false;
+
+  showDialog() {
+    this.dialog = true;
+  }
+
 }

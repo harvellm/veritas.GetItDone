@@ -510,7 +510,7 @@ nav {
 
         .col-1,
         .col-3 {
-            @include flex-column(48px);
+            @include flex-column(120px);
             @include font-size(22px);
         }
 
