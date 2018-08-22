@@ -100,7 +100,17 @@ body {
     }
 }
 
+
+
 /* layout helpers */
+.width-50 {
+    @include width(50%);
+}
+
+.inline-item {
+    @include display(inline-block);
+}
+
 .mg-t-sm {
     @include space(margin, top, $sm);
 }
