@@ -66,14 +66,14 @@ export class AdminpanelComponent implements OnInit {
     this.dialogUser = true;
     this.btnEdit = true;
     this.btnAdd = false;
-    this.dialogTitle = "Edit User"
+    this.dialogTitle = 'Edit User';
   }
 
   showDialogAdd() {
     this.dialogUser = true;
     this.btnAdd = true;
     this.btnEdit = false;
-    this.dialogTitle = "Add New User"
+    this.dialogTitle = 'Add New User';
   }
 
   btnDeleteUser () {
