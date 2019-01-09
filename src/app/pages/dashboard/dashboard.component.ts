@@ -10,28 +10,29 @@ import { Router } from '@angular/router';
   templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
-  
-  isAddEditOpen:boolean;
-  allProjects:IProject[];
 
-  constructor(private projectData:ProjectdataService, private state:StateService, private router:Router) { }
+  // isAddEditOpen:boolean; (no longer needed because PrimeNG sidebar implemented correctly)
+  allProjects: IProject[];
+
+  constructor(private projectData: ProjectdataService, private state: StateService, private router: Router) { }
 
   ngOnInit() {
-    this.projectData.getAllProjects().subscribe((data)=>{
+    this.projectData.getAllProjects().subscribe((data) => {
       this.allProjects = data;
     });
-    this.isAddEditOpen = false;
+    // this.isAddEditOpen = false; (no longer needed because PrimeNG sidebar implemented correctly)
   }
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
-    if (event.keyCode === Keymapping.A && event.altKey===true){
+    if (event.keyCode === Keymapping.A && event.altKey === true) {
       this.router.navigateByUrl('/adminpanel');
     }
 
   }
-  openAddEdit(isNew:boolean):void{
-    debugger;
-    this.isAddEditOpen = true;
-  }
+
+  // openAddEdit(isNew:boolean):void{ (no longer needed because PrimeNG sidebar implemented correctly)
+    // debugger;
+    // this.isAddEditOpen = true;
+  // }
 
 }

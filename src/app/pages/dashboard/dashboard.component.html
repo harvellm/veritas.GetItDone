@@ -1,20 +1,26 @@
 <app-header></app-header>
-<!-- <app-projectinfo [open]="isAddEditOpen"></app-projectinfo>
- --><main>
-    <div class="container txt-left">
-        <button pButton id="btnCreateProject" type="button" label="Create Project" icon="pi pi-plus" routerLink="/projectinfo" class="button-primary"></button>
-    </div>
-    <div class="container input-text">
-        <div class="ui-inputgroup search">
-            <span class="ui-float-label"><input id="Search" type="text" pInputText><label for="UserName">Search</label></span>
-            <span class="ui-inputgroup-addon"><button pButton id="btnSearch" type="button" label="Search" class="button-primary"></button></span>
+ <main class="container">
+    <div class="row">
+        <div class="columns-12 bg-g200">
+            <app-projectsearch></app-projectsearch>
         </div>
     </div>
-    <div class="container">
-        <app-projectcard></app-projectcard>
+    <div class="row mt-3">
+        <div class="column px-4">
+            <button pButton id="btnCreateProject" type="button" label="Create Project" icon="pi pi-plus" class="bg-p500 r-1" (click)="project = true"></button>
+        </div>
     </div>
-    <div class="container">
-        <p-paginator></p-paginator>
+    <div class="row mt-5">
+        <div class="columns-12 gutter-3">
+            <app-projectcard></app-projectcard>
+        </div>
     </div>
-</main>
+    <div class="row row-justify-center mt-5">
+        <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"></p-paginator>
+    </div>
+ </main>
+ <p-sidebar [(visible)]="project" [fullScreen]="true"> 
+    <app-projectinfo></app-projectinfo>
+</p-sidebar>
+
 

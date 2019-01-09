@@ -141,6 +141,7 @@
 .ui-dialog {
   @extend .bg-g50;
   @extend .r-1;
+  width: 400px;
 }
 
 .ui-dialog .ui-dialog-titlebar-icon span {
@@ -166,6 +167,11 @@
   @extend .p-2;
   @extend .r-1;
   @extend .f-lg;
+}
+
+.ui-paginator-page,
+.ui-paginator-icon {
+  @extend .t-g700;
 }
 
 .ui-paginator-page.ui-state-active {

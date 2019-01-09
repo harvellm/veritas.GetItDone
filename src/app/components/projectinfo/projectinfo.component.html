@@ -1,181 +1,125 @@
-<p-sidebar [(visible)]="ProjectInfo" position="top"  [baseZIndex]="10000" [modal]="true">
-    <div class="ui-sidebar-content">
-        <div class="grid-2">
-            <div class="col-1">
-                <h1 class="title txt-primary">Your New Project</h1>
-            </div>
-            <div class="col-2 txt-right">
-                <button pButton id="btnSave" type="button" label="Save" routerLink="/dashboard" class="button-primary"></button>&nbsp;<button pButton id="btnCancel" type="button" label="Cancel" routerLink="/dashboard" class="button-secondary"></button>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="columns-6 px-1">
+        <h1 class="f-beta t-s500">Project</h1>
         </div>
-        <div class="grid-2">
-            <div class="col-1">
-                <ul class="form-group">
-                    <li class="form-input">
-                        <div class="input-dropdown">
-                            <p-dropdown [options]="ClientName" [(ngModel)]="ClientName" placeholder="Select a Client" optionLabel="clients" [showClear]="false"></p-dropdown>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="input-dropdown">
-                            <p-dropdown [options]="ClientPriority" [(ngModel)]="ClientPriority" placeholder="Select a Priority" optionLabel="priority" [showClear]="false"></p-dropdown>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="input-text">
-                            <span class="ui-float-label"><input id="ProjectName" type="text" pInputText><label for="ProjectName">Project Name</label></span>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="input-dropdown">
-                            <p-dropdown [options]="ProjectLead" [(ngModel)]="ProjectLead" placeholder="Select a Project Lead" optionLabel="projectlead" [showClear]="false"></p-dropdown>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="input-dropdown">
-                            <p-dropdown [options]="ProjectStatus" [(ngModel)]="ProjectStatus" placeholder="Select a Project Status" optionLabel="projectstatus" [showClear]="false"></p-dropdown>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="input-dropdown">
-                            <p-dropdown [options]="ProjectHealth" [(ngModel)]="ProjectHealth" placeholder="Select a Project Health" optionLabel="projecthealth" [showClear]="false"></p-dropdown>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="input-datepicker">
-                            <p-calendar [(ngModel)]="ProjectStart" [showIcon]="true" placeholder="Project Start"></p-calendar>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="input-datepicker">
-                            <p-calendar [(ngModel)]="ProjectCompletion" [showIcon]="true" placeholder="Project Completion"></p-calendar>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="input-datepicker">
-                            <p-calendar [(ngModel)]="ReleaseMonth" [showIcon]="true" placeholder="Release Month"></p-calendar>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                            <div class="input-datepicker">
-                                <p-calendar [(ngModel)]="ReleaseMonth" [showIcon]="true" placeholder="Release Date"></p-calendar>
-                            </div>
-                        </li>
-                    <li class="form-input">
-                        <div class="input-datepicker">
-                            <p-calendar [(ngModel)]="BillingMonth" [showIcon]="true" placeholder="Billing Month"></p-calendar>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <label class="txt-gray">Ready to Start</label>
-                        <br>
-                        <div class="input-radio">
-                            <p-radioButton name="ReadyToStart" value="Yes" label="Yes" [(ngModel)]="Yes" inputId="Yes"></p-radioButton>
-                        </div>
-                        <div class="input-radio">
-                            <p-radioButton name="ReadyToStart" value="No" label="No" [(ngModel)]="No" inputId="No"></p-radioButton>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <label class="txt-gray">Archive Project</label>
-                        <br>
-                        <div class="input-radio">
-                            <p-radioButton name="ReadyToStart" value="Yes" label="Yes" [(ngModel)]="Yes" inputId="Yes"></p-radioButton>
-                        </div>
-                        <div class="input-radio">
-                            <p-radioButton name="ReadyToStart" value="No" label="No" [(ngModel)]="No" inputId="No"></p-radioButton>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-2">
-                <ul class="form-group">
-                    <li class="form-input">
-                        <div class="input-text">
-                            <span class="ui-float-label"><input id="EstDevelopment" type="text" pInputText><label for="EstDevelopment">Estimated Development</label></span>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="input-text">
-                            <span class="ui-float-label"><input id="EstDatabase" type="text" pInputText><label for="EstDatabase">Estimated Database</label></span>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="input-text">
-                            <span class="ui-float-label"><input id="EstVDP" type="text" pInputText><label for="EstVDP">Estimated VDP</label></span>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="input-text">
-                            <span class="ui-float-label"><input id="EstBAPM" type="text" pInputText><label for="EstBAPM">Estimated BA/PM</label></span>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="input-text">
-                            <span class="ui-float-label"><input id="EstQA" type="text" pInputText><label for="EstQA">Estimated QA</label></span>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="grid-2">
-                            <div class="col-1">
-                                <label class="subtitle txt-gray">Estimated Total</label>
-                            </div>
-                            <div class="col-2 txt-right">
-                                <label class="subtitle txt-gray">0 Hours</label>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="form-group">
-                    <li class="form-input">
-                        <div class="input-text">
-                            <span class="ui-float-label"><input id="RemainDevelopment" type="text" pInputText><label for="RemainDevelopment">Remaining Development</label></span>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="input-text">
-                            <span class="ui-float-label"><input id="RemainDatabase" type="text" pInputText><label for="RemainDatabase">Remaining Database</label></span>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="input-text">
-                            <span class="ui-float-label"><input id="RemainVDP" type="text" pInputText><label for="RemainVDP">Remaining VDP</label></span>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="input-text">
-                            <span class="ui-float-label"><input id="RemainBAPM" type="text" pInputText><label for="RemainBAPM">Remaining BA/PM</label></span>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="input-text">
-                            <span class="ui-float-label"><input id="RemainQA" type="text" pInputText><label for="RemainQA">Remaining QA</label></span>
-                        </div>
-                    </li>
-                    <li class="form-input">
-                        <div class="grid-2">
-                            <div class="col-1">
-                                <label class="subtitle txt-gray">Total</label> 
-                            </div>
-                            <div class="col-2 txt-right">
-                                <label class="subtitle txt-gray">0 Hours</label>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="form-group">
-                    <li class="form-input">
-                        <div class="grid-2">
-                            <span class="col-1">
-                                <label class="subtitle txt-primary">Monthly WIP</label>
-                            </span>
-                            <span class="col-2 txt-right">
-                                <label class="subtitle txt-primary">0 Hours</label>
-                            </span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+        <div class="columns-6 py-1 f-right">
+            <button pButton id="btnSave" type="button" label="Save" class="bg-p500"></button>
         </div>
     </div>
-</p-sidebar>
+    <div class="row">
+        <div class="columns-6 px-1 py-4">
+            <ul class="p-4 ">
+                <li>
+                    <h2 class="f-md f-bold">Information</h2>
+                </li>
+                <li class="mt-4">
+                    <p-dropdown [style]="{'width':'375px'}" [options]="ClientName" [(ngModel)]="ClientName" placeholder="Select a Client" optionLabel="clients" [showClear]="false"></p-dropdown>
+                </li>
+                <li class="mt-4">
+                    <p-dropdown [style]="{'width':'375px'}" [options]="ClientPriority" [(ngModel)]="ClientPriority" placeholder="Select a Priority" optionLabel="priority" [showClear]="false"></p-dropdown>
+                </li>
+                <li class="mt-4">
+                    <span class="ui-float-label"><input size="50" id="ProjectName" type="text" pInputText><label for="ProjectName">Project Name</label></span>
+                </li>
+                <li class="mt-4">
+                    <p-dropdown [style]="{'width':'375px'}" [options]="ProjectLead" [(ngModel)]="ProjectLead" placeholder="Select a Project Lead" optionLabel="projectlead" [showClear]="false"></p-dropdown>
+                </li>
+                <li class="mt-4">
+                    <p-dropdown [style]="{'width':'375px'}" [options]="ProjectStatus" [(ngModel)]="ProjectStatus" placeholder="Select a Project Status" optionLabel="projectstatus" [showClear]="false"></p-dropdown>
+                </li>
+                <li class="mt-4">
+                    <p-dropdown [style]="{'width':'375px'}" [options]="ProjectHealth" [(ngModel)]="ProjectHealth" placeholder="Select a Project Health" optionLabel="projecthealth" [showClear]="false"></p-dropdown>
+                </li>
+                <li class="mt-4">
+                    <p-calendar [(ngModel)]="ProjectCompletion" [showIcon]="true" placeholder="Project Completion"></p-calendar>
+                </li>
+                <li class="mt-4">
+                    <p-calendar [(ngModel)]="ReleaseMonth" [showIcon]="true" placeholder="Release Month"></p-calendar>
+                </li>
+                <li class="mt-4">
+                    <p-calendar [(ngModel)]="ReleaseMonth" [showIcon]="true" placeholder="Release Date"></p-calendar>
+                </li>
+                <li class="mt-4">
+                    <p-calendar [(ngModel)]="BillingMonth" [showIcon]="true" placeholder="Billing Month"></p-calendar>
+                </li>
+                <li class="mt-4">
+                <label class="d-block t-g700 mb-2">Ready to Start</label>
+                    <p-selectButton class="button-toggle" [options]="ReadytoStart" [(ngModel)]="toggleReady"></p-selectButton>
+                </li>
+                <li class="mt-4">
+                <label class="d-block t-g700 mb-2">Archive</label>
+                    <p-selectButton class="button-toggle" [options]="ArchiveProject" [(ngModel)]="toggleArchive"></p-selectButton>
+                </li>
+            </ul>
+        </div>
+        <div class="columns-6 py-1 px-4">
+            <ul class="p-4">
+                <li>
+                    <h2 class="f-md f-bold">Estimated Development Hours</h2>
+                </li>
+                <li class="mt-4">
+                    <span class="ui-float-label"><input size="30" id="EstDevelopment" type="text" pInputText><label for="EstDevelopment">Estimated Development</label></span>
+                </li>
+                <li class="mt-4">
+                    <span class="ui-float-label"><input size="30" id="EstDatabase" type="text" pInputText><label for="EstDatabase">Estimated Database</label></span>
+                </li>
+                <li class="mt-4">
+                    <span class="ui-float-label"><input size="30" id="EstVDP" type="text" pInputText><label for="EstVDP">Estimated VDP</label></span>
+                </li>
+                <li class="mt-4">
+                    <span class="ui-float-label"><input size="30" id="EstBAPM" type="text" pInputText><label for="EstBAPM">Estimated BA/PM</label></span>
+                </li>
+                <li class="mt-4">
+                    <span class="ui-float-label"><input  size="30" id="EstQA" type="text" pInputText><label for="EstQA">Estimated QA</label></span>
+                </li>
+                <li class="mt-4">
+                    <h2 class="f-md f-bold">Remaining Development Hours</h2>
+                </li>
+                <li class="mt-4">
+                    <span class="ui-float-label"><input size="30" id="RemainDevelopment" type="text" pInputText><label for="RemainDevelopment">Remaining Development</label></span>
+                </li>
+                <li class="mt-4">
+                    <span class="ui-float-label"><input size="30" id="RemainDatabase" type="text" pInputText><label for="RemainDatabase">Remaining Database</label></span>
+                </li>
+                <li class="mt-4">
+                    <span class="ui-float-label"><input size="30" id="RemainVDP" type="text" pInputText><label for="RemainVDP">Remaining VDP</label></span>
+                </li>
+                <li class="mt-4">
+                    <span class="ui-float-label"><input size="30" id="RemainBAPM" type="text" pInputText><label for="RemainBAPM">Remaining BA/PM</label></span>
+                </li>
+                <li class="mt-4">
+                    <span class="ui-float-label"><input  size="30" id="RemainQA" type="text" pInputText><label for="RemainQA">Remaining QA</label></span>
+                </li>
+                <li class="mt-4">
+                    <div class="wrapper">
+                        <div class="row baseline-2">
+                            <div class="columns-4 py-2">
+                                <label class="t-g700">Estimated Hours:</label>
+                            </div>
+                            <div class="column px-2">
+                                <label class="t-s500 f-bold">Calculated Hours</label>
+                            </div>
+                        </div>
+                        <div class="row baseline-2">
+                            <div class="columns-4 py-2">
+                                <label class="t-g700">Remaining Hours:</label>
+                            </div>
+                            <div class="column px-2">
+                                <label class="t-s500 f-bold">Calculated Hours</label>
+                            </div>
+                        </div>
+                        <div class="row baseline-2">
+                            <div class="columns-4 py-2">
+                                <label class="t-g700">Total Hours:</label>
+                            </div>
+                            <div class="column px-2">
+                                <label class="t-s500 f-bold">Calculated Hours</label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>      

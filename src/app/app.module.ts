@@ -3,8 +3,11 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+// app modules
 import { LoginmainComponent } from './pages/loginmain/loginmain.component';
 import { LoginentryComponent } from './components/loginentry/loginentry.component';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
@@ -17,6 +20,13 @@ import { ProjectinfoComponent } from './components/projectinfo/projectinfo.compo
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReportpickerComponent } from './components/reportpicker/reportpicker.component';
+import { ReportsComponent } from './pages/reports/reports.component';
+import { PiechartComponent } from './components/piechart/piechart.component';
+import { BarchartComponent } from './components/barchart/barchart.component';
+import { ProjectsearchComponent } from './components/projectsearch/projectsearch.component';
+
+// app import modules
+import {AutoCompleteModule} from 'primeng/autocomplete';
 import {ProgressBarModule} from 'primeng/progressbar';
 import {InputTextModule} from 'primeng/inputtext';
 import {RadioButtonModule} from 'primeng/radiobutton';
@@ -33,11 +43,15 @@ import { ProjectdataService } from './services/projectdata.service';
 import { Config } from './config/config';
 import { AdminpanelComponent } from './pages/adminpanel/adminpanel.component';
 import {CheckboxModule} from 'primeng/checkbox';
+import {SelectButtonModule} from 'primeng/selectbutton';
+
+// service modules
 import { LogService } from './services/log.service';
 import { LogPublishersService } from './services/logpublishers.service';
-import { ReportsComponent } from './pages/reports/reports.component';
-import { PiechartComponent } from './components/piechart/piechart.component';
-import { BarchartComponent } from './components/barchart/barchart.component';
+import { ReportDropdownComponent } from './components/report-dropdown/report-dropdown.component';
+import { ReportDatepickerComponent } from './components/report-datepicker/report-datepicker.component';
+import { DoughnutchartComponent } from './components/doughnutchart/doughnutchart.component';
+
 
 @NgModule({
   declarations: [
@@ -58,7 +72,11 @@ import { BarchartComponent } from './components/barchart/barchart.component';
     AdminpanelComponent,
     ReportsComponent,
     PiechartComponent,
-    BarchartComponent
+    BarchartComponent,
+    ProjectsearchComponent,
+    ReportDropdownComponent,
+    ReportDatepickerComponent,
+    DoughnutchartComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +95,9 @@ import { BarchartComponent } from './components/barchart/barchart.component';
     DialogModule,
     HttpClientModule,
     CheckboxModule,
-    ChartModule
+    ChartModule,
+    AutoCompleteModule,
+    SelectButtonModule
   ],
   providers: [Title, ProjectdataService, Config, LogService, LogPublishersService],
   bootstrap: [AppComponent]

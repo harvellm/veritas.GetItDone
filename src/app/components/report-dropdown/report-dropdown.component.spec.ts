@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PiechartComponent } from './piechart.component';
+import { ReportDropdownComponent } from './report-dropdown.component';
 
-describe('PiechartComponent', () => {
-  let component: PiechartComponent;
-  let fixture: ComponentFixture<PiechartComponent>;
+describe('ReportDropdownComponent', () => {
+  let component: ReportDropdownComponent;
+  let fixture: ComponentFixture<ReportDropdownComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PiechartComponent ]
+      declarations: [ ReportDropdownComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PiechartComponent);
+    fixture = TestBed.createComponent(ReportDropdownComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
