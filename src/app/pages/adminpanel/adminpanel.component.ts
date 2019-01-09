@@ -9,31 +9,33 @@ import { UserdataService } from '../../services/userdata.service';
 export class AdminpanelComponent implements OnInit {
 
   fullName: string;
-  userName:string;
-  password:string;
-  email:string;
-  role:boolean;
-  userMessage:string = '';
+  userName: string;
+  password: string;
+  email: string;
+  role: boolean;
+  userMessage = '';
 
-  btnEdit: boolean = false;
-  btnAdd: boolean = false;
+  btnEdit = false;
+  btnAdd = false;
   dialogTitle: string;
 
-  constructor(private userService:UserdataService) { }
+  dialogUser = false;
+  dialogWarn = false;
+
+  constructor(private userService: UserdataService) { }
 
   ngOnInit() {
   }
 
-  addUser():void {
-    let newUser:IUser = new User();
+  addUser(): void {
+    const newUser: IUser = new User();
     newUser.Email = this.email;
     newUser.UserName = this.userName;
     newUser.Password = this.password;
-    newUser.Role = this.role===true?1:0;
-    this.userService.addNewUser(newUser).subscribe((res:IUser)=>{
-      debugger;
-      this.userMessage = 'User created successfully!'
-    })
+    newUser.Role = this.role === true ? 1 : 0;
+    this.userService.addNewUser(newUser).subscribe((res: IUser) => {
+      this.userMessage = 'User created successfully!';
+    });
   }
 
   /* editUser():void {
@@ -59,9 +61,6 @@ export class AdminpanelComponent implements OnInit {
       this.userMessage = 'User created successfully!'
     })
   } */
-
-  dialogUser: boolean = false;
-  dialogWarn: boolean = false;
 
   showDialogEdit() {
     this.dialogUser = true;

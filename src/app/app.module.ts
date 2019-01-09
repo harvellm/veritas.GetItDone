@@ -19,9 +19,7 @@ import { ProjectcarddataComponent } from './components/projectcarddata/projectca
 import { ProjectinfoComponent } from './components/projectinfo/projectinfo.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { ReportpickerComponent } from './components/reportpicker/reportpicker.component';
 import { ReportsComponent } from './pages/reports/reports.component';
-import { PiechartComponent } from './components/piechart/piechart.component';
 import { BarchartComponent } from './components/barchart/barchart.component';
 import { ProjectsearchComponent } from './components/projectsearch/projectsearch.component';
 
@@ -67,11 +65,9 @@ import { DoughnutchartComponent } from './components/doughnutchart/doughnutchart
     ProjectinfoComponent,
     HeaderComponent,
     FooterComponent,
-    ReportpickerComponent,
     NewpasswordComponent,
     AdminpanelComponent,
     ReportsComponent,
-    PiechartComponent,
     BarchartComponent,
     ProjectsearchComponent,
     ReportDropdownComponent,

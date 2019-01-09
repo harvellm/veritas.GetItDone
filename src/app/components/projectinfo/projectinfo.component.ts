@@ -10,6 +10,17 @@ export class ProjectinfoComponent implements OnInit {
   // @Input() - no longer needed with PrimeNG sidebar implemented correctly
   // open = false; - no longer needed with PrimeNG sidebar implemented correctly
 
+  ClientName: any;
+  ClientPriority: any;
+  ProjectLead: any;
+  ProjectStatus: any;
+  ProjectHealth: any;
+  ProjectCompletion: any;
+  ReleaseMonth: any;
+  BillingMonth: any;
+  toggleReady: any;
+  toggleArchive: any;
+
   ReadytoStart: SelectItem[];
   ArchiveProject: SelectItem[];
 

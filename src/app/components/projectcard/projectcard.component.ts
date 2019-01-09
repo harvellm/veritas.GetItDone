@@ -6,12 +6,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectcardComponent implements OnInit {
 
+  dialog = false;
+
   constructor() { }
 
   ngOnInit() {
   }
-
-  dialog: boolean = false;
 
   showDialog() {
     this.dialog = true;

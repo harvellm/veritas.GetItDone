@@ -14,8 +14,8 @@ const routes: Routes = [
   { path: 'forgotpassword', component: ForgotpasswordComponent},
   { path: 'newpassword', component: NewpasswordComponent},
   { path: 'projectinfo', component: ProjectinfoComponent},
-  { path: 'adminpanel', component:AdminpanelComponent},
-  { path: 'reports', component:ReportsComponent }
+  { path: 'adminpanel', component: AdminpanelComponent},
+  { path: 'reports', component: ReportsComponent }
 ];
 
 @NgModule({
