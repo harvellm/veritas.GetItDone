@@ -1,0 +1,739 @@
+// _atoms-colors.scss
+
+@import "variables";
+
+/* background: primary */
+.bg-p50 {
+  background: lighten($primary, 45%);
+}
+
+.bg-p100 {
+  background: lighten($primary, 40%);
+}
+
+.bg-p150 {
+  background: lighten($primary, 35%);
+}
+
+.bg-p200 {
+  background: lighten($primary, 30%);
+}
+
+.bg-p250 {
+  background: lighten($primary, 25%);
+}
+
+.bg-p300 {
+  background: lighten($primary, 20%);
+}
+
+.bg-p350 {
+  background: lighten($primary, 15%);
+}
+
+.bg-p400 {
+  background: lighten($primary, 10%);
+}
+
+.bg-p450 {
+  background: lighten($primary, 5%);
+}
+
+.bg-p500 {
+  background: $primary;
+}
+
+.bg-p550 {
+  background: darken($primary, 5%);
+}
+
+.bg-p600 {
+  background: darken($primary, 10%);
+}
+
+.bg-p650 {
+  background: darken($primary, 15%);
+}
+
+.bg-p700 {
+  background: darken($primary, 20%);
+}
+
+.bg-p750 {
+  background: darken($primary, 25%);
+}
+
+.bg-p800 {
+  background: darken($primary, 30%);
+}
+
+.bg-p850 {
+  background: darken($primary, 35%);
+}
+
+.bg-p900 {
+  background: darken($grayscale, 40%);
+}
+
+.bg-p950 {
+  background: darken($grayscale, 45%);
+}
+
+
+/* background: secondary */
+.bg-s50 {
+  background: lighten($secondary, 45%);
+}
+
+.bg-s100 {
+  background: lighten($secondary, 40%);
+}
+
+.bg-s150 {
+  background: lighten($secondary, 35%);
+}
+
+.bg-s200 {
+  background: lighten($secondary, 30%);
+}
+
+.bg-s250 {
+  background: lighten($secondary, 25%);
+}
+
+.bg-s300 {
+  background: lighten($secondary, 20%);
+}
+
+.bg-s350 {
+  background: lighten($secondary, 15%);
+}
+
+.bg-s400 {
+  background: lighten($secondary, 10%);
+}
+
+.bg-s450 {
+  background: lighten($secondary, 5%);
+}
+
+.bg-s500 {
+  background: $secondary;
+}
+
+.bg-s550 {
+  background: darken($secondary, 5%);
+}
+
+.bg-s600 {
+  background: darken($secondary, 10%);
+}
+
+.bg-s650 {
+  background: darken($secondary, 15%);
+}
+
+.bg-s700 {
+  background: darken($secondary, 20%);
+}
+
+.bg-s750 {
+  background: darken($secondary, 25%);
+}
+
+.bg-s800 {
+  background: darken($secondary, 30%);
+}
+
+.bg-s850 {
+  background: darken($secondary, 35%);
+}
+
+.bg-s900 {
+  background: darken($secondary, 40%);
+}
+
+.bg-s950 {
+  background: darken($secondary, 45%);
+}
+
+
+/* background: grayscale */
+.bg-g50 {
+  background: lighten($grayscale, 45%);
+}
+
+.bg-g100 {
+  background: lighten($grayscale, 40%);
+}
+
+.bg-g150 {
+  background: lighten($grayscale, 35%);
+}
+
+.bg-g200 {
+  background: lighten($grayscale, 30%);
+}
+
+.bg-g250 {
+  background: lighten($grayscale, 25%);
+}
+
+.bg-g300 {
+  background: lighten($grayscale, 20%);
+}
+
+.bg-g350 {
+  background: lighten($grayscale, 15%);
+}
+
+.bg-g400 {
+  background: lighten($grayscale, 10%);
+}
+
+.bg-g450 {
+  background: lighten($grayscale, 5%);
+}
+
+.bg-g500 {
+  background: $grayscale;
+}
+
+.bg-g550 {
+  background: darken($grayscale, 5%);
+}
+
+.bg-g600 {
+  background: darken($grayscale, 10%);
+}
+
+.bg-g650 {
+  background: darken($grayscale, 15%);
+}
+
+.bg-g700 {
+  background: darken($grayscale, 20%);
+}
+
+.bg-g750 {
+  background: darken($grayscale, 25%);
+}
+
+.bg-g800 {
+  background: darken($grayscale, 30%);
+}
+
+.bg-g850 {
+  background: darken($grayscale, 35%);
+}
+
+.bg-g900 {
+  background: darken($grayscale, 40%);
+}
+
+.bg-g950 {
+  background: darken($grayscale, 45%);
+}
+
+.bg-white {
+  background: $white;
+}
+
+.bg-black {
+  background: $black;
+}
+
+.bg-good {
+  background: $good;
+}
+
+.bg-warning {
+  background: $warning;
+}
+
+.bg-danger {
+  background: $danger;
+}
+
+
+/* text: primary */
+.t-p50 {
+  color: lighten($primary, 45%);
+}
+
+.t-p100 {
+  color: lighten($primary, 40%);
+}
+
+.t-p150 {
+  color: lighten($primary, 35%);
+}
+
+.t-p200 {
+  color: lighten($primary, 30%);
+}
+
+.t-p250 {
+  color: lighten($primary, 25%);
+}
+
+.t-p300 {
+  color: lighten($primary, 20%);
+}
+
+.t-p350 {
+  color: lighten($primary, 15%);
+}
+
+.t-p400 {
+  color: lighten($primary, 10%);
+}
+
+.t-p450 {
+  color: lighten($primary, 5%);
+}
+
+.t-p500 {
+  color: $primary;
+}
+
+.t-p550 {
+  color: darken($primary, 5%);
+}
+
+.t-p600 {
+  color: darken($primary, 10%);
+}
+
+.t-p650 {
+  color: darken($primary, 15%);
+}
+
+.t-p700 {
+  color: darken($primary, 20%);
+}
+
+.t-p750 {
+  color: darken($primary, 25%);
+}
+
+.t-p800 {
+  color: darken($primary, 30%);
+}
+
+.t-p850 {
+  color: darken($primary, 35%);
+}
+
+.t-p900 {
+  color: darken($grayscale, 40%);
+}
+
+.t-p950 {
+  color: darken($grayscale, 45%);
+}
+
+
+/* text: secondary */
+.t-s50 {
+  color: lighten($secondary, 45%);
+}
+
+.t-s100 {
+  color: lighten($secondary, 40%);
+}
+
+.t-s150 {
+  color: lighten($secondary, 35%);
+}
+
+.t-s200 {
+  color: lighten($secondary, 30%);
+}
+
+.t-s250 {
+  color: lighten($secondary, 25%);
+}
+
+.t-s300 {
+  color: lighten($secondary, 20%);
+}
+
+.t-s350 {
+  color: lighten($secondary, 15%);
+}
+
+.t-s400 {
+  color: lighten($secondary, 10%);
+}
+
+.t-s450 {
+  color: lighten($secondary, 5%);
+}
+
+.t-s500 {
+  color: $secondary;
+}
+
+.t-s550 {
+  color: darken($secondary, 5%);
+}
+
+.t-s600 {
+  color: darken($secondary, 10%);
+}
+
+.t-s650 {
+  color: darken($secondary, 15%);
+}
+
+.t-s700 {
+  color: darken($secondary, 20%);
+}
+
+.t-s750 {
+  color: darken($secondary, 25%);
+}
+
+.t-s800 {
+  color: darken($secondary, 30%);
+}
+
+.t-s850 {
+  color: darken($secondary, 35%);
+}
+
+.t-s900 {
+  color: darken($secondary, 40%);
+}
+
+.t-s950 {
+  color: darken($secondary, 45%);
+}
+
+
+/* text: grayscale */
+.t-g50 {
+  color: lighten($grayscale, 45%);
+}
+
+.t-g100 {
+  color: lighten($grayscale, 40%);
+}
+
+.t-g150 {
+  color: lighten($grayscale, 35%);
+}
+
+.t-g200 {
+  color: lighten($grayscale, 30%);
+}
+
+.t-g250 {
+  color: lighten($grayscale, 25%);
+}
+
+.t-g300 {
+  color: lighten($grayscale, 20%);
+}
+
+.t-g350 {
+  color: lighten($grayscale, 15%);
+}
+
+.t-g400 {
+  color: lighten($grayscale, 10%);
+}
+
+.t-g450 {
+  color: lighten($grayscale, 5%);
+}
+
+.t-g500 {
+  color: $grayscale;
+}
+
+.t-g550 {
+  color: darken($grayscale, 5%);
+}
+
+.t-g600 {
+  color: darken($grayscale, 10%);
+}
+
+.t-g650 {
+  color: darken($grayscale, 15%);
+}
+
+.t-g700 {
+  color: darken($grayscale, 20%);
+}
+
+.t-g750 {
+  color: darken($grayscale, 25%);
+}
+
+.t-g800 {
+  color: darken($grayscale, 30%);
+}
+
+.t-g850 {
+  color: darken($grayscale, 35%);
+}
+
+.t-g900 {
+  color: darken($grayscale, 40%);
+}
+
+.t-g950 {
+  color: darken($grayscale, 45%);
+}
+
+.t-white {
+  color: $white;
+}
+
+.t-black {
+  color: $black;
+}
+
+/* border: primary */
+.b-p50 {
+  border-color: lighten($primary, 45%);
+}
+
+.b-p100 {
+  border-color: lighten($primary, 40%);
+}
+
+.b-p150 {
+  border-color: lighten($primary, 35%);
+}
+
+.b-p200 {
+  border-color: lighten($primary, 30%);
+}
+
+.b-p250 {
+  border-color: lighten($primary, 25%);
+}
+
+.b-p300 {
+  border-color: lighten($primary, 20%);
+}
+
+.b-p350 {
+  border-color: lighten($primary, 15%);
+}
+
+.b-p400 {
+  border-color: lighten($primary, 10%);
+}
+
+.b-p450 {
+  border-color: lighten($primary, 5%);
+}
+
+.b-p500 {
+  border-color: $primary;
+}
+
+.b-p550 {
+  border-color: darken($primary, 5%);
+}
+
+.b-p600 {
+  border-color: darken($primary, 10%);
+}
+
+.b-p650 {
+  border-color: darken($primary, 15%);
+}
+
+.b-p700 {
+  border-color: darken($primary, 20%);
+}
+
+.b-p750 {
+  border-color: darken($primary, 25%);
+}
+
+.b-p800 {
+  border-color: darken($primary, 30%);
+}
+
+.b-p850 {
+  border-color: darken($primary, 35%);
+}
+
+.b-p900 {
+  border-color: darken($grayscale, 40%);
+}
+
+.b-p950 {
+  border-color: darken($grayscale, 45%);
+}
+
+
+/* border: secondary */
+.b-s50 {
+  border-color: lighten($secondary, 45%);
+}
+
+.b-s100 {
+  border-color: lighten($secondary, 40%);
+}
+
+.b-s150 {
+  border-color: lighten($secondary, 35%);
+}
+
+.b-s200 {
+  border-color: lighten($secondary, 30%);
+}
+
+.b-s250 {
+  border-color: lighten($secondary, 25%);
+}
+
+.b-s300 {
+  border-color: lighten($secondary, 20%);
+}
+
+.b-s350 {
+  border-color: lighten($secondary, 15%);
+}
+
+.b-s400 {
+  border-color: lighten($secondary, 10%);
+}
+
+.b-s450 {
+  border-color: lighten($secondary, 5%);
+}
+
+.b-s500 {
+  border-color: $secondary;
+}
+
+.b-s550 {
+  border-color: darken($secondary, 5%);
+}
+
+.b-s600 {
+  border-color: darken($secondary, 10%);
+}
+
+.b-s650 {
+  border-color: darken($secondary, 15%);
+}
+
+.b-s700 {
+  border-color: darken($secondary, 20%);
+}
+
+.b-s750 {
+  border-color: darken($secondary, 25%);
+}
+
+.b-s800 {
+  border-color: darken($secondary, 30%);
+}
+
+.b-s850 {
+  border-color: darken($secondary, 35%);
+}
+
+.b-s900 {
+  border-color: darken($secondary, 40%);
+}
+
+.b-s950 {
+  border-color: darken($secondary, 45%);
+}
+
+
+/* border: grayscale */
+.b-g50 {
+  border-color: lighten($grayscale, 45%);
+}
+
+.b-g100 {
+  border-color: lighten($grayscale, 40%);
+}
+
+.b-g150 {
+  border-color: lighten($grayscale, 35%);
+}
+
+.b-g200 {
+  border-color: lighten($grayscale, 30%);
+}
+
+.b-g250 {
+  border-color: lighten($grayscale, 25%);
+}
+
+.b-g300 {
+  border-color: lighten($grayscale, 20%);
+}
+
+.b-g350 {
+  border-color: lighten($grayscale, 15%);
+}
+
+.b-g400 {
+  border-color: lighten($grayscale, 10%);
+}
+
+.b-g450 {
+  border-color: lighten($grayscale, 5%);
+}
+
+.b-g500 {
+  border-color: $grayscale;
+}
+
+.b-g550 {
+  border-color: darken($grayscale, 5%);
+}
+
+.b-g600 {
+  border-color: darken($grayscale, 10%);
+}
+
+.b-g650 {
+  border-color: darken($grayscale, 15%);
+}
+
+.b-g700 {
+  border-color: darken($grayscale, 20%);
+}
+
+.b-g750 {
+  border-color: darken($grayscale, 25%);
+}
+
+.b-g800 {
+  border-color: darken($grayscale, 30%);
+}
+
+.b-g850 {
+  border-color: darken($grayscale, 35%);
+}
+
+.b-g900 {
+  border-color: darken($grayscale, 40%);
+}
+
+.b-g950 {
+  border-color: darken($grayscale, 45%);
+}
+
+.b-white {
+  border-color: $white;
+}
+
+.b-black {
+  border-color: $black;
+}

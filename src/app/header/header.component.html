@@ -1,16 +1,18 @@
-<header>
-    <div class="grid-3">
-        <div class="col-1">
+<header class="container bg-p500 gutter-3 b-bottom b-p550">
+    <div class="row row-align-center baseline-2">
+        <div class="columns-3">
             <img src="../../assets/images/logo.png" alt="Veritas Document Solutions">
         </div>
-        <div class="col-2">
-            <nav class="txt-center">
-                <a class="nav-link" href="#" routerLink="/dashboard" routerLinkActive="nav-link-active">Projects</a>
-                <a class="nav-link" href="#" routerLink="/reports" routerLinkActive="nav-link-active">Reports</a>
+        <div class="columns-6">
+            <nav class="wrapper">
+                <div class="row row-justify-center">
+                    <a class="d-inline t-g900 f-center bg-g250 p-3 rx-2" [routerLink]="['/dashboard']" [routerLinkActive]="['nav-active']">Projects</a>
+                    <a class="d-inline t-g900 f-center bg-g250 p-3 ry-2" [routerLink]="['/reports']" [routerLinkActive]="['nav-active']">Reports</a>
+                </div>
             </nav>
         </div>
-        <div class="col-3">
-            <i class="icon fas fa-user"></i>&nbsp;<label id="user">Veritas User</label>&nbsp;(&nbsp;<a class="link" routerLink="">logout</a>&nbsp;)
+        <div class="columns-3 t-g100 f-right">
+            <i class="fas fa-user t-g100"></i>&nbsp;<label class="t-g100" id="user">Veritas User</label>&nbsp;(&nbsp;<a class="f-underline t-g100" [routerLink]="['']">logout</a>&nbsp;)
         </div>
     </div>
 </header>

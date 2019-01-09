@@ -9,13 +9,13 @@ import { LogService } from '../../services/log.service';
 })
 export class LoginentryComponent implements OnInit {
 
-  constructor(private router:Router, private state:StateService, private logger:LogService) { }
+  constructor(private router: Router, private state: StateService, private logger: LogService) { }
 
   ngOnInit() {
   }
-  
-  login():void{
-    //TODO:Check login
+
+  login(): void {
+    // TODO:Check login
 
     this.logger.log('Login attempted');
     this.router.navigateByUrl('/dashboard');

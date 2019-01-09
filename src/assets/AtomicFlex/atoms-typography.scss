@@ -1,0 +1,88 @@
+// _atoms-typography.scss
+
+@import "variables";
+@import "mixins";
+
+/* typography font sizes */
+.f-alpha {
+  @include font-size(24px);
+}
+
+.f-beta {
+  @include font-size(22px);
+}
+
+.f-xlg {
+  @include font-size(20px);
+}
+
+.f-lg {
+  @include font-size(18px);
+}
+
+.f-md {
+  @include font-size(16px);
+}
+
+.f-sm {
+  @include font-size(14px);
+}
+
+.f-xs {
+  @include font-size(12px);
+}
+
+/* typography font styles */
+.f-thin {
+  @include font-style($weight: 200);
+}
+
+.f-light {
+  @include font-style($weight: 300);
+}
+
+.f-norm {
+  @include font-style($weight: normal);
+  @include font-style($weight: 400);
+}
+
+.f-semi {
+  @include font-style($weight: 500);
+}
+
+.f-bold {
+  @include font-style($weight: bold);
+  @include font-style($weight: 700);
+}
+
+.f-italic {
+  @include font-style($style: italic);
+}
+
+.f-uppercase {
+  @include font-style($case: uppercase);
+}
+
+.f-capital {
+  @include font-style($case: capitalize);
+}
+
+.f-lowercase {
+  @include font-style($case: lowercase);
+}
+.f-underline {
+  text-decoration: underline;
+}
+
+/* typography positioning */
+.f-left {
+  text-align: left;
+}
+
+.f-right {
+  text-align: right;
+}
+
+.f-center {
+  text-align: center;
+}

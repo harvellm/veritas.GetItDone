@@ -1,0 +1,388 @@
+// _atoms-layout.scss
+
+@import "variables";
+@import "mixins";
+
+/* container for wrapping page level grids */
+.container {
+  @include layout(block);
+  max-width: $size-100;
+}
+
+/* wrapper for resetting parent div, which allows nesting of flexbox grids */
+.wrapper {
+  @include layout(block);
+  width: $size-100;
+}
+
+/* flexbox row for grid rows */
+.row {
+  @include grid($direction: row, $wrap: nowrap, $justify: flex-start, $items: stretch, $content: stretch);
+}
+
+.row-reverse {
+  @include grid($direction: row-reverse);
+}
+
+.row-column {
+  @include grid($direction: column);
+}
+
+.row-column-reverse {
+  @include grid($direction: column-reverse);
+}
+
+.row-wrap {
+  @include grid($wrap: wrap);
+}
+
+.row-justify-center {
+  @include grid($justify: center);
+}
+
+.row-justify-end {
+  @include grid($justify: flex-end);
+}
+
+.row-justify-between {
+  @include grid($justify: space-between);
+}
+
+.row-align-start {
+  @include grid($items: flex-start);
+}
+
+.row-align-center {
+  @include grid($items: center);
+}
+
+.row-align-end {
+  @include grid($items: flex-end);
+}
+
+.row-content-start {
+  @include grid($content: flex-start);
+}
+
+.row-content-center {
+  @include grid($items: center);
+}
+
+.row-content-end {
+  @include grid($items: flex-end);
+}
+
+.row-content-between {
+  @include grid($items: space-between);
+}
+
+.row-content-around {
+  @include grid($items: space-around);
+}
+
+
+/* grid columns */
+.column {
+  @include column($width: auto);
+}
+
+.column-1 {
+  @include column($width: $col-1);
+}
+
+.columns-2 {
+  @include column($width: $col-2);
+}
+
+.columns-3 {
+  @include column($width: $col-3);
+}
+
+.columns-4 {
+  @include column($width: $col-4);
+}
+
+.columns-5 {
+  @include column($width: $col-5);
+}
+
+.columns-6 {
+  @include column($width: $col-6);
+}
+
+.columns-7 {
+  @include column($width: $col-7);
+}
+
+.columns-8 {
+  @include column($width: $col-8);
+}
+
+.columns-9 {
+  @include column($width: $col-9);
+}
+
+.columns-10 {
+  @include column($width: $col-10);
+}
+
+.columns-11 {
+  @include column($width: $col-11);
+}
+
+.columns-12 {
+  @include column($width: $col-12);
+}
+
+/* width classes */
+.w-10 {
+  width: $size-10;
+}
+
+.w-15 {
+  width: $size-15;
+}
+
+.w-20 {
+  width: $size-20;
+}
+
+.w-25 {
+  width: $size-25;
+}
+
+.w-30 {
+  width: $size-30;
+}
+
+.w-35 {
+  width: $size-35;
+}
+
+.w-40 {
+  width: $size-40;
+}
+
+.w-45 {
+  width: $size-45;
+}
+
+.w-50 {
+  width: $size-50;
+}
+
+.w-55 {
+  width: $size-55;
+}
+
+.w-60 {
+  width: $size-60;
+}
+
+.w-65 {
+  width: $size-65;
+}
+
+.w-70 {
+  width: $size-70;
+}
+
+.w-75 {
+  width: $size-75;
+}
+
+.w-80 {
+  width: $size-80;
+}
+
+.w-85 {
+  width: $size-85;
+}
+
+.w-90 {
+  width: $size-90;
+}
+
+.w-95 {
+  width: $size-95;
+}
+
+.w-100 {
+  width: $size-100;
+}
+
+.w-auto {
+  width: auto;
+}
+
+/* flexbox items */
+.items-grow {
+  @include column($grow: 0);
+}
+
+.items-shrink {
+  @include column($grow: 1);
+}
+
+.items-stretch {
+  @include column($self: stretch);
+}
+
+.items-start {
+  @include column($self: flex-start);
+}
+
+.items-center {
+  @include column($self: center);
+}
+
+.items-end {
+  @include column($self: flex-end);
+}
+
+/* column size offsets using padding instead of margins because of box-sizing: border-box */
+
+.off-y1 {
+  padding-right: $col-1;
+}
+
+.off-x1 {
+  padding-left: $col-1;
+}
+
+.off-y2 {
+  padding-right: $col-2;
+}
+
+.off-x2 {
+  padding-left: $col-2;
+}
+
+.off-y3 {
+  padding-right: $col-3;
+}
+
+.off-x3 {
+  padding-left: $col-3;
+}
+
+.off-y4 {
+  padding-right: $col-4;
+}
+
+.off-x4 {
+  padding-left: $col-4;
+}
+
+.off-y5 {
+  padding-right: $col-5;
+}
+
+.off-x5 {
+  padding-left: $col-5;
+}
+
+.off-y6 {
+  padding-right: $col-6;
+}
+
+.off-x6 {
+  padding-left: $col-6;
+}
+
+.off-y7 {
+  padding-right: $col-7;
+}
+
+.off-x7 {
+  padding-left: $col-7;
+}
+
+.off-y8 {
+  padding-right: $col-8;
+}
+
+.off-x8 {
+  padding-left: $col-8;
+}
+
+.off-y9 {
+  padding-right: $col-9;
+}
+
+.off-x9 {
+  padding-left: $col-9;
+}
+
+.off-y10 {
+  padding-right: $col-10;
+}
+
+.off-x10 {
+  padding-left: $col-10;
+}
+
+.off-y11 {
+  padding-right: $col-11;
+}
+
+.off-x11 {
+  padding-left: $col-11;
+}
+
+/* other layout helpers */
+
+.left {
+  @include layout(left);
+}
+
+.right {
+  @include layout(right);
+}
+
+.center {
+  @include layout(center);
+}
+
+.clear,
+.clear:before,
+.clear:after {
+  @include layout(clear);
+}
+
+.d-none {
+  @include layout(hide);
+}
+
+.d-inline {
+  @include layout(inline);
+}
+
+.d-block {
+  @include layout(show);
+}
+
+.d-hide {
+  @include layout(hide);
+}
+
+.d-hidden {
+  @include layout(hidden);
+}
+
+.d-visible {
+  @include layout(reveal);
+}
+
+/* alignment */
+.valign-t {
+  vertical-align: top;
+}
+
+.valign-m {
+  vertical-align: middle;
+}
+
+.valign-b {
+  vertical-align: bottom;
+}

@@ -1,0 +1,77 @@
+// _variables.scss
+
+// colors variables (use lighten or darken to change color value)
+$primary: #51A027;
+$secondary: #1E795E;
+$grayscale: #A1A1A1;
+$black: #000000;
+$white: #ffffff;
+$good: #56F500;
+$warning: #DB9200;
+$danger: #DB2500;
+
+// typography variables
+$base-font: "Roboto", sans-serif;
+$base-size: 16px;
+$base-scale: 1.5;
+
+@function calculate-font($size) {
+	$font-size: $size/$base-size;
+	@return $font-size * 1rem;
+}
+
+// spacing variables
+$xs: 4px;
+$sm: 8px;
+$md: 16px;
+$lg: 32px;
+$xlg: 64px;
+
+// grid column size variables
+$col-1: 8.33%;
+$col-2: 16.66%;
+$col-3: 25%;
+$col-4: 33.33%;
+$col-5: 41.66%;
+$col-6: 50%;
+$col-7: 58.33%;
+$col-8: 66.66%;
+$col-9: 75%;
+$col-10: 83.33%;
+$col-11: 91.66%;
+$col-12: 100%;
+
+// generic size variables
+$size-10: 10%;
+$size-15: 15%;
+$size-20: 20%;
+$size-25: 25%;
+$size-30: 30%;
+$size-35: 35%;
+$size-40: 40%;
+$size-45: 45%;
+$size-50: 50%;
+$size-55: 55%;
+$size-60: 60%;
+$size-65: 65%;
+$size-70: 70%;
+$size-75: 75%;
+$size-80: 80%;
+$size-85: 85%;
+$size-90: 90%;
+$size-95: 95%;
+$size-100: 100%;
+
+//border sizes
+$b-xs: 1px;
+$b-sm: 2px;
+$b-md: 3px;
+$b-lg: 4px;
+$b-xlg: 5px;
+
+// border radius variables
+$rounded-xs: 4px;
+$rounded-sm: 8px;
+$rounded-md: 16px;
+$rounded-lg: 32px;
+$rounded-xlg: 64px;

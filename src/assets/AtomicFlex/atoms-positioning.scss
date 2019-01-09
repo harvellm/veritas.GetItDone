@@ -1,0 +1,92 @@
+// _atoms-positioning.scss
+
+@import "variables";
+@import "mixins";
+
+/* positioning */
+.pos-relative {
+  @include position(relative);
+}
+
+.pos-absolute {
+  @include position(absolute);
+}
+
+/* fixed header or footer */
+.pos-tfixed {
+  @include position(fixed, $top: 0);
+  z-index: 1000;
+}
+
+.pos-bfixed {
+  @include position(fixed, $bottom: 0);
+  z-index: 1000;
+}
+
+/* top position */
+.pos-t {
+  @include position(absolute, 0, 0, 0, 0);
+}
+
+.pos-t1 {
+  @include position(absolute, $xs, 0, 0, 0);
+}
+
+.pos-t2 {
+  @include position(absolute, $sm, 0, 0, 0);
+}
+
+.pos-t3 {
+  @include position(absolute, $md, 0, 0, 0);
+}
+
+/* right position */
+.pos-y {
+  @include position(absolute, 0, 0, 0, 0);
+}
+
+.pos-y1 {
+  @include position(absolute, 0, $xs, 0, 0);
+}
+
+.pos-y2 {
+  @include position(absolute, 0, $sm, 0, 0);
+}
+
+.pos-y3 {
+  @include position(absolute, 0, $md, 0, 0);
+}
+
+/* bottom position */
+.pos-b {
+  @include position(absolute, 0, 0, 0, 0);
+}
+
+.pos-b1 {
+  @include position(absolute, 0, 0, $xs, 0);
+}
+
+.pos-b2 {
+  @include position(absolute, 0, 0, $sm, 0);
+}
+
+.pos-b3 {
+  @include position(absolute, 0, 0, $md, 0);
+}
+
+/* left position */
+.pos-b {
+  @include position(absolute, 0, 0, 0, 0);
+}
+
+.pos-b1 {
+  @include position(absolute, 0, 0, $xs, 0);
+}
+
+.pos-b2 {
+  @include position(absolute, 0, 0, $sm, 0);
+}
+
+.pos-b3 {
+  @include position(absolute, 0, 0, $md, 0);
+}

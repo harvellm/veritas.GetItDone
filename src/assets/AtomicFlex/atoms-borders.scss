@@ -1,0 +1,226 @@
+// _atoms-borders.scss
+
+@import "variables";
+@import "mixins";
+
+/* borders */
+.b-square {
+  @include border(square, 1px, solid);
+}
+
+.b-ladder {
+  @include border(ladder, 1px, solid);
+}
+
+.b-fence {
+  @include border(fence, 1px, solid);
+}
+
+.b-top {
+  @include border(top, 1px, solid);
+}
+
+.b-bottom {
+  @include border(bottom, 1px, solid);
+}
+
+.b-left {
+  @include border(left, 1px, solid);
+}
+
+.b-right {
+  @include border(right, 1px, solid);
+}
+
+.b-none {
+  border: none;
+}
+
+/* border radius */
+.r-1 {
+  @include radius(rounded, $rounded-xs);
+}
+
+.r-2 {
+  @include radius(rounded, $rounded-sm);
+}
+
+.r-3 {
+  @include radius(rounded, $rounded-md);
+}
+
+.r-4 {
+  @include radius(rounded, $rounded-lg);
+}
+
+.r-5 {
+  @include radius(rounded, $rounded-xlg);
+}
+
+/* border radius top */
+.rt-1 {
+  @include radius(rounded-top, $rounded-xs);
+}
+
+.rt-2 {
+  @include radius(rounded-top, $rounded-sm);
+}
+
+.rt-3 {
+  @include radius(rounded-top, $rounded-md);
+}
+
+.rt-4 {
+  @include radius(rounded-top, $rounded-lg);
+}
+
+.rt-5 {
+  @include radius(rounded-top, $rounded-xlg);
+}
+
+/* border radius bottom */
+.rb-1 {
+  @include radius(rounded-bottom, $rounded-xs);
+}
+
+.rb-2 {
+  @include radius(rounded-bottom, $rounded-sm);
+}
+
+.rb-3 {
+  @include radius(rounded-bottom, $rounded-md);
+}
+
+.rb-4 {
+  @include radius(rounded-bottom, $rounded-lg);
+}
+
+.rb-5 {
+  @include radius(rounded-bottom, $rounded-xlg);
+}
+
+/* border radius left */
+.rx-1 {
+  @include radius(rounded-left, $rounded-xs);
+}
+
+.rx-2 {
+  @include radius(rounded-left, $rounded-sm);
+}
+
+.rx-3 {
+  @include radius(rounded-left, $rounded-md);
+}
+
+.rx-4 {
+  @include radius(rounded-left, $rounded-lg);
+}
+
+.rx-5 {
+  @include radius(rounded-left, $rounded-xlg);
+}
+
+/* border radius right */
+.ry-1 {
+  @include radius(rounded-right, $rounded-xs);
+}
+
+.ry-2 {
+  @include radius(rounded-right, $rounded-sm);
+}
+
+.ry-3 {
+  @include radius(rounded-right, $rounded-md);
+}
+
+.ry-4 {
+  @include radius(rounded-right, $rounded-lg);
+}
+
+.ry-5 {
+  @include radius(rounded-right, $rounded-xlg);
+}
+
+/* border radius top left */
+.rtx-1 {
+  @include radius(rounded-top-left, $rounded-xs);
+}
+
+.rtx-2 {
+  @include radius(rounded-top-left, $rounded-sm);
+}
+
+.rtx-3 {
+  @include radius(rounded-top-left, $rounded-md);
+}
+
+.rtx-4 {
+  @include radius(rounded-top-left, $rounded-lg);
+}
+
+.rtx-5 {
+  @include radius(rounded-top-left, $rounded-xlg);
+}
+
+/* border radius top right */
+.rty-1 {
+  @include radius(rounded-top-right, $rounded-xs);
+}
+
+.rty-2 {
+  @include radius(rounded-top-right, $rounded-sm);
+}
+
+.rty-3 {
+  @include radius(rounded-top-right, $rounded-md);
+}
+
+.rty-4 {
+  @include radius(rounded-top-right, $rounded-lg);
+}
+
+.rty-5 {
+  @include radius(rounded-top-right, $rounded-xlg);
+}
+
+/* border radius bottom left */
+.rbx-1 {
+  @include radius(rounded-bottom-left, $rounded-xs);
+}
+
+.rbx-2 {
+  @include radius(rounded-bottom-left, $rounded-sm);
+}
+
+.rbx-3 {
+  @include radius(rounded-bottom-left, $rounded-md);
+}
+
+.rbx-4 {
+  @include radius(rounded-bottom-left, $rounded-lg);
+}
+
+.rbx-5 {
+  @include radius(rounded-bottom-left, $rounded-xlg);
+}
+
+/* border radius bottom right */
+.rby-1 {
+  @include radius(rounded-bottom-right, $rounded-xs);
+}
+
+.rby-2 {
+  @include radius(rounded-bottom-right, $rounded-sm);
+}
+
+.rby-3 {
+  @include radius(rounded-bottom-right, $rounded-md);
+}
+
+.rby-4 {
+  @include radius(rounded-bottom-right, $rounded-lg);
+}
+
+.rby-5 {
+  @include radius(rounded-bottom-right, $rounded-xlg);
+}

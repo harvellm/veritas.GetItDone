@@ -1,0 +1,119 @@
+// _atoms-margins.scss
+
+@import "variables";
+@import "mixins";
+
+/* 
+  xy is for horizontal direction (x = left and y = right)
+  tb is for vertical direction (t = top and b = bottom)
+*/
+
+/* margin spacing around */
+.m-1 {
+  @include spacing(margin, $xs, $xs, $xs, $xs);
+}
+
+.m-2 {
+  @include spacing(margin, $sm, $sm, $sm, $sm);
+}
+
+.m-3 {
+  @include spacing(margin, $md, $md, $md, $md);
+}
+
+.m-4 {
+  @include spacing(margin, $lg, $lg, $lg, $lg);
+}
+
+.m-5 {
+  @include spacing(margin, $xlg, $xlg, $xlg, $xlg);
+}
+
+/* margin spacing top */
+.mt-1 {
+  @include spacing(margin, $xs, 0, 0, 0);
+}
+
+.mt-2 {
+  @include spacing(margin, $sm, 0, 0, 0);
+}
+
+.mt-3 {
+  @include spacing(margin, $md, 0, 0, 0);
+}
+
+.mt-4 {
+  @include spacing(margin, $lg, 0, 0, 0);
+}
+
+.mt-5 {
+  @include spacing(margin, $xlg, 0, 0, 0);
+}
+
+/* margin spacing bottom */
+.mb-1 {
+  @include spacing(margin, 0, 0, $xs, 0);
+}
+
+.mb-2 {
+  @include spacing(margin, 0, 0, $sm, 0);
+}
+
+.mb-3 {
+  @include spacing(margin, 0, 0, $md, 0);
+}
+
+.mb-4 {
+  @include spacing(margin, 0, 0, $lg, 0);
+}
+
+.mb-5 {
+  @include spacing(margin, 0, 0, $xlg, 0);
+}
+
+/* margin spacing left */
+.mx-1 {
+  @include spacing(margin, 0, 0, 0, $xs);
+}
+
+.mx-2 {
+  @include spacing(margin, 0, 0, 0, $xs);
+}
+
+.mx-3 {
+  @include spacing(margin, 0, 0, 0, $sm);
+}
+
+.mx-4 {
+  @include spacing(margin, 0, 0, 0, $sm);
+}
+
+.mx-5 {
+  @include spacing(margin, 0, 0, 0, $sm);
+}
+
+/* margin spacing right */
+.my-1 {
+  @include spacing(margin, 0, $xs, 0, 0);
+}
+
+.my-2 {
+  @include spacing(margin, 0, $sm, 0, 0);
+}
+
+.my-3 {
+  @include spacing(margin, 0, $md, 0, 0);
+}
+
+.my-4 {
+  @include spacing(margin, 0, $lg, 0, 0);
+}
+
+.my-5 {
+  @include spacing(margin, 0, $xlg, 0, 0);
+}
+
+/* remove margins */
+.m-0 {
+  @include spacing(margin, 0, 0, 0, 0);
+}

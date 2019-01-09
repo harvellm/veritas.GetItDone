@@ -1,22 +1,21 @@
-<div class="login">
-    <div class="form-group">
-        <ul>
-            <li class="form-input">
-                <div class="input-text">
+<div class="container mt-5 pt-5">
+    <div class="row row-justify-center">
+        <div class="columns-3 bg-g150 p-4 b-bottom b-right b-g200 r-2">
+            <ul>
+                <li class="pb-3 input-full">
                     <span class="ui-float-label"><input id="UserName" type="text" pInputText><label for="UserName">User Name</label></span>
-                </div>
-            </li>
-            <li class="form-input">
-                <div class="input-text">
+                </li>
+                <li class="pb-3 mt-1 input-full">
                     <span class="ui-float-label"><input id="UserName" type="text" pInputText><label for="UserName">Password</label></span>
-                </div>
-            </li>
-            <li class="form-input">
-                <button pButton id="btnLogin" type="button" label="Login" (click)="login()" class="button-primary"></button>
-            </li>
-        </ul>
-        <p>
-            <a id="lnkForgotPassword" class="link" routerLink="/forgotpassword">Forgot Password</a>
-        </p>
+                </li>
+                <li class="pb-3">
+                    <button pButton id="btnLogin" class="bg-p500" type="button" label="Login" (click)="login()"></button>
+                </li>
+                <li class="f-right">
+                    <a id="lnkForgotPassword" class="t-p500 f-underline f-sm" routerLink="/forgotpassword">Forgot Password</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
+

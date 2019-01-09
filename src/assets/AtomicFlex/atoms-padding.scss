@@ -1,0 +1,162 @@
+// _atoms-padding.scss
+
+@import "variables";
+@import "mixins";
+
+/* 
+  xy is for horizontal direction (x = left and y = right)
+  tb is for vertical direction (t = top and b = bottom)
+*/
+
+/* vertical spacing using padding top and padding bottom */
+.baseline-1 {
+  @include spacing(padding, $xs, 0, $xs, 0);
+}
+
+.baseline-2 {
+  @include spacing(padding, $sm, 0, $sm, 0);
+}
+
+.baseline-3 {
+  @include spacing(padding, $md, 0, $md, 0);
+}
+
+.baseline-4 {
+  @include spacing(padding, $lg, 0, $lg, 0);
+}
+
+.baseline-5 {
+  @include spacing(padding, $xlg, 0, $xlg, 0);
+}
+
+
+/* horizontal spacing using padding left and padding right */
+.gutter-1 {
+  @include spacing(padding, 0, $xs, 0, $xs);
+}
+
+.gutter-2 {
+  @include spacing(padding, 0, $sm, 0, $sm);
+}
+
+.gutter-3 {
+  @include spacing(padding, 0, $md, 0, $md);
+}
+
+.gutter-4 {
+  @include spacing(padding, 0, $lg, 0, $lg);
+}
+
+.gutter-5 {
+  @include spacing(padding, 0, $xlg, 0, $xlg);
+}
+
+/* padding spacing around */
+.p-1 {
+  @include spacing(padding, $xs, $xs, $xs, $xs);
+}
+
+.p-2 {
+  @include spacing(padding, $sm, $sm, $sm, $sm);
+}
+
+.p-3 {
+  @include spacing(padding, $md, $md, $md, $md);
+}
+
+.p-4 {
+  @include spacing(padding, $lg, $lg, $lg, $lg);
+}
+
+.p-5 {
+  @include spacing(padding, $xlg, $xlg, $xlg, $xlg);
+}
+
+/* padding spacing top */
+.pt-1 {
+  @include spacing(padding, $xs, 0, 0, 0);
+}
+
+.pt-2 {
+  @include spacing(padding, $sm, 0, 0, 0);
+}
+
+.pt-3 {
+  @include spacing(padding, $md, 0, 0, 0);
+}
+
+.pt-4 {
+  @include spacing(padding, $lg, 0, 0, 0);
+}
+
+.pt-5 {
+  @include spacing(padding, $xlg, 0, 0, 0);
+}
+
+/* padding spacing bottom */
+.pb-1 {
+  @include spacing(padding, 0, 0, $xs, 0);
+}
+
+.pb-2 {
+  @include spacing(padding, 0, 0, $sm, 0);
+}
+
+.pb-3 {
+  @include spacing(padding, 0, 0, $md, 0);
+}
+
+.pb-4 {
+  @include spacing(padding, 0, 0, $lg, 0);
+}
+
+.pb-5 {
+  @include spacing(padding, 0, 0, $xlg, 0);
+}
+
+/* padding spacing left */
+.px-1 {
+  @include spacing(padding, 0, 0, 0, $xs);
+}
+
+.px-2 {
+  @include spacing(padding, 0, 0, 0, $sm);
+}
+
+.px-3 {
+  @include spacing(padding, 0, 0, 0, $md);
+}
+
+.px-4 {
+  @include spacing(padding, 0, 0, 0, $lg);
+}
+
+.px-5 {
+  @include spacing(padding, 0, 0, 0, $xlg);
+}
+
+/* padding spacing right */
+.py-1 {
+  @include spacing(padding, 0, $xs, 0, 0);
+}
+
+.py-2 {
+  @include spacing(padding, 0, $sm, 0, 0);
+}
+
+.py-3 {
+  @include spacing(padding, 0, $md, 0, 0);
+}
+
+.py-4 {
+  @include spacing(padding, 0, $lg, 0, 0);
+}
+
+.py-5 {
+  @include spacing(padding, 0, $xlg, 0, 0);
+}
+
+/* remove padding */
+.p-0 {
+  @include spacing(padding, 0, 0, 0, 0);
+}

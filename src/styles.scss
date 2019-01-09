@@ -1,0 +1,246 @@
+/* AtomicFlex Sass Framework */
+@import "assets/AtomicFlex/atoms.scss";
+
+/* PrimeNG Reset */
+.ui-helper-clearfix::before,
+.ui-helper-clearfix::after {
+  display: none;
+}
+
+/* PrimeNG styles using AtomicFlex styles and custom classes (if needed) */
+.ui-dialog-mask {
+  background: black;
+  opacity: .1;
+}
+
+.ui-button {
+  @include spacing(padding, $xs, $sm, $xs, $sm);
+  @extend .f-center;
+  @extend .r-1;
+}
+
+.ui-button:hover {
+  @extend .bg-p600;
+}
+
+.ui-button.button-warning {
+  background: white;
+  border: 1px solid #bd0000;
+}
+
+
+.ui-button-text {
+  @include font-size(16px);
+  @extend .t-g50;
+}
+
+.ui-button-icon-left {
+  @extend .f-md;
+  @extend .t-white;
+}
+
+.button-warning .ui-button-icon-left {
+  color: #bd0000;
+}
+
+.ui-inputtext {
+  @include spacing(padding, $sm, $sm, $sm, $sm);
+  @include radius(rounded, $rounded-xs);
+  @include font-size(14px);
+  @extend .b-square;
+  @extend .b-g300;
+  @extend .bg-white;
+  height: 36px;
+  line-height: 22px;
+  -moz-transition: border-color 0.2s;
+  -o-transition: border-color 0.2s;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+}
+
+.ui-inputtext:hover,
+.ui-inputtext:focus {
+  @extend .b-p500;
+}
+
+.ui-dropdown {
+  @extend .b-square;
+  @extend .b-g300;
+  @include radius(rounded, $rounded-xs);
+}
+
+.ui-dropdown-items-wrapper {
+  @extend .bg-white;
+  @include radius(rounded, $rounded-xs);
+}
+
+.ui-float-label>label {
+  @extend .t-g700;
+  @extend .px-1;
+  @include font-size(14px);
+}
+
+.ui-autocomplete {
+  width: $size-100;
+}
+
+.ui-calendar {
+
+  .ui-widget-content {
+    @extend .bg-white;
+    @extend .r-1;
+    @extend .mt-1;
+  }
+
+  .ui-calendar-button {
+    @extend .pos-absolute;
+    .pi.pi-calendar {
+      font-size: 36px;
+      @extend .t-g50;
+      @extend .bg-g400;
+      @include radius(rounded-right, $rounded-xs);
+    }
+  }
+
+  .ui-datepicker-prev,
+  .ui-datepicker-next {
+    @extend .t-p500;
+  }
+
+  .ui-state-disabled {
+    @extend .t-g300;
+  }
+
+  .ui-state-active {
+    @extend .bg-p500;
+    @extend .t-g50;
+    @include radius(rounded, $rounded-xs);
+  }
+}
+
+.ui-radiobutton-box {
+  @extend .d-inline;
+  @extend .b-square;
+  @extend .b-g300;
+  @extend .valign-m;
+}
+
+.ui-radiobutton-label {
+  @extend .d-inline;
+  @extend .valign-m;
+  @extend .t-g700;
+}
+
+.ui-progressbar {
+  @extend .bg-g600;
+  @extend .r-5;
+  height: 30px;
+  line-height: 30px;
+}
+
+.ui-dialog {
+  @extend .bg-g50;
+  @extend .r-1;
+}
+
+.ui-dialog .ui-dialog-titlebar-icon span {
+  @extend .bg-g500;
+  @extend .t-g50;
+  @extend .p-2;
+  @extend .r-1;
+  @extend .f-lg;
+}
+
+.ui-dialog-content {
+  line-height: 1.5;
+}
+
+.ui-sidebar-full {
+  @extend .bg-g50;
+  overflow: auto;
+}
+
+.ui-sidebar-close span {
+  @extend .bg-g500;
+  @extend .t-g50;
+  @extend .p-2;
+  @extend .r-1;
+  @extend .f-lg;
+}
+
+.ui-paginator-page.ui-state-active {
+  @extend .bg-s500;
+  @extend .r-1;
+  @extend .t-g50;
+}
+
+.button-toggle {
+  
+  .ui-button {
+    @extend .bg-g500;
+    @extend .my-2;
+
+    .ui-button-text {
+      @extend .t-g50;
+    }
+  }  
+  .ui-button.ui-state-active {
+    @extend .bg-p500;
+    @extend .r-1;
+    .ui-button-text {
+      @extend .t-g50;
+    }
+  }
+}
+
+/* app specific styles */
+html {
+  @include font-size(16px);
+  font-family: $base-font;
+}
+
+nav .nav-active {
+  @extend .bg-p450;
+  @extend .t-g100;
+}
+
+.input-full .ui-inputtext {
+  width: 100%;
+}
+
+/* progress color indicators (flags and progress bar) */
+.t-good {
+ color: #028C00; 
+}
+
+.bg-good {
+ background: #028C00; 
+}
+
+.t-caution {
+  color: #f0d800;
+}
+
+.bg-caution {
+  background: #f0d800;
+}
+
+.t-warning {
+  color: #bd0000;
+}
+
+.bg-warning {
+  background: #bd0000;
+}
+
+/* alternate button styles */
+.button-warning {
+  background: white;
+  border: 1px solid #bd0000;
+}
+
+/* demo styles only - remove for production */
+.bg-good .ui-progressbar-value {
+  background: #028C00; 
+}
+
